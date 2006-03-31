@@ -1,0 +1,428 @@
+
+body
+{
+	margin: 0px;
+	background: #CCC;
+}
+
+body, input, td, select
+{
+	font-family: Verdana;
+	font-size: 10px;
+}
+
+img, table
+{
+	border-width: 0px;
+}
+
+input[type=text], textarea
+{
+	width: 330px;
+}
+
+textarea
+{
+	height: 100px;
+}
+
+
+.cc_all_content {
+	margin: 10px;
+	background: white;
+	padding: 15px;
+}
+
+.cc_banner {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 3px;
+	font-family: Arial;
+	padding: 5px;
+}
+
+.cc_banner a {
+	text-decoration: none;
+}
+
+.cc_banner_link {
+
+}
+
+.cc_body_text {
+	
+	margin-left: 100px;
+	font-size: 12px;
+
+}
+
+.cc_commands {
+	float: right;
+	border: 1px solid black;
+	padding: 4px;
+}
+
+.cc_command {
+	display: block;
+}
+
+.cc_commands_entries {
+
+}
+
+.cc_commands_remix {
+
+}
+
+.cc_commands_sources {
+
+}
+
+.cc_content {
+	margin-left: 120px;
+}
+
+.cc_custom_macros {
+  float: right;
+  width: 130px;
+}
+
+.cc_custom_macros td
+{
+	padding: 20px 4px 4px 4px;
+}
+
+.cc_content_clear {
+	clear: both;
+}
+
+.cc_date_field {
+   white-space:nowrap
+}
+
+.cc_date_field select {
+	font-size: 9px;
+	font-family: arial;
+}
+
+.cc_email_link {
+
+}
+
+.cc_external_link {
+
+}
+
+.cc_file_date {
+
+}
+
+.cc_file_description {
+
+}
+
+.cc_file_license {
+
+}
+
+.cc_file_link {
+
+}
+
+.cc_file_listing {
+	border: 1px solid green;
+	margin: 10px;
+}
+
+.cc_file_listing_clear {
+	clear: right;
+}
+
+.cc_file_name {
+
+}
+
+.cc_form {
+	width: 85%;
+}
+
+.cc_form_about {
+	border-bottom: 2px solid #CCC;
+	margin-bottom: 7px;
+}
+
+.cc_form_element {
+
+}
+
+.cc_form_error {
+
+}
+
+.cc_form_error_input {
+	border-color: red;
+}
+
+.cc_form_error_row {
+	font-weight: bold;
+	color: red;
+}
+
+input[type=text].cc_form_input_short {
+	width: 80px;
+}
+
+.cc_form_label {
+	text-align: right;
+	font-weight: bold;
+	width: 40%;
+	font-size: larger;
+	padding-bottom: 3px;
+}
+
+.cc_form_row {
+	vertical-align: top;
+}
+
+.cc_form_submit {
+	margin-left: 40%;
+}
+
+.cc_form_table {
+
+}
+
+.cc_form_tip {
+	font-weight: normal;
+	font-size: smaller;
+}
+
+.cc_grid_form_header {
+
+}
+
+.cc_grid_form_header_row {
+
+}
+
+.cc_grid_form_table {
+
+}
+
+.cc_license_image {
+
+}
+
+.cc_link_menu_info {
+
+}
+
+.cc_link_menu_link {
+}
+
+.cc_link_menu_table {
+
+}
+
+.cc_listing {
+
+}
+
+.cc_logged_in_as {
+	float:right;
+	margin: 7px;
+}
+
+.cc_logged_in_name {
+	font-weight: bold;
+}
+
+.cc_menu {
+	float: left;
+	margin: 5px;
+}
+
+.cc_menu_group {
+	margin-top: 4px;
+}
+
+.cc_menu_group_name, .cc_custom_head {
+	font-weight: bold;
+}
+
+.cc_menu_item {
+	margin-left: 8px;
+}
+
+.cc_menu_link, .cc_menu_link:visited {
+	color: black;
+	text-decoration: none;
+}
+
+.cc_page_title {
+	text-align: center;
+	margin-left: 25%;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: arial;
+}
+
+.cc_php_error_message {
+
+}
+
+.cc_polling_bar
+{
+  background: black;
+}
+
+.cc_remix_check {
+
+}
+
+.cc_remix_license_notice {
+
+}
+
+.cc_remix_search_box {
+
+}
+
+.cc_remix_search_result {
+
+}
+
+.cc_remix_source_choice {
+
+}
+
+.cc_remix_sources {
+	margin: 4px;
+	padding-left: 42px;
+	width: 70%;
+	background: #CCF;
+}
+
+.cc_remix_targets {
+	margin: 4px;
+	padding-left: 42px;
+	width: 70%;
+	background: #DDE;
+}
+
+.cc_remix_targets .cc_file_name, .cc_remix_sources .cc_file_name
+{
+	margin-top: 4px;
+}
+
+.cc_remixevent_link {
+
+}
+
+.cc_remixevent_listing {
+
+}
+
+.cc_remixevent_name {
+
+}
+
+.cc_remixevent_rules {
+
+}
+
+.cc_remixevent_status_closed {
+
+}
+
+.cc_remixevent_status_open {
+
+}
+
+.cc_remixevent_user {
+
+}
+
+.cc_search_result
+{
+	margin: 4px 15px 4px 80px;
+	border-top: 1px solid #88E;
+	padding: 4px;
+	clear: right;
+	width: 80%;
+}
+
+.cc_search_result_commands
+{
+	float:right;
+	padding: 5px;
+}
+
+.cc_site_description {
+	margin-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+.cc_system_error_message {
+	width: 70%;
+	border: 1px solid red;
+	font-size: 12px;
+	font-family: arial;
+	padding: 5px;
+}
+
+.cc_system_prompt {
+	width: 50%;
+	text-align: center;
+	padding: 4px;
+	font-family: Courier New, courier, serif;
+	font-size: larger;
+	border: 1px solid green;
+	margin-left: 25%;
+	margin-top: 20px;
+}
+
+.cc_tag_link {
+
+}
+
+.cc_upload_plugin_data_table {
+
+}
+
+.cc_user_help {
+
+}
+
+.cc_user_label {
+
+}
+
+.cc_user_link {
+
+}
+
+.cc_user_listing_table {
+
+}
+
+.cc_user_name {
+
+}
+
+.cc_user_avatar {
+
+}
+
+.cc_user_real_name {
+
+}
+
+.cc_user_regdate {
+
+}
+
+.cc_user_value {
+
+}
+

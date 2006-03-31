@@ -1,0 +1,19 @@
+<H1>Create New Group</H1>
+
+<TABLE CLASS="basic">
+<TR>
+ <TD COLSPAN=2 ALIGN=CENTER><B>Information</B></TD>
+</TR>
+<FORM METHOD="POST" ACTION="create-group-submit">
+<TR BGCOLOR="#eeeeee">
+ <TD>Group Name:</TD>
+ <TD><INPUT TYPE="text" NAME="group_name" VALUE="$group_name" SIZE="40"></TD>
+</TR>
+<TR BGCOLOR="#eeeeee">
+ <TD>Group Description:</TD>
+ <TD><INPUT TYPE="text" NAME="group_description" VALUE="$group_description" SIZE="80"></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" Value="Create Group">
+</FORM>

@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>CC Host API Documenation for: CCDatabase</title>
+    <link rel="stylesheet" type="text/css" href="apidoc.css"/>
+</head>
+<body>
+<div class="cc_all_content">
+
+    <div class="cc_banner">
+       <a class="cc_banner_link" href="http://cchost.org" title="CC Host">
+         <span class="cc_site_title">CC Host</span>
+       </a>
+    </div>
+
+    <div class="cc_site_description">Download, Sample, Cut-up, Share.</div>
+
+    <div id="" class="cc_content">
+
+    
+      
+    
+    <div class="method_stubs">
+    <div class="meth_head">Methods</div>
+    
+      <a href="#DBClose">DBClose</a><br/>
+    
+      <a href="#DBConnect">DBConnect</a><br/>
+    
+      <a href="#Query">Query</a><br/>
+    
+      <a href="#QueryItem">QueryItem</a><br/>
+    
+      <a href="#QueryRow">QueryRow</a><br/>
+    
+      <a href="#QueryRows">QueryRows</a><br/>
+    
+      <a href="#_config_db">_config_db</a><br/>
+    
+      <a href="#_link">_link</a><br/>
+    
+    </div>
+
+  <div class="class_listing">
+    <table>
+    <tr><td colspan="2">
+       <span class="arg_type">class</span> <span class="class_name">CCDatabase</span>
+        
+       </td></tr>
+       <tr><td class="head"><span class="arg_type">include </span></td>
+           <td class="head_value">cc-database.php</td></tr>
+       
+      <tr><td class="head">Short Desc.:</td>
+          <td class="head_value"><span class="class_desc">Wrapper class for mySQL, however only CCTable should be calling it directly.</span></td></tr>
+      
+      <tr>
+           <td class="head">See also:</td>
+           <td class="head_value"><a href="CCTable.html#CCTable">CCTable::CCTable
+</a></td></tr>
+    </table>
+    <div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="DBClose"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">DBClose</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="DBConnect"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">DBConnect</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Static call to ensure connection to daemon. Can be called multiple times safely.</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="Query"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">Query</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">mixed </td>
+        <td class="arg_name">$sql </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">single mySQL query or array of them
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Performs one (or more) mySQL queries.</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="QueryItem"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">QueryItem</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">string </td>
+        <td class="arg_name">$sql </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">mySQL SELECT statement with a single column
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       <tr>
+        <td class="head">Returns:</td>
+            <td class="head_value">
+             <span class="arg_type">string</span> 
+              First column results from SELECT statement
+</td></tr>
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Retrieves a single item from a single row. Use with SELECT statment.</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value"><code><font color="#000000">
+<font color="#0000BB">&lt;? 
+<br />&nbsp;&nbsp;&nbsp;$username </font><font color="#007700">= </font><font color="#0000BB">CCDatabase</font><font color="#007700">::</font><font color="#0000BB">QueryItem</font><font color="#007700">(</font><font color="#DD0000">"SELECT username FROM users WHERE id = '9'\");
+<br /> ?&gt;</font>
+</font>
+</code></td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="QueryRow"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">QueryRow</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">string </td>
+        <td class="arg_name">$sql </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc">single mySQL SELECT statement
+ </td></tr>
+     <tr>
+        <td class="arg_type">bool </td>
+        <td class="arg_name">$assoc </td>
+        <td class="arg_default">=  true  </td>
+        <td class="arg_desc">TRUE means fetch_assoc, FALSE means fetch_row
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       <tr>
+        <td class="head">Returns:</td>
+            <td class="head_value">
+             <span class="arg_type">array</span> 
+              Row from database or null if results count greater or less than one.
+</td></tr>
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Retrieves a single row. Use with SELECT statment.</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="QueryRows"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">QueryRows</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">string </td>
+        <td class="arg_name">$sql </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">mySQL SELECT statement 
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       <tr>
+        <td class="head">Returns:</td>
+            <td class="head_value">
+             <span class="arg_type">array</span> 
+              Array with database rows inside
+</td></tr>
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Retrieves multiple rows. Use with SELECT statment.</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value"><code><font color="#000000">
+<font color="#0000BB">&lt;? 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$rows </font><font color="#007700">=&amp; </font><font color="#0000BB">CCDatabase</font><font color="#007700">::</font><font color="#0000BB">QueryRows</font><font color="#007700">(</font><font color="#DD0000">"SELECT username, age FROM users WHERE age &lt; 27\");
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach( $rows as $row )
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ....
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br /> ?&gt;</font>
+</font>
+</code></td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_config_db"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_config_db</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Internal:  Returns the path to the current database config file</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">/</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_link"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_link</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Internal:  Returns the link to the current connection</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">/</td></tr>
+        
+        </table>
+    </div>
+
+    </div>
+ </div>
+
+    
+
+    </div> 
+
+    <div class="cc_content_clear"></div>
+
+    <div class="cc_footer"><br clear="both"><br /><br /><br />
+This site is a product of <a href="http://sourceforge.net/projects/cctools/">CC Tools</a> project.<br />
+
+This site uses <a href="http://getid3.sourceforge.net/">GetID3</a> and <a href="http://phptal.sourceforge.net/">PHPTal</a>.
+<br /><br /></div>
+    <div class="cc_site_license"><!-- Creative Commons License -->
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">Creative Commons License</a></div>
+
+</div> 
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,10 @@
+<html>
+<body>
+<span tal:replace="structure here/manage_tabs" />
+ 
+<p>Statistics for this Plone site.</p>
+ 
+<h3>Content Types</h3>
+ 
+</body>
+</html>

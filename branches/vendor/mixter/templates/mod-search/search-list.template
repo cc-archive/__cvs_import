@@ -1,0 +1,8 @@
+<TABLE CLASS="basic">
+<TR>
+ <TD><B>Search Phrases</B> <FONT SIZE=2><A HREF="search-administer?order_by=phrase">(sort)</A></FONT></TD>
+ <TD><B>Number</B> <FONT SIZE=2><A HREF="search-administer?order_by=number">(sort)</A></FONT></TD>
+ <TD><B>Last Search</B> <FONT SIZE=2><A HREF="search-administer?order_by=date">(sort)</A></FONT></TD>
+</TR>
+$list_of_searches
+</TABLE>

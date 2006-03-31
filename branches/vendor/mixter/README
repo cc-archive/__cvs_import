@@ -1,0 +1,9 @@
+README for Mixter application
+
+Global server-related configuration variables are in modules/mod-utilities/globals.
+
+Our Apache2 configuration files are in the apache/ directory, just for reference.
+
+The FILE_ORGANIZATION file describes what kinds of files are in each directory.
+
+There needs to be a content directory somewhere on the server (specified in globals) for the application to store uploaded content.

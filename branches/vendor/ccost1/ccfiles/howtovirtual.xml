@@ -1,0 +1,93 @@
+<div>
+<pre style="font-style:Courier New, courier, serif;font-size: 12px">
+
+<h1>How to Create a Virtual Installation</h1>
+
+Your CC Host site can be configured to look like many different
+sites with just a few menu selections (and no changes to your 
+web server).
+
+Why do this? Let's say you are running a remix community as
+your main site but also want to run a contest (or you
+mainly run contests and you also want to have a personal
+'media weblog' on the side -- or -- whatever).
+
+In this case you want to have a 'virtual face' to the site
+without the hassle of reinstalling or major configuation
+hoops.
+
+<h2>Creating a Virtual Personal Media Weblog</h2>
+
+[note: 'pretty urls' are currently off in the alpha so the
+following includes all this '?mode=/' gobbledy gook in the
+URLs, that will go away when pretty urls are working again.]
+
+As an example let's say you wanted a virtual site that was your 
+own person media weblog for remixes.
+
+1) Pick a name for the new virtual face (e.g. 'myremixes')
+and type into your browser like this:
+
+   ${root-url}?mode=/myremixes
+
+2) There is no step 2.
+
+In order to customize this virtual installation select '<b>Setting</b>'
+and pick another skin, or select <b>Menus</b> to change the menus.
+
+All the configuration settings you make (except for a few things
+like 'Global Setup' and 'Database') will only be applied to your
+new virtual site. Use the url above as your 'home' url and you're 
+on your way.
+
+For the personal remix weblog you will probably want to restrict
+the menus so that only you (as admin) have the ability to upload
+or register so in the menu configuation you mark everything you
+don't want anybody to see as 'Admin only'.
+
+<h2>Creating a Virtual Contest Site</h2>
+
+If you run regular contests you can set up a virtual site for
+every contest, each with it's own skin (look and feel) and
+functionality (what file formats are allowed, etc.)
+
+Here's a way to do it:
+
+1) Create the contest and note the 'internal name' you give it
+(e.g. 'myfirstcontest')
+
+2) Now create the virtual site by browsing to:
+
+   ${root-url}?mode=/myfirstcontest
+
+3) Select '<b>Settings</b>' from the menu.
+
+4) In the 'Homepage' field type the following:
+
+    <b>contest/myfirstcontest</b>
+
+5) Select your skin from the drop down.
+
+Now edit the menus to cut them down to just what you
+want people to see.
+
+<h2>Other Virtual Sites</h2>
+
+The two cases above are what we came up with. You may
+have a whole other set of cases. 
+
+For example, in a community setting you may chose to give 
+each member (or selected members) the ability to customize 
+their own pages. As administrator you can setup a virtual 
+site for each person assigning their member's page as the 
+home page for that virtual site and even allow them to 
+submit a CSS skin just for their version of the site.
+
+Because you edit the menus you can control what that user
+or other members see when they are looking at that virtual
+site. 
+
+And whatever else you can think of.
+
+</pre>
+</div>

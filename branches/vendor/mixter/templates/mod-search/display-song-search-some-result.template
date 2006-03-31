@@ -1,0 +1,6 @@
+<TR>
+ <TD><A HREF="$link">$name</A> by $artist<BR>
+     $description
+ </TD>
+</TR>
+     

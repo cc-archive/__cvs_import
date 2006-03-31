@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>CC Host API Documenation for: CCGetID3</title>
+    <link rel="stylesheet" type="text/css" href="apidoc.css"/>
+</head>
+<body>
+<div class="cc_all_content">
+
+    <div class="cc_banner">
+       <a class="cc_banner_link" href="http://cchost.org" title="CC Host">
+         <span class="cc_site_title">CC Host</span>
+       </a>
+    </div>
+
+    <div class="cc_site_description">Download, Sample, Cut-up, Share.</div>
+
+    <div id="" class="cc_content">
+
+    
+      
+    
+    <div class="method_stubs">
+    <div class="meth_head">Methods</div>
+    
+      <a href="#BadPath">BadPath</a><br/>
+    
+      <a href="#GetFormats">GetFormats</a><br/>
+    
+      <a href="#InitID3Obj">InitID3Obj</a><br/>
+    
+      <a href="#NotConfigured">NotConfigured</a><br/>
+    
+      <a href="#OnGetConfigFields">OnGetConfigFields</a><br/>
+    
+    </div>
+
+  <div class="class_listing">
+    <table>
+    <tr><td colspan="2">
+       <span class="arg_type">class</span> <span class="class_name">CCGetID3</span>
+        
+       </td></tr>
+       <tr><td class="head"><span class="arg_type">include </span></td>
+           <td class="head_value">cc-getid3.php</td></tr>
+       
+      <tr><td class="head">Short Desc.:</td>
+          <td class="head_value"><span class="class_desc">Wrapper for the GetID3 Library</span></td></tr>
+      
+      
+    </table>
+    <div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="BadPath"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">BadPath</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Called internally when we cant find the installation of GetID3</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetFormats"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetFormats</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Get the default formats handled by the library</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Returns an array of the following structure:
+<br /><br />
+<code><font color="#000000">
+<font color="#0000BB">&lt;? 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$file_formats</font><font color="#007700">[</font><font color="#DD0000">'audio-aiff-aiff'</font><font color="#007700">] =&nbsp;&nbsp;array(
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'name'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">=&gt; </font><font color="#DD0000">'aif'</font><font color="#007700">,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'description' </font><font color="#007700">=&gt; </font><font color="#DD0000">'AIFF Audio'</font><font color="#007700">,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'enabled'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">=&gt; </font><font color="#0000BB">true</font><font color="#007700">,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'mediatype'&nbsp;&nbsp;&nbsp;</font><font color="#007700">=&gt; </font><font color="#DD0000">'audio'</font><font color="#007700">,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
+<br /> </font><font color="#0000BB">?&gt;</font>
+</font>
+</code></td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="InitID3Obj"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">InitID3Obj</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Initialize the GetID3 library</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Sets the following parameters:
+<br /><br />
+<code><font color="#000000">
+<font color="#0000BB">&lt;? 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ID3Obj </font><font color="#007700">= new </font><font color="#0000BB">getID3</font><font color="#007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$ID3Obj</font><font color="#007700">-&gt;</font><font color="#0000BB">option_tag_lyrics3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">= </font><font color="#0000BB">false</font><font color="#007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$ID3Obj</font><font color="#007700">-&gt;</font><font color="#0000BB">option_tag_apetag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">= </font><font color="#0000BB">false</font><font color="#007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$ID3Obj</font><font color="#007700">-&gt;</font><font color="#0000BB">option_tags_process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">= </font><font color="#0000BB">true</font><font color="#007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$ID3Obj</font><font color="#007700">-&gt;</font><font color="#0000BB">option_tags_html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">= </font><font color="#0000BB">false</font><font color="#007700">;
+<br />
+<br /> </font><font color="#0000BB">?&gt;</font>
+</font>
+</code></td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="NotConfigured"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">NotConfigured</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Called internally when GetID3 is not properly installed</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="OnGetConfigFields"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">OnGetConfigFields</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$scope </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$fields </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Callback for GET_CONFIG_FIELDS event</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Add global settings to config editing form</td></tr>
+        
+        </table>
+    </div>
+
+    </div>
+ </div>
+
+    
+
+    </div> 
+
+    <div class="cc_content_clear"></div>
+
+    <div class="cc_footer"><br clear="both"><br /><br /><br />
+This site is a product of <a href="http://sourceforge.net/projects/cctools/">CC Tools</a> project.<br />
+
+This site uses <a href="http://getid3.sourceforge.net/">GetID3</a> and <a href="http://phptal.sourceforge.net/">PHPTal</a>.
+<br /><br /></div>
+    <div class="cc_site_license"><!-- Creative Commons License -->
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">Creative Commons License</a></div>
+
+</div> 
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

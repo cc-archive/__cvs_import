@@ -1,0 +1,98 @@
+/* <dtml-with base_properties> */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())">*/
+
+
+.BlogByLine 
+{font-size:80%;
+color: #999999;
+text-transform: lowercase;
+margin-bottom:1em;
+}
+
+.BlogCommandLine {
+color:#999999;
+text-transform: lowercase;
+margin-bottom:1em;
+}
+
+.BlogCommandLine form {
+display: inline;
+}
+
+.noMargin {margin-bottom:0}
+
+.simpleBlogLinkButtons {
+display:block;
+margin-bottom:1em;
+}
+
+.simpleBlogEntry {}
+
+.simpleBlogDescription {
+margin: 0.5em 0em 1em 0em;
+line-height: 1.5em;
+}
+
+.simpleBlogDescriptionOnly {
+margin-top:0em;
+margin-bottom:1em;
+line-height: 1.5em;
+}
+
+.simpleBlogTitle {}
+
+.simpleBlogBody {}
+
+.simpleBlogBylineCats {}
+
+.simpleBlogCalendar {
+border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+margin: 1em 0em;
+border:none;
+margin: 1em;
+}
+
+
+.simpleBlogCalendar a {
+text-decoration: none;
+}
+.simpleBlogCalendar a:hover {
+text-decoration: none;
+}
+
+.simpleBlogCalendar th {
+background-color: transparent;
+font-weight: bold;
+text-align: center;
+padding: 2px;
+}
+
+.simpleBlogCalendar td {
+background-color: transparent;
+width: 1.5em;
+text-align: right;
+padding: 2px;
+}
+
+.simpleBlogCalendar .weekdays td {
+background-color: transparent;
+border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+border-style: &dtml-borderStyle; none;
+text-align: center;
+padding: 2px;
+}
+.simpleBlogCalendar .event {
+background-color: &dtml-globalBackgroundColor;;
+font-weight: bold;
+}
+.simpleBlogCalendar .todayevent {
+background-color: &dtml-globalBackgroundColor;;
+border: 2px &dtml-borderStyle; &dtml-notifyBorderColor;;
+font-weight: bold;
+}
+.simpleBlogCalendar .todaynoevent {
+border-collapse: collapse;
+border: 2px &dtml-borderStyle; &dtml-notifyBorderColor;;
+}
+
+/* </dtml-with> */

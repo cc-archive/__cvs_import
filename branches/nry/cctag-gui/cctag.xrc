@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<resource>
+  <object class="wxFrame" name="MAINFRAME">
+    <title>ccTag</title>
+    <object class="wxPanel">
+      <object class="wxFlexGridSizer">
+        <object class="spacer">
+          <size>5,5</size>
+        </object>
+        <object class="spacer">
+          <size>5,5</size>
+        </object>
+        <object class="spacer">
+          <size>5,5</size>
+        </object>
+        <object class="sizeritem">
+          <object class="wxFlexGridSizer">
+            <cols>2</cols>
+            <object class="sizeritem">
+              <object class="wxStaticText" name="LBL_FILENAME">
+                <label>Filename:</label>
+              </object>
+            </object>
+            <object class="sizeritem">
+              <object class="wxFlexGridSizer">
+                <object class="sizeritem">
+                  <object class="wxTextCtrl" name="TXT_FILENAME"/>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxButton" name="CMD_BROWSE">
+                    <label>Browse</label>
+                  </object>
+                </object>
+                <cols>2</cols>
+                <growablecols>0</growablecols>
+              </object>
+              <flag>wxEXPAND</flag>
+            </object>
+            <object class="sizeritem">
+              <object class="wxStaticText" name="LBL_LICENSE">
+                <label>License URL:</label>
+              </object>
+            </object>
+            <object class="sizeritem">
+              <object class="wxTextCtrl" name="TXT_LICENSE"/>
+              <flag>wxEXPAND</flag>
+            </object>
+            <growablecols>1</growablecols>
+            <object class="sizeritem">
+              <object class="wxStaticText" name="LBL_VERIFICATION">
+                <label>Verification URL:</label>
+              </object>
+            </object>
+            <object class="sizeritem">
+              <object class="wxTextCtrl" name="TXT_VERIFICATION"/>
+              <flag>wxEXPAND</flag>
+            </object>
+            <object class="sizeritem">
+              <object class="wxStaticText" name="LBL_RDF">
+                <label>Verification RDF:</label>
+              </object>
+            </object>
+            <object class="sizeritem">
+              <object class="wxTextCtrl" name="TXT_RDF">
+                <style>wxTE_MULTILINE</style>
+              </object>
+              <flag>wxEXPAND</flag>
+            </object>
+            <growablerows>3</growablerows>
+          </object>
+          <flag>wxEXPAND</flag>
+        </object>
+        <object class="spacer">
+          <size>5,5</size>
+        </object>
+        <object class="sizeritem">
+          <object class="wxBoxSizer">
+            <orient>wxHORIZONTAL</orient>
+            <object class="sizeritem">
+              <object class="wxButton" name="CMD_EMBED">
+                <label>Embed</label>
+              </object>
+            </object>
+            <object class="sizeritem">
+              <object class="wxButton" name="CMD_CLOSE">
+                <label>Close</label>
+              </object>
+            </object>
+          </object>
+          <flag>wxALIGN_CENTER</flag>
+        </object>
+        <cols>2</cols>
+        <rows>3</rows>
+        <growablecols>1</growablecols>
+        <growablerows>1</growablerows>
+      </object>
+    </object>
+  </object>
+  <object class="wxMenuBar" name="MAINMENU">
+    <object class="wxMenu" name="MNU_FILE">
+      <label>&amp;File</label>
+      <object class="wxMenuItem" name="MNU_FILE_QUIT">
+        <label>Quit </label>
+      </object>
+    </object>
+    <object class="wxMenu" name="MNU_HELP">
+      <label>&amp;Help</label>
+      <object class="wxMenuItem" name="wxID_ABOUT">
+        <label>About ccTag</label>
+      </object>
+      <object class="wxMenuItem" name="MNU_HELP_README">
+        <label>Readme</label>
+      </object>
+    </object>
+  </object>
+</resource>

@@ -1,0 +1,6 @@
+[validators]
+validators = simpleblog_validate_configlet
+
+[actions]
+action.failure=traverse_to:string:prefs_simpleblog_form
+action.success=redirect_to:string:plone_control_panel

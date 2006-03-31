@@ -1,0 +1,14 @@
+<TR BGCOLOR="#8ea48e">
+ <TD COLSPAN=2><B><FONT SIZE="3">Topic: $subject</FONT></B></TD>
+</TR>
+<TR HEIGHT=2>
+ <TD COLSPAN=2 bgcolor="#5e715e"></TD>
+</TR>
+<TR CLASS="greyrow" VALIGN=TOP>
+ <TD ALIGN=CENTER WIDTH="15%"><FONT SIZE=2>Posted by <A HREF="$authorlink">$author</A> on $date</FONT></TD>
+ <TD BGCOLOR="#$ed_color"><FONT SIZE="2">$body</FONT></TD>
+</TR>
+$admin_link
+<TR HEIGHT=2>
+ <TD COLSPAN=2 bgcolor="#5e715e"></TD>
+</TR>

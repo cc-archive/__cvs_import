@@ -1,0 +1,58 @@
+<?
+// ----------------------------
+// Matthew Drake and Ian Spivey
+// Mixter Website
+// 6.171
+// madrake@mit.edu, ispivey@mit.edu
+// ----------------------------
+// Page:database.php
+// Purpose:To have functions that access the database.
+// ----------------------------
+
+require_once("../modules/mod-utilities/globals.lib");
+
+function displaySQL($SQL) {
+  $SQL_performance_testing = false;
+  if ($SQL_performance_testing) {
+    echo $SQL . "<BR><BR>";
+  }
+}
+
+// Pre: Database isn't open
+// Post: Database is open as connection $database
+$database = pg_pconnect("dbname=" . $GLOBALS['database_name'] . " user=" . $GLOBALS['database_user']);
+
+function query_one_row($querystring) {
+  displaySQL($querystring);
+  $result = pg_query($querystring);
+  return pg_fetch_object($result);
+
+}
+
+function query_multi_row($querystring) {
+  displaySQL($querystring);
+  return pg_query($querystring);
+}
+
+function query_one_val($querystring) {
+  displaySQL($querystring);
+  $result = pg_query($querystring);
+  $row = pg_fetch_array($result, 0, PGSQL_NUM);
+  return $row[0];
+
+}
+
+function query_perform($querystring) {
+  displaySQL($querystring);
+  return pg_query($querystring);
+}
+
+function get_row_from_multi_row($multirow_object) {
+  if (func_num_args() > 1) {
+    return pg_fetch_object($multirow_object, func_get_arg(1));
+  } else {
+    return pg_fetch_object($multirow_object);
+  }
+}
+
+?>

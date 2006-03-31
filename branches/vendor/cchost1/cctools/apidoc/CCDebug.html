@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>CC Host API Documenation for: CCDebug</title>
+    <link rel="stylesheet" type="text/css" href="apidoc.css"/>
+</head>
+<body>
+<div class="cc_all_content">
+
+    <div class="cc_banner">
+       <a class="cc_banner_link" href="http://cchost.org" title="CC Host">
+         <span class="cc_site_title">CC Host</span>
+       </a>
+    </div>
+
+    <div class="cc_site_description">Download, Sample, Cut-up, Share.</div>
+
+    <div id="" class="cc_content">
+
+    
+      
+    
+    <div class="method_stubs">
+    <div class="meth_head">Methods</div>
+    
+      <a href="#Chronometer">Chronometer</a><br/>
+    
+      <a href="#Enable">Enable</a><br/>
+    
+      <a href="#IsEnabled">IsEnabled</a><br/>
+    
+      <a href="#Log">Log</a><br/>
+    
+      <a href="#LogVar">LogVar</a><br/>
+    
+      <a href="#PrintVar">PrintVar</a><br/>
+    
+      <a href="#QuietErrors">QuietErrors</a><br/>
+    
+      <a href="#RestoreErrors">RestoreErrors</a><br/>
+    
+      <a href="#StackTrace">StackTrace</a><br/>
+    
+      <a href="#_states">_states</a><br/>
+    
+      <a href="#_textize">_textize</a><br/>
+    
+    </div>
+
+  <div class="class_listing">
+    <table>
+    <tr><td colspan="2">
+       <span class="arg_type">class</span> <span class="class_name">CCDebug</span>
+        
+       </td></tr>
+       <tr><td class="head"><span class="arg_type">include </span></td>
+           <td class="head_value">cc-debug.php</td></tr>
+       
+      <tr><td class="head">Short Desc.:</td>
+          <td class="head_value"><span class="class_desc">Helper API for debugging the app</span></td></tr>
+      
+      
+    </table>
+    <div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="Chronometer"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">Chronometer</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">mixed </td>
+        <td class="arg_name">$CHRONO_STARTTIME </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">Reference to timer var (does not need to be declared or initialized before use)
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Works exactly like a stop watch, ie. starts if stopped and stops if started</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Based on http://us2.php.net/microtime#50277
+
+Call the function a first time to start the chronometer. The next call to the function will return the number of
+milliseconds elapsed since the chronometer was started (rounded to three decimal places). The next call will start 
+the chronometer again from where it finished. Multiple timers can be used by creating multiple $timer variables.
+
+<code><font color="#000000">
+<font color="#0000BB">&lt;? 
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chronometer</font><font color="#007700">(</font><font color="#0000BB">$timer1</font><font color="#007700">);
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">// DO STUFF HERE
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">chronometer</font><font color="#007700">(</font><font color="#0000BB">$timer2</font><font color="#007700">);
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">chronometer</font><font color="#007700">(</font><font color="#0000BB">$timer3</font><font color="#007700">);
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">// DO MORE STUFF
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">echo </font><font color="#0000BB">chronometer</font><font color="#007700">(</font><font color="#0000BB">$timer1</font><font color="#007700">);
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">// DO SOMETHING
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">echo </font><font color="#0000BB">chronometer</font><font color="#007700">(</font><font color="#0000BB">$timer3</font><font color="#007700">);
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">// DO SOMETHING
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">echo </font><font color="#0000BB">chronometer</font><font color="#007700">(</font><font color="#0000BB">$timer2</font><font color="#007700">);
+<br /> </font><font color="#0000BB">?&gt;</font>
+</font>
+</code></td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="Enable"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">Enable</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">bool </td>
+        <td class="arg_name">$bool </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">true means enable
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Dis/Enables debugging flag</td></tr>
+        
+        <tr>
+          <td class="head">See also: </td>
+          <td class="head_value"><a href="#IsEnabled">IsEnabled
+</a></td></tr>
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="IsEnabled"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">IsEnabled</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       <tr>
+        <td class="head">Returns:</td>
+            <td class="head_value">
+             <span class="arg_type">bool</span> 
+              true means enabled
+</td></tr>
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Get current state of debugging flag</td></tr>
+        
+        <tr>
+          <td class="head">See also: </td>
+          <td class="head_value"><a href="#Enable">Enable
+</a></td></tr>
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="Log"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">Log</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">string </td>
+        <td class="arg_name">$msg </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">Use this string to identify what your actually dumping into the log
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Write stuff to a log</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Dumps the results to /cc-log.txt in the main directory of the site.</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="LogVar"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">LogVar</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">string </td>
+        <td class="arg_name">$msg </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc">Use this string to identify what your actually dumping into the log
+ </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$var </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">The second most useful function in the entire codbase. Display any variable for debugging</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Dumps the results to /cc-log.txt in the main directory of the site. 
+Use this method with any variable (include globals like $_REQUEST).
+
+This method is disabled when debugging is not enabled.</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="PrintVar"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">PrintVar</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">mixed </td>
+        <td class="arg_name">$var </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc">Reference to variable to dump to screen
+ </td></tr>
+     <tr>
+        <td class="arg_type">bool </td>
+        <td class="arg_name">$template_safe </td>
+        <td class="arg_default">=  true </td>
+        <td class="arg_desc">true means you are NOT debugging code that displays HTML
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">The most useful function in the entire codbase. Display any variable for debugging</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Use this method with any variable (include globals like $_REQUEST)
+
+This method EXITS THE SESSION (!!)
+
+This method is disabled when debugging is not enabled.</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="QuietErrors"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">QuietErrors</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Use this to wrap calls to lax 3rd party libraries</td></tr>
+        
+        <tr>
+          <td class="head">See also: </td>
+          <td class="head_value"><a href="#RestoreErrors">RestoreErrors
+</a></td></tr>
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="RestoreErrors"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">RestoreErrors</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Use this to wrap calls to lax 3rd party libraries</td></tr>
+        
+        <tr>
+          <td class="head">See also: </td>
+          <td class="head_value"><a href="#QuietErrors">QuietErrors
+</a></td></tr>
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="StackTrace"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">StackTrace</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">bool </td>
+        <td class="arg_name">$template_safe </td>
+        <td class="arg_default">= true </td>
+        <td class="arg_desc">true means you are NOT debugging code that displays HTML
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Displays a stack track from where ever this a call to this is placed</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_states"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_states</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Internal buddy</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_textize"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_textize</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$var </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Internal buddy</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div>
+ </div>
+
+    
+
+    </div> 
+
+    <div class="cc_content_clear"></div>
+
+    <div class="cc_footer"><br clear="both"><br /><br /><br />
+This site is a product of <a href="http://sourceforge.net/projects/cctools/">CC Tools</a> project.<br />
+
+This site uses <a href="http://getid3.sourceforge.net/">GetID3</a> and <a href="http://phptal.sourceforge.net/">PHPTal</a>.
+<br /><br /></div>
+    <div class="cc_site_license"><!-- Creative Commons License -->
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">Creative Commons License</a></div>
+
+</div> 
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

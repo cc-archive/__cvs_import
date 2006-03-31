@@ -1,0 +1,26 @@
+<TABLE CLASS="leftbar">
+ <TR>
+  <TD><B>Administrator Links</B></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="generate-log">View General Site Log</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="error-log">View Error Log</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="search-administer">Site Content Statistics</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="admin-view-music">View Music Pending Approval</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="admin-view-article">View Articles Pending Approval</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="forum-view-postings?username=&new_users=&forums=212&select_postings=all&submitted=on">View Postings Pending Approval</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="forum-view-postings">Advanced Forum Moderation</A></TD>
+ </TR>
+</TABLE>

@@ -1,0 +1,489 @@
+body
+{
+    margin: 8%;
+	color: rgb(65,65,65);
+	background: white;
+	text-align: center;
+}
+
+body, input, td, select
+{
+	font-family: Verdana, Arial, sans-serif;
+	font-size: small;
+}
+
+img, table
+{
+	border-width: 0px;
+}
+
+input[type=text], textarea
+{
+	width: 200px;
+}
+
+input[type=submit]
+{
+	margin-left: 35%
+}
+
+input.cc_form_input_short {
+	width: 30px;
+}
+
+textarea
+{
+	height: 100px;
+}
+
+a {
+ text-decoration: underline;
+ color: rgb(0,102,153);
+}
+
+/* HEY this is just a demo skin, normally
+  you wouldn't kill ALL macros this way, right? */
+
+.cc_custom_macros
+{
+	display: none;
+	
+}
+
+.cc_all_content {
+	line-height: 140%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	width: 700px;
+	margin-top: 70px;
+
+}
+
+.cc_banner {
+	margin-bottom: 30px;
+}
+
+a.cc_banner_link:visited {
+	color: rgb(65,65,65);
+	text-decoration: none;
+}
+
+a.cc_banner_link {
+	color: rgb(65,65,65);
+	text-decoration: none;
+	font-size: xx-large;
+}
+
+.cc_body_text {
+
+}
+
+.cc_command {
+
+}
+
+.cc_commands {
+	font-size: x-small;
+}
+
+.cc_content {
+	margin-right: 190px;
+}
+
+.cc_content_clear {
+
+}
+
+.cc_contest_bitmap {
+
+}
+
+.cc_contest_closed {
+
+}
+
+.cc_contest_content {
+
+}
+
+.cc_contest_description {
+
+}
+
+.cc_contest_link {
+
+}
+
+.cc_contest_listing {
+
+}
+
+.cc_contest_name {
+
+}
+
+.cc_contest_open {
+
+}
+
+.cc_contest_rules {
+
+}
+
+.cc_contest_user {
+
+}
+
+.cc_contest_voting_status {
+
+}
+
+.cc_date_field {
+	white-space: nowrap;
+}
+.cc_date_field select {
+	font-size: xx-small;
+}
+.cc_email_contact {
+
+}
+
+.cc_email_link {
+
+}
+
+.cc_external_link {
+
+}
+
+.cc_file_date {
+	padding-left: 20px;
+	margin-bottom: 7px;
+	color: rgb(153,153,153);
+	font-size: x-small;
+
+}
+
+.cc_file_description {
+	margin-top: 10px;
+	font-size: small;
+}
+
+.cc_file_license {
+
+}
+
+.cc_file_link {
+
+}
+
+.cc_file_list_content {
+	margin-bottom: 35px;
+}
+
+.cc_file_listing {
+	margin-bottom: 15px;
+}
+
+.cc_file_listing_clear {
+
+}
+
+.cc_file_name, .cc_file_name a, .cc_contest_name, .cc_contest_name a, 
+.cc_user_value .cc_user_real_name  {
+	font-size: x-large;
+	line-height: 115%;
+	color: rgb(102,102,102);
+	margin-bottom: 0px;
+	text-decoration: none;
+}
+
+.cc_footer {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.cc_form {
+	margin-right: 25px;
+}
+
+.cc_form_about {
+
+}
+
+.cc_form_element {
+	vertical-align: top;
+
+}
+
+.cc_form_error {
+	font-weight: bold;
+	color: red;
+}
+
+.cc_form_error_row {
+
+}
+
+
+.cc_form_label {
+	vertical-align: top;
+	text-align: right;
+}
+
+.cc_form_row {
+
+}
+
+.cc_form_submit {
+
+}
+
+.cc_form_table {
+
+}
+
+.cc_form_tip {
+	font-size: smaller;
+}
+
+.cc_grid_form_header {
+
+}
+
+.cc_grid_form_header_row {
+
+}
+
+.cc_grid_form_table {
+
+}
+
+.cc_license_image {
+
+}
+
+.cc_link_menu_info {
+
+}
+
+.cc_link_menu_link {
+
+}
+
+.cc_link_menu_table {
+
+}
+
+.cc_listing {
+
+}
+
+.cc_logged_in_as {
+	float: right;
+}
+
+.cc_logged_in_name {
+	display: inline;
+}
+
+.cc_menu {
+	float: right;
+	width: 170px;
+	overflow: hidden;
+}
+
+.cc_menu_group {
+
+}
+
+.cc_menu_group_name {
+	color: rgb(102,102,102);
+	font-family: Verdana,Arial,sans-serif;
+	font-size: x-small;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	margin-bottom: 15px;
+	margin-top: 20px;
+}
+
+.cc_menu_item {
+
+}
+
+.cc_menu_link {
+	font-size: x-small;
+	line-height: 150%;
+	padding: 2px;
+
+}
+
+.cc_page_title {
+	color: rgb(217,83,30);
+	font-family: Arial, Helvetica,sans-serif;
+	font-size: 24px;
+	line-height: 22.333px;
+	margin-bottom: 10px;
+}
+
+.cc_php_error_message {
+
+}
+
+.cc_poll_entry {
+
+}
+
+.cc_polling_bar {
+	background-color: black;
+	color: black;
+}
+
+.cc_polling_data {
+
+}
+
+.cc_remix_check {
+   float: left;
+
+}
+
+.cc_remix_license_notice {
+
+}
+
+.cc_remix_search_box {
+	text-align: left;
+	clear: left;
+	margin-top: 10px;
+	padding: 14px;
+	width: 50%;
+}
+
+
+.cc_remix_search_result {
+
+}
+
+.cc_remix_source_choice {
+	clear: left;
+}
+
+.cc_file_list_content .cc_remix_sources, .cc_file_list_content .cc_remix_tagets  {
+	margin: 5px;
+	margin-left: 25px;
+}
+
+.cc_file_list_content .cc_remix_sources .cc_user_name,  {
+}
+
+.cc_file_list_content .cc_remix_sources .cc_file_name a.cc_file_link,
+.cc_file_list_content .cc_remix_targets .cc_file_name a.cc_file_link {
+	display: inline;
+	font-size: small;
+}
+
+form .cc_remix_sources {
+	font-size: small;
+	margin-top: 7px;
+	margin-bottom: 17px;
+	border: 1px rgb(102,102,102) solid;
+	padding: 6px;
+	margin-right: 160px;
+}
+
+.cc_remix_sources input {
+   font-size: x-small;
+}
+
+.cc_remix_source_choice br {
+	display: inline;
+}
+
+label .cc_file_name {
+   font-size: small;
+}
+
+.cc_remix_targets {
+
+}
+
+.cc_site_description {
+	display: none;
+}
+
+.cc_site_license {
+    float: right;
+	text-align: right;
+	width: 120px;
+}
+
+.cc_site_title {
+
+}
+
+.cc_system_error_message {
+
+}
+
+.cc_system_prompt {
+
+}
+
+.cc_tag_link {
+	font-size: x-small;
+	color: rgb(153,153,153);
+}
+
+.cc_user_help {
+
+}
+
+.cc_user_label {
+	text-align: right;
+}
+
+.cc_user_label, .cc_user_value {
+	margin: 0;
+	padding: 0;
+	padding-left: 2px;
+}
+
+.cc_user_link {
+
+}
+
+.cc_user_listing_table {
+	margin-bottom: 35px;
+}
+
+.cc_user_name {
+	color: rgb(153,153,153);
+	font-size: x-small;
+	padding-left: 20px;
+	padding-right: 4px;
+	float: left;
+}
+
+.cc_user_avatar {
+	width: 100px;
+}
+
+.cc_user_real_name {
+
+}
+
+.cc_user_regdate {
+	padding-left: 20px;
+	margin-bottom: 15px;
+	color: rgb(153,153,153);
+	font-size: x-small;
+}
+
+.cc_user_value {
+
+}
+

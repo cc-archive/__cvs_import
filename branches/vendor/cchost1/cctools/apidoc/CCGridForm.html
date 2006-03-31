@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>CC Host API Documenation for: CCGridForm</title>
+    <link rel="stylesheet" type="text/css" href="apidoc.css"/>
+</head>
+<body>
+<div class="cc_all_content">
+
+    <div class="cc_banner">
+       <a class="cc_banner_link" href="http://cchost.org" title="CC Host">
+         <span class="cc_site_title">CC Host</span>
+       </a>
+    </div>
+
+    <div class="cc_site_description">Download, Sample, Cut-up, Share.</div>
+
+    <div id="" class="cc_content">
+
+    
+      
+    
+    <div class="method_stubs">
+    <div class="meth_head">Methods</div>
+    
+      <a href="#AddGridRow">AddGridRow</a><br/>
+    
+      <a href="#CCGridForm">CCGridForm</a><br/>
+    
+      <a href="#GenerateForm">GenerateForm</a><br/>
+    
+      <a href="#GetFormValues">GetFormValues</a><br/>
+    
+      <a href="#SetColumnHeader">SetColumnHeader</a><br/>
+    
+      <a href="#ValidateFields">ValidateFields</a><br/>
+    
+      <a href="#_fetch_post_value">_fetch_post_value</a><br/>
+    
+      <a href="#_normalize_fields">_normalize_fields</a><br/>
+    
+    </div>
+
+  <div class="class_listing">
+    <table>
+    <tr><td colspan="2">
+       <span class="arg_type">class</span> <span class="class_name">CCGridForm</span>
+        <span class="arg_type">extends</span> <a href="CCForm.html">CCForm</a>
+       </td></tr>
+       <tr><td class="head"><span class="arg_type">include </span></td>
+           <td class="head_value">cc-form.php</td></tr>
+       <tr>
+            <td class="head">Derived classes:</td>
+            <td class="head_value"><a href="CCAdminMenuForm.html">CCAdminMenuForm</a>, <a href="CCAdminMenuGroupsForm.html">CCAdminMenuGroupsForm</a>, <a href="CCAdminRawForm.html">CCAdminRawForm</a>, <a href="CCEditLinksForm.html">CCEditLinksForm</a></td></tr>
+      <tr><td class="head">Short Desc.:</td>
+          <td class="head_value"><span class="class_desc">Alternative view of HTML form controls</span></td></tr>
+      <tr><td class="head">Description:</td>
+          <td class="head_value"><span class="class_desc">This class sets up a form with a grid of form elements
+useful when editing several records at once.</span></td></tr>
+      
+    </table>
+    <div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="AddGridRow"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">AddGridRow</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">integer </td>
+        <td class="arg_name">$key </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc">Typically the unique key in the a db representing this record
+ </td></tr>
+     <tr>
+        <td class="arg_type">array </td>
+        <td class="arg_name">$row </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">An array of field objects 
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Add a row of controls to the form.</td></tr>
+        
+        <tr>
+          <td class="head">See also: </td>
+          <td class="head_value"><a href="CCForm.html#AddFormFields">CCForm::AddFormFields
+</a></td></tr>
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="CCGridForm"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">CCGridForm</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Constructor</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Setups the template to handle grid of form elements.</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GenerateForm"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GenerateForm</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCForm.html#GenerateForm">CCForm</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Overrides base class to handle grid rows.</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Generates template arrays and prepares the form for display.
+<br /><br />
+<code><font color="#000000">
+<font color="#0000BB">&lt;? 
+<br />&nbsp;&nbsp;&nbsp;$page</font><font color="#007700">-&gt;</font><font color="#0000BB">AddForm</font><font color="#007700">( </font><font color="#0000BB">$form</font><font color="#007700">-&gt;</font><font color="#0000BB">GenerateForm</font><font color="#007700">() );
+<br /> </font><font color="#0000BB">?&gt;</font>
+</font>
+</code></td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetFormValues"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetFormValues</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">array </td>
+        <td class="arg_name">$values </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">Out parameter to receive values. This is suitable for called CCTable::Update() or CCTable::Insert().
+
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCForm.html#GetFormValues">CCForm</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Overrides base class to handle grid rows</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">This should be called once to setup the column headers, see CCForm::GetFormValues()</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="SetColumnHeader"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">SetColumnHeader</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">array </td>
+        <td class="arg_name">$heads </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">An array of strings
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Add a row of column headers.</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">This should be called once to setup the column headers</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="ValidateFields"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">ValidateFields</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCForm.html#ValidateFields">CCForm</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Overrides base class to handle grid rows.</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Call this method on POST to verify each field in the form. see CCForm::ValidateFields()</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_fetch_post_value"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_fetch_post_value</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type">string </td>
+        <td class="arg_name">$name </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc">name of field, typically in the form 'something[integer][subfieldname]'
+ </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCForm.html#_fetch_post_value">CCForm</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Does special array-aware parsing of field names.</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_normalize_fields"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_normalize_fields</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">This method puts a reference of each field (cell) in the grid and into a format the base class can use for methods like Get/SetValues().</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div>
+ </div>
+
+    
+
+    </div> 
+
+    <div class="cc_content_clear"></div>
+
+    <div class="cc_footer"><br clear="both"><br /><br /><br />
+This site is a product of <a href="http://sourceforge.net/projects/cctools/">CC Tools</a> project.<br />
+
+This site uses <a href="http://getid3.sourceforge.net/">GetID3</a> and <a href="http://phptal.sourceforge.net/">PHPTal</a>.
+<br /><br /></div>
+    <div class="cc_site_license"><!-- Creative Commons License -->
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">Creative Commons License</a></div>
+
+</div> 
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

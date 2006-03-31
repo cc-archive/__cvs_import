@@ -1,0 +1,10 @@
+$group_string
+
+$group_members
+
+$forumstring
+<BR>
+<P ALIGN="LEFT">
+$user_options
+$admin_options
+</P>

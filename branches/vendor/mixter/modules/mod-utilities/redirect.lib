@@ -1,0 +1,36 @@
+<?
+// ----------------------------
+// Matthew Drake and Ian Spivey
+// Mixter Website
+// 6.171
+// madrake@mit.edu, ispivey@mit.edu
+// ----------------------------
+// Page: redirect.lib
+// Purpose: A library file containing functions that redirect users
+// ----------------------------
+
+session_start();
+
+require_once("../modules/mod-utilities/globals.lib");
+require_once("../modules/mod-users/users-interface.php");
+require_once("../modules/mod-utilities/page-layout.lib");
+
+// Pre: Takes $required_status which represents the status a user must have to access a given URL.
+// $required_status must be one of "in", "out", or "either". In means they must be logged in, out means
+// they must be logged out, and either means it doesn't matter.
+// Also, no headers can be sent at this point.
+// Post: Redirects if the user doesn't have the right status, 
+function checkLoginStatus($required_status) {
+  if ($required_status == "in" && !isLoggedIn()) {
+    redirectHeader("welcome?error=notloggedin");
+  }
+  if ($required_status == "out" && isLoggedIn()) {
+    redirectHeader("home?error=notloggedout");
+  }
+}
+
+function checkAdminStatus($required_status) {
+  if ($required_status == "admin" && !isAdmin()) {
+    redirectHeader("welcome?error=notadmin");
+  }
+} 

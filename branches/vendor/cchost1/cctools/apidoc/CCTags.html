@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>CC Host API Documenation for: CCTags</title>
+    <link rel="stylesheet" type="text/css" href="apidoc.css"/>
+</head>
+<body>
+<div class="cc_all_content">
+
+    <div class="cc_banner">
+       <a class="cc_banner_link" href="http://cchost.org" title="CC Host">
+         <span class="cc_site_title">CC Host</span>
+       </a>
+    </div>
+
+    <div class="cc_site_description">Download, Sample, Cut-up, Share.</div>
+
+    <div id="" class="cc_content">
+
+    
+      
+    
+    <div class="method_stubs">
+    <div class="meth_head">Methods</div>
+    
+      <a href="#Add">Add</a><br/>
+    
+      <a href="#CCTags">CCTags</a><br/>
+    
+      <a href="#ExpandOnRow">ExpandOnRow</a><br/>
+    
+      <a href="#GetRecords">GetRecords</a><br/>
+    
+      <a href="#GetTable">GetTable</a><br/>
+    
+      <a href="#GetWhereFilter">GetWhereFilter</a><br/>
+    
+      <a href="#PrepForDB">PrepForDB</a><br/>
+    
+      <a href="#Replace">Replace</a><br/>
+    
+      <a href="#TagDelete">TagDelete</a><br/>
+    
+      <a href="#TagUpdate">TagUpdate</a><br/>
+    
+      <a href="#UpdateOrAdd">UpdateOrAdd</a><br/>
+    
+    </div>
+
+  <div class="class_listing">
+    <table>
+    <tr><td colspan="2">
+       <span class="arg_type">class</span> <span class="class_name">CCTags</span>
+        <span class="arg_type">extends</span> <a href="CCTable.html">CCTable</a>
+       </td></tr>
+       <tr><td class="head"><span class="arg_type">include </span></td>
+           <td class="head_value">cc-tags.php</td></tr>
+       
+      <tr><td class="head">Short Desc.:</td>
+          <td class="head_value"><span class="class_desc">Table wrapper for user and system attribute tagging</span></td></tr>
+      <tr><td class="head">Description:</td>
+          <td class="head_value"><span class="class_desc">Just to confuse things there are two types of 'tags':
+
+  <ul><li>ID3 tags that are read from and stamped into and from files (like MP3s)
+        This class has nothing to do with that</li>
+<br /><br />
+       <li>Tags as in del.io.us and flikr where an item is catalogued
+        according to some attributes. The attributes are searchable
+        across the system to find 'like' items. This class is for
+        facilitating this kind of 'tag'.</li>
+  </ul></span></td></tr>
+      
+    </table>
+    <div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="Add"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">Add</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$new_tags </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="CCTags"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">CCTags</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="ExpandOnRow"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">ExpandOnRow</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$row </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$inkey </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$baseurl </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$outkey </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$label </td>
+        <td class="arg_default">= '' </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetRecords"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetRecords</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetTable"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetTable</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCTable.html#GetTable">CCTable</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Returns static singleton of configs table wrapper.</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Use this method instead of the constructor to get
+an instance of this class.</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetWhereFilter"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetWhereFilter</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$tags </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="PrepForDB"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">PrepForDB</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$tags </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="Replace"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">Replace</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$old_tags </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$new_tags </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="TagDelete"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">TagDelete</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$tags </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="TagUpdate"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">TagUpdate</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$tags </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="UpdateOrAdd"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">UpdateOrAdd</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$tags </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div>
+ </div>
+
+    
+
+    </div> 
+
+    <div class="cc_content_clear"></div>
+
+    <div class="cc_footer"><br clear="both"><br /><br /><br />
+This site is a product of <a href="http://sourceforge.net/projects/cctools/">CC Tools</a> project.<br />
+
+This site uses <a href="http://getid3.sourceforge.net/">GetID3</a> and <a href="http://phptal.sourceforge.net/">PHPTal</a>.
+<br /><br /></div>
+    <div class="cc_site_license"><!-- Creative Commons License -->
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">Creative Commons License</a></div>
+
+</div> 
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

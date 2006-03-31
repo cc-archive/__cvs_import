@@ -1,0 +1,43 @@
+<tal:block>
+<metal:block define-macro="contest_listing">
+    <div class="cc_listing">
+        <div tal:repeat="record contest_record" class="cc_contest_listing" >
+            <div tal:condition="not: record/contest-homepage" class="cc_contest_name">
+              <a href="${record/contest_url}" class="cc_contest_link">${record/contest_friendly_name}</a></div>
+            <metal:block use-macro="misc.xml/command_menu" />
+            <div class="cc_contest_content">
+                <div tal:condition="record/contest_bitmap_url" class="cc_contest_bitmap">
+                   <img src="${record/contest_bitmap_url}" /></div>
+
+                <div class="cc_contest_user">
+                   Created by: 
+                    <span class="cc_user_name"><a href="${record/artist_page_url}">${record/user_name}</a> 
+                       <a href="${record/user_emailurl}" class="cc_email_link" 
+                         title="click to send email to this user"><span class="cc_email_contact">contact</span></a>
+                    </span>
+                </div>
+
+                <div class="cc_contest_description">
+                  ${record/contest_description}
+                </div>
+
+                <div tal:repeat="contest_state record/contest_states" >
+                  <div class="${contest_state/css_class}">${contest_state/text}</div>
+                </div>
+
+                <tal:block condition="record/contest_include_file" >
+                   <phptal:block include="string:${record/contest_include_file}" />
+                </tal:block>
+
+            </div>
+    </div>
+  </div>
+</metal:block><metal:block define-macro="polling_data">
+    <div class="cc_polling_data">
+      <div tal:repeat="poll_entry poll_data/poll_entries" class="cc_poll_entry" >
+         ${poll_entry/poll_value}  ${poll_entry/poll_percent}%
+         <div align="left" class="cc_polling_bar" style="width:${poll_entry/poll_percent}%" >&nbsp;</div>
+      </div>
+    </div>
+</metal:block>
+</tal:block>

@@ -1,0 +1,25 @@
+<H1>$title</H1>
+<FONT SIZE="1">by <A HREF="$authorlink">$author</A> on $date</FONT>
+
+<P>
+</P>
+
+<FONT SIZE="3">
+$body
+</FONT>
+
+<P>
+</P>
+
+<TABLE CLASS="basic">
+<TR>
+ <TD><B>Admin Options</B>
+</TR>
+<TR>
+  <TD COLSPAN=3 HALIGN="center">
+  [ <A HREF="$approve_link">Approve</A> -
+    <A HREF="$back_link">Back to List</A> -
+    <A HREF="$reject_link">Reject</A> ]
+  </TD>
+</TR>
+</TABLE>

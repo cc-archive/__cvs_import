@@ -1,0 +1,4 @@
+#! /bin/sh
+
+psql -qc "VACUUM ANALYZE" -U mixter mixter
+

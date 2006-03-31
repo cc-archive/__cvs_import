@@ -1,0 +1,8 @@
+<TR CLASS="greyrow" VALIGN=TOP>
+ <TD ALIGN=CENTER WIDTH=250><FONT SIZE=2><A NAME="$anchorname">Posted by <A HREF="$authorlink">$author</A> on $date</FONT></TD>
+ <TD BGCOLOR="#$ed_color"><FONT SIZE="2">$body</FONT></TD>
+</TR>
+$admin_link
+<TR HEIGHT=2>
+ <TD COLSPAN=2 bgcolor="#5e715e"></TD>
+</TR>

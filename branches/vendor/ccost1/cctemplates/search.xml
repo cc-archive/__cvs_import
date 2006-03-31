@@ -1,0 +1,42 @@
+<tal:block>
+
+<metal:block define-macro="upload_search_results">
+    <div tal:repeat="record upload_search_results" class="cc_search_result">
+        <div class="cc_search_result_commands">
+            <tal:block repeat="command_menu record/local_menu">
+            <a href="${command_menu/action}" class="cc_command"
+                    id="${command_menu/id}">${command_menu/menu_text}</a>
+            </tal:block>
+        </div>      
+        <div class="cc_file_name"><a href="${record/file_page_url}" 
+                 class="cc_file_link">${record/upload_name}</a></div>
+        <div class="cc_user_name">by <a href="${record/artist_page_url}" 
+                 class="cc_user_link">${record/user_real_name}</a></div>
+        <div class="cc_search_result_info">${record/result_info}</div>
+    </div>
+</metal:block><metal:block define-macro="user_search_results">
+    <div tal:repeat="record user_search_results" class="cc_search_result">
+        <div class="cc_user_real_name">${record/user_real_name}</div>
+        <div class="cc_user__name"><a href="${record/artist_page_url}" 
+                 class="cc_user_link">${record/user_name}</a> </div>
+        <div class="cc_search_result_info">${record/result_info}</div>
+    </div>
+</metal:block><metal:block define-macro="tags_search_results">
+    <div tal:repeat="record tags_search_results" class="cc_search_result">
+        <div class="cc_file_name"><a href="${record/file_page_url}" 
+                 class="cc_file_link">${record/upload_name}</a></div>
+        <div class="cc_user_name">by <a href="${record/artist_page_url}" 
+                 class="cc_user_link">${record/user_real_name}</a></div>
+        <tal:block define="tag_array record/upload_taglinks" />
+        <div tal:condition="record/upload_taglinks" metal:use-macro="taglinks" />
+    </div>
+</metal:block><metal:block define-macro="tags">
+    <tal:block repeat="tag tag_array" >
+       <a href="${tag/tagurl}" class="cc_tag_link" 
+          style="line-height:110%;font-size:${tag/fontsize}px">${tag/tags_tag}</a> <span 
+              class="cc_tag_count">(${tag/tags_count})</span><div tal:omit-tag=""  
+              tal:condition="not: repeat/tag/end" >, </div>
+    </tal:block>
+</metal:block>
+
+</tal:block>

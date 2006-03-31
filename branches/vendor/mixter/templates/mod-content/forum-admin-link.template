@@ -1,0 +1,4 @@
+<TR>
+ <TD BGCOLOR="#dddddd"><FONT SIZE=2>Current Status: <B>$current_status</B></FONT></TD>
+ <TD BGCOLOR="#eeeeee">$editorial_link</TD>
+</TR> 

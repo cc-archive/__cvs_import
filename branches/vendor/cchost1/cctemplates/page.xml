@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<tal:block define="start_page php:CC_micro_diff_fmt()" />
+<tal:block replace="">
+  $Header$
+</tal:block>
+
+<metal:block use-macro="html_head" />
+
+<body>
+<div class="cc_all_content" >
+
+    <metal:block use-macro="body_header" />
+
+    <table class="cc_custom_macros" tal:condition="custom_macros" >
+        <tal:block omit-tag="" repeat="custom_macro custom_macros" >
+          <tr><td><metal:block use-macro="${custom_macro}" /></td></tr>
+        </tal:block>
+    </table>
+
+    <metal:block use-macro="menu" />
+
+    <div class="cc_gutter"></div>
+
+    <div tal:condition="page-title" class="cc_page_title">${page-title}</div>
+
+    <div class="cc_content">
+     <div tal:condition="macro_names" tal:omit-tag="" tal:repeat="macro_name macro_names" >
+        <metal:block use-macro="${macro_name}" />
+     </div>
+    </div>
+
+    <metal:block use-macro="body_footer" />
+
+</div> 
+<span tal:define="end_page php:CC_micro_diff_fmt()" />
+<div style="display:none;position:absolute;left:180px;top:12px;">Render started at: ${start_page} - finished: ${end_page}</div>
+</body>
+
+<metal:block define-macro="html_head">
+<head>
+    <title>${site-title}<tal:block condition="page-title"> ${page-title}</tal:block></title>
+    <tal:block repeat="head_link head_links">
+        <link rel="${head_link/rel}" type="${head_link/type}" href="${head_link/href}" title="${head_link/title}"/>
+    </tal:block>
+</head>
+</metal:block><metal:block define-macro="prompts">
+    <tal:block repeat="prompt prompts">
+        <div class="cc_${prompt/name}">${prompt/value}</div>
+    </tal:block>
+</metal:block><metal:block define-macro="body_header">
+    <div tal:condition="logged_in_as" class="cc_logged_in_as">Logged in as: <div 
+       class="cc_logged_in_name">${logged_in_as}</div></div>
+    <div class="cc_banner">
+       <a class="cc_banner_link" href='${home-url}' title="${site-title}">
+         <span class="cc_site_title">${site-title}</span>
+       </a>
+    </div>
+    <div tal:condition="site-description" class="cc_site_description">${site-description}</div>
+</metal:block><metal:block define-macro="body_footer">
+    <div class="cc_content_clear" />
+    <tal:block condition="foot_links" repeat="foot_link foot_links">
+        <a class="cc_foot_link" type="${foot_link/type}" href="${foot_link/href}" title="${foot_link/title}">${foot_link/link_text}</a>
+    </tal:block>
+    <div class="cc_footer">${footer}</div>
+    <div class="cc_site_license">${site-license}</div>
+</metal:block><metal:block define-macro="menu">
+    <div class="cc_menu">
+        <div tal:repeat="menu_group menu_groups" class="cc_menu_group" 
+                tal:attributes="id menu_group/group_id | nothing">
+        <div class="cc_menu_group_name">${menu_group/group_name}</div>
+              <div tal:repeat="menu_item menu_group/menu_items" class="cc_menu_item"><a class="cc_menu_link" 
+                  tal:attributes="href menu_item/action" >${menu_item/menu_text} </a>
+              </div>
+        </div>
+    </div>
+</metal:block>
+<metal:block define-macro="html_form">
+    <form action="${form_action}" method="${form_method}" class="cc_form" 
+        id="${form_id}" tal:attributes="enctype form-data | nothing" >
+
+        <div tal:condition="form_macros" tal:omit-tag="" tal:repeat="macro_name form_macros" >
+          <metal:block use-macro="${macro_name}" />
+        </div>
+
+        <div tal:omit-tag="" tal:condition="html_form_grid_columns" metal:use-macro="grid_form_fields" />
+        <div tal:omit-tag="" tal:condition="html_form_fields"       metal:use-macro="form_fields" />
+
+        <tal:block condition="submit_text">
+            <input type="submit" name="form_submit" id="form_submit" class="cc_form_submit" 
+                    tal:attributes="value submit_text" />
+        </tal:block>
+
+        <input tal:condition="html_hidden_fields" tal:repeat="hfield html_hidden_fields"
+               type="hidden" name="${hfield/hidden_name}" value="${hfield/hidden_value}" />
+
+        <input tal:condition="handler" type="hidden" name="mode" value="${handler}" />
+
+    </form>
+</metal:block>
+
+<metal:block define-macro="form_fields">
+    <table class="cc_form_table" >
+        <tal:block repeat="field html_form_fields">
+           <tr tal:condition="field/form_error" class="cc_form_error_row"><td></td><td 
+                        class="cc_form_error">${field/form_error}</td></tr>
+            <tr class="cc_form_row">
+               <td class="cc_form_label">${field/label}<div 
+                  tal:condition="field/form_tip" 
+                  class="cc_form_tip">${field/form_tip}</div></td>
+              <td class="cc_form_element">
+                 <div tal:omit-tag="" tal:condition="field/macro" metal:use-macro="${field/macro}" />
+                 ${field/form_element}</td>
+            </tr>
+        </tal:block>
+    </table>
+</metal:block><metal:block define-macro="grid_form_fields">
+    <table class="cc_grid_form_table">
+    <tr class="cc_grid_form_header_row">
+        <th tal:repeat="head html_form_grid_columns" class="cc_grid_form_header">${head/column_name}</th>
+    </tr>
+    <tal:block repeat="row html_form_grid_rows">
+        <tr tal:condition="row/form_error" class="cc_form_error_row"><td></td>
+            <td colspan="${repeat/row/length}" class="cc_form_error">${row/form_error}</td>
+        </tr>
+        <tr class="cc_form_row">
+           <td tal:repeat="field row/html_form_grid_fields">${field/form_grid_element}</td>
+        </tr>
+   </tal:block>
+   </table>
+</metal:block><metal:block define-macro="form_about">
+    <div class="cc_form_about">${form_about}</div>
+</metal:block><metal:block define-macro="taglinks">
+    <tal:block repeat="tag tag_array" >
+       <a href="${tag/tagurl}" class="cc_tag_link" >${tag/tag}</a><div tal:omit-tag=""  
+              tal:condition="not: repeat/tag/end" >, </div>
+    </tal:block>
+</metal:block>
+
+</html>

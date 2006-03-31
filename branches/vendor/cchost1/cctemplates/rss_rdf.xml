@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:cc="http://web.resource.org/cc/"
+ xmlns:content="http://purl.org/rss/1.0/modules/content/"
+ xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+ xmlns:admin="http://webns.net/mvcb/"
+>
+<channel rdf:about="${feed_url}">
+<title>${channel_title}</title>
+<link>${feed_url}</link>
+<description>${channel_description}</description>
+<image  rdf:resource="http://creativecommons.org/images/logo_trademark.gif" />
+<items>
+ <rdf:Seq>
+    <tal:block repeat="item feed_items">
+      <rdf:li rdf:resource="${item/file_page_url}" />
+    </tal:block>
+ </rdf:Seq>
+</items>
+</channel>
+
+<tal:block repeat="item feed_items">
+  <item rdf:about="${item/file_page_url}">
+    <title>${item/upload_name}</title>
+    <link>${item/file_page_url}</link>
+    <dc:creator>${item/user_name}</dc:creator>
+    <dc:date>${item/rss_pubdate}</dc:date>
+    <dc:subject>${item/upload_name}</dc:subject>
+    <content:encoded><![CDATA[${item/upload_description}]]></content:encoded>
+    <tal:block condition="item/dcmitype">
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/${item/dcmitype}" />
+    </tal:block>
+    <cc:work rdf:about="${item/download_url}">
+      <cc:license rdf:resource="${item/license_url}" />
+    </cc:work>
+    <taxo:topics tal:condition="item/upload_taglinks">
+        <rdf:Bag>
+          <tal:block repeat="tag_link item/upload_taglinks">
+            <rdf:li resource="${tag_link/tagurl}" />
+          </tal:block>
+        </rdf:Bag>
+    </taxo:topics>
+  </item>
+</tal:block>
+
+</rdf:RDF>

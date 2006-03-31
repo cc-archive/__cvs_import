@@ -1,0 +1,11 @@
+<A NAME="$anchor_name">
+<TABLE BGCOLOR="eeeeee">
+<TR CELLSPACING="0" BGCOLOR="ccccff">
+  <TD><A HREF="$article_link"><H2>$title</H2></A></TD>
+  <TD>Author: $author</TD>
+  <TD>Created on: $date</TD>
+</TR>
+<TR>
+  <TD COLSPAN=3>$description</TD>
+</TR>
+</TABLE>

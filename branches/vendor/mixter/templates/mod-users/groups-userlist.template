@@ -1,0 +1,6 @@
+<TABLE CLASS="basic">
+<TR>
+ <TD ALIGN="CENTER"><B>Group Members</B></TD>
+</TR>
+$userlist_string
+</TABLE> 

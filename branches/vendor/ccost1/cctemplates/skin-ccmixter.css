@@ -1,0 +1,583 @@
+body
+{
+    margin: 0px;
+	color: rgb(68,68,68);
+	background: rgb(255,255,255);
+}
+
+body, input, td, select
+{
+	font-family: Lucida Grande, helvetica, arial, sans serif;
+	font-size: 11px;
+}
+
+img, table
+{
+	border-width: 0px;
+}
+
+input[type=text], textarea
+{
+	width: 330px;
+}
+
+input[type=submit]
+{
+	margin-left: 35%
+}
+
+textarea
+{
+	height: 100px;
+}
+
+a, a:visited
+{
+	text-decoration: none;
+	color: rgb( 0, 102, 153 );
+	font-weight: bold;
+}
+
+input.cc_form_input_short {
+	width: 60px;
+}
+
+.cc_all_content {
+}
+
+.cc_banner {
+	background-image: url('mixter-back.gif');
+	background-repeat: repeat-x;
+	background-attachment: scroll;
+	border-bottom: 1px solid rgb(88,91,92);
+	height: 82px;
+}
+
+a.cc_banner_link:visited {
+	color: rgb(255,255,255);
+}
+a.cc_banner_link {
+	font-size: 50px;
+	color: rgb(255,255,255);
+	font-family: arial;
+	font-weight: bold;
+	text-transform: lowercase;
+	letter-spacing: -3px;
+	padding-top: 8px;
+	padding-left: 20px;
+	display: block;
+}
+
+.cc_body_text {
+
+}
+
+.cc_command, .cc_command:visited {
+	display: block;
+	color: black;
+	padding-right: 14px;
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+#replyremix, #submitcommand, #submitsourcescommand {
+	background-image: url('../ccimages/scrollup.gif');
+}
+
+#downloadcommand {
+	background-image: url('../ccimages/scrolldown.gif');
+}
+
+#editcommand {
+	background-image: url('../ccimages/edit.gif');
+}
+#deletecommand{
+	background-image: url('../ccimages/delete.gif');
+}
+
+#browsecommand{
+	background-image: url('../ccimages/vr.gif');
+	padding-right: 17px;
+}
+
+#streamcontestentries, #streamcontestsource, #streamfile {
+	background-image: url('../ccimages/sound.gif');
+}
+
+.cc_commands {
+	float: right;
+	text-align: right;
+	padding: 8px;
+	border-bottom: 2px solid rgb(136,136,136);
+	border-right:  2px solid rgb(136,136,136);
+	border-top:    1px solid rgb(204,204,204);
+	border-left:   1px solid rgb(204,204,204);
+
+}
+
+.cc_content, .cc_page_title {
+	margin-left: 18%;
+	margin-right: 19%;
+}
+
+.cc_content_clear {
+	clear:both;
+}
+
+.cc_contest_bitmap {
+
+	float: left;
+	margin-right: 7px;
+}
+
+.cc_contest_closed {
+	color: red;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.cc_contest_content {
+
+}
+
+.cc_contest_description {
+
+}
+
+.cc_contest_link {
+
+}
+
+.cc_contest_listing {
+	/* clear: right; */
+	padding-top: 10px;
+	margin-bottom: 25px;
+}
+
+.cc_contest_name {
+	font-size: 28px;
+    text-align: center;
+    margin-bottom: 8px;
+	background: rgb( 226, 226, 250 );
+	border: 1px solid rgb( 106, 106, 120 );
+	padding: 7px;
+}
+
+.cc_contest_name a {
+  color: black;
+  font-weight: normal;
+}
+
+.cc_contest_open, .cc_contest_open:visited {
+	color: green;
+	font-weight: bold;
+	margin: 15px;
+}
+
+.cc_contest_rules {
+
+}
+
+.cc_contest_user {
+
+}
+
+.cc_contest_voting_status {
+
+}
+
+.cc_custom_macros
+{
+	float: right;
+	margin-top: 50px;
+	width: 130px;
+}
+
+.cc_custom_head
+{
+}
+
+.cc_custom_macros td
+{
+	padding: 4px;
+}
+
+.cc_date_field {
+
+}
+
+.cc_email_contact {
+
+}
+
+.cc_email_link {
+
+}
+
+.cc_external_link {
+
+}
+
+.cc_file_date {
+
+}
+
+.cc_file_description, .cc_contest_description  {
+	margin: 5px;
+	margin-left: 15px;
+	padding: 7px;
+	font-style: italic;
+}
+
+.cc_file_license {
+
+}
+
+.cc_file_link {
+
+}
+
+.cc_file_list_content {
+
+}
+
+.cc_file_listing {
+	font-size: 12px;
+	border-bottom: 2px solid rgb(200,200,200);
+	margin-bottom: 16px;
+}
+
+.cc_file_listing_clear {
+
+}
+
+.cc_file_name, .cc_file_name a {
+	font-size: 16px;
+	color: maroon;
+}
+
+.cc_footer {
+
+}
+
+.cc_form {
+
+}
+
+.cc_form_about {
+
+}
+
+.cc_form_element {
+	vertical-align: top;
+}
+
+.cc_form_error {
+
+}
+
+.cc_form_error_row {
+	color: red;
+	font-weight: bold;
+}
+
+.cc_form_input_short {
+
+}
+
+.cc_form_label {
+	vertical-align: top;
+	padding-bottom: 8px;
+	width: 45%;
+	text-align: right;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgb(102,102,68);
+}
+
+.cc_form_row {
+
+}
+
+.cc_form_submit {
+
+}
+
+.cc_form_table {
+
+}
+
+.cc_form_tip {
+	font-weight: normal;
+	font-size: x-small;
+	padding-bottom: 5px;
+	display: block;
+}
+
+.cc_grid_form_header {
+
+}
+
+.cc_grid_form_header_row {
+
+}
+
+.cc_grid_form_table {
+
+}
+
+.cc_license_image {
+
+}
+
+.cc_link_menu_info {
+
+}
+
+.cc_link_menu_link {
+
+}
+
+.cc_link_menu_table {
+
+}
+
+.cc_listing {
+
+}
+
+.cc_logged_in_as {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-weight: bold;
+	color: rgb(102,102,102);
+	font-size: 14px;
+	margin-top: 85px;
+	float:right;
+	padding-right: 18px;
+}
+
+.cc_logged_in_name {
+	display: inline;
+}
+
+.cc_menu {
+	width: 16%;
+	padding-right: 20px;
+	padding-left:  10px;
+	float: left;
+	margin-top: 20px;
+}
+
+.cc_menu_group {
+	margin-bottom: 15px;
+}
+
+.cc_menu_group_name, .cc_custom_head {
+	color: rgb(0, 0, 0);
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+
+.cc_menu_item {
+	margin-left: 10px;
+	margin-bottom: 2px;
+}
+
+.cc_menu_link, .cc_menu_link:visited {
+	font-size: 11px;
+}
+
+.cc_page_title {
+	text-align: center;
+	color: rgb(102,102,68);
+	padding-bottom: 5px;
+	border-bottom: 2px solid rgb(102,102,68);
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 45px;
+	margin-bottom: 18px
+}
+
+#pollsform table .cc_form_label {
+	width: 1px;
+}
+
+#pollsform table .cc_form_element {
+	width: 90%;
+}
+
+.cc_poll_entry {
+
+}
+
+.cc_polling_bar {
+	background: black;
+	color: black;
+}
+
+.cc_polling_data {
+
+}
+
+.cc_remix_check {
+	display: inline;
+}
+
+.cc_remix_license_notice {
+
+}
+
+.cc_remix_search_box {
+	margin-top: 7px;
+}
+
+.cc_remix_search_result {
+
+}
+
+.cc_remix_source_choice {
+
+}
+
+.cc_remix_sources {
+    background-color: rgb(238,238,238);
+	background-image: url('../ccimages/cc-up.gif');
+	background-repeat: no-repeat;
+	background-position: right top;
+	width: 60%;
+	padding: 8px;
+	border: 1px solid rgb(204,204,204);
+	margin-bottom: 5px;
+}
+
+.cc_remix_targets {
+    background-color: rgb(221,221,221);
+	background-image: url('../ccimages/cc-down.gif');
+	background-repeat: no-repeat;
+	background-position: right top;
+	width: 60%;
+	padding: 8px;
+	border: 1px solid rgb(170,170,170);
+
+}
+
+.cc_search_result {
+	margin-bottom: 14px;
+}
+
+.cc_search_result .cc_command {
+	display: inline;
+	margin-right: 12px;
+}
+	
+.cc_search_result_info span {
+	color: red;
+}
+
+.cc_site_description {
+	display: none;
+}
+
+.cc_site_license {
+
+}
+
+.cc_system_error_message, .cc_php_error_message  {
+	color: red;
+	font-weight: bold;
+	background-color: rgb(255,220,220);
+	border: 1px solid red;
+}
+
+.cc_system_prompt, .cc_form_about  {
+	color: green;
+	background-color: rgb(245,245,235);
+	border: 1px solid green;
+}
+
+
+.cc_system_error_message, .cc_system_prompt, .cc_php_error_message, .cc_form_about 
+{
+	padding: 8px;
+	margin: 7px;
+	width: 50%;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+}
+
+.cc_form_about {
+	width: 100%;
+	text-align: left;
+}
+
+.cc_tag_link {
+	font-variant: small-caps;
+	color: rgb( 136, 68, 136);
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.cc_tag_link:hover {
+	text-decoration: underline;
+}
+
+.cc_upload_not_published {
+	margin: 3px 0px 11px 0px;
+	border: 1px solid brown;
+	color: brown;
+	font-style: italic;
+	padding: 6px;
+	width: 60%;
+}
+
+.cc_user_help {
+
+}
+
+.cc_user_label, .cc_user_avatar {
+	width: 100px;
+	background-color: rgb(238,238,238);
+	padding: 4px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.cc_user_link {
+
+}
+
+.cc_user_listing_table {
+	width: 90%;
+	margin-bottom: 10px;
+}
+
+.cc_user_listing_table .cc_user_name {
+	font-size: 16px;
+}
+
+.cc_user_avatar {
+	vertical-align: middle;
+	text-align: center;
+}
+
+.cc_user_real_name {
+	font-family: arial,helvetica;
+	font-size: 24px;
+
+}
+
+.cc_user_regdate {
+	font-size: 11px;
+	color: rgb(102,102,102);
+}
+
+.cc_user_value {
+	border-right:  1px solid rgb(238,238,238);
+	border-top:    1px solid rgb(238,238,238);
+	border-bottom: 1px solid rgb(238,238,238);
+}
+

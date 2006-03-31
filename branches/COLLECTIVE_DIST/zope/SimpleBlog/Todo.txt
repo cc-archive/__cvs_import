@@ -1,0 +1,8 @@
+Todo:
+====
+i18n translations
+
+custom BlogFolder_edit form that shows inherited categories so the user can see which categories already exist.
+
+
+

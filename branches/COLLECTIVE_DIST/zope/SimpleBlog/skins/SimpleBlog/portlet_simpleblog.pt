@@ -1,0 +1,56 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="SimpleBlog">
+      
+<body>
+
+	<!-- local portlets, they will only show up inside a SimpleBlog -->
+    <div metal:define-macro="portletBlogFull_local" tal:omit-tag="">
+	    <!-- not the best way to do this but I have no idea how to fill the css_slot for this case where
+		       the portlet is not in one of simpleblog's templates -->
+	    <link rel="stylesheet" type="text/css" media="screen" href="" tal:attributes="href string:$portal_url/SimpleBlogCSS.css" />
+		<div class="portlet" tal:condition="python: here.meta_type in ['Blog', 'BlogEntry', 'BlogFolder']">
+        	<h5>Blog</h5>
+			<div class="portletBody">
+     			<div metal:use-macro="here/SimpleBlog_macros/macros/portletCalendar"/>
+				<div metal:use-macro="here/SimpleBlog_macros/macros/portletRecent"/>
+				<div metal:use-macro="here/SimpleBlog_macros/macros/portletCategories"/>
+			</div>
+		</div>   
+    </div>
+
+    <div metal:define-macro="portletBlogRecent_local" tal:omit-tag="">
+		<div class="portlet" tal:condition="python: here.meta_type in ['Blog', 'BlogEntry', 'BlogFolder']">
+        	<h5>Blog</h5>
+			<div class="portletBody">
+				<div metal:use-macro="here/SimpleBlog_macros/macros/portletRecent"/>
+			</div>
+		</div>   
+    </div>
+
+
+	<!-- global portlets, similar as above but this version show up everywhere -->
+    <div metal:define-macro="portletBlogFull_global" tal:omit-tag="">
+	    <!-- not the best way to do this but I have no idea how to fill the css_slot for this case where
+		       the portlet is not in one of simpleblog's templates -->
+	    <link rel="stylesheet" type="text/css" media="screen" href="" tal:attributes="href string:$portal_url/SimpleBlogCSS.css" />
+		<div class="portlet">
+        	<h5>Blog</h5>
+			<div class="portletBody">
+			    <div metal:use-macro="here/SimpleBlog_macros/macros/portletCalendar"/>
+				<div metal:use-macro="here/SimpleBlog_macros/macros/portletRecent"/>
+				<div metal:use-macro="here/SimpleBlog_macros/macros/portletCategories"/>
+			</div>
+		</div>   
+    </div>
+     
+    <div metal:define-macro="portletBlogRecent_global" tal:omit-tag="">
+		<div class="portlet">
+        	<h5>Blog</h5>
+			<div class="portletBody">
+				<div metal:use-macro="here/SimpleBlog_macros/macros/portletRecent"/>
+			</div>
+		</div>   
+    </div>
+</body>
+</html>

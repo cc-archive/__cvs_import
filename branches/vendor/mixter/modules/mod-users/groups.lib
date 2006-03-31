@@ -1,0 +1,261 @@
+<?
+// ----------------------------
+// Matthew Drake and Ian Spivey
+// Mixter Website
+// 6.171
+// madrake@mit.edu, ispivey@mit.edu
+// ----------------------------
+// Page: groups.lib
+// Purpose: Code for handling groups.
+// ----------------------------
+
+require_once("../modules/mod-utilities/database.lib");
+require_once("../modules/mod-content/content-interface.php");
+
+// Pre: Takes group information ready to insert into the database in $groupinfo.
+// $groupinfo is an array of key value pairs storing group_name and group_description.
+// $creation_user_id is the user who created the group, and is its first member.
+// Post: Creates a group and inserts that user as its owner, returns the group_id.
+function groups_insertGroup($groupinfo, $creation_user_id) {
+  $group_name = $groupinfo["group_name"];
+  $group_description = $groupinfo["group_description"];
+  $querystring = "INSERT INTO user_groups (group_name, group_description)
+		    VALUES ('$group_name', '$group_description')";
+  query_perform($querystring);
+  
+  $sequelquery = "SELECT currval('user_groups_group_id_seq')";
+  $group_id = query_one_val($sequelquery);
+ 
+  $querystring = "INSERT INTO user_group_mapping (user_id, group_id, mapping_permission)
+		    VALUES ('$creation_user_id', '$group_id', 'owner')";
+  query_perform($querystring);
+  createGroupForum('Group Forum: ' . $group_name, "Private forum for members of this group.", $group_id);
+  return $group_id;
+}
+
+// Pre: Takes a $group_id that corresponds to a valid group.
+// Post: Deletes the group with that group_id
+function groups_deleteGroup($group_id) {
+  $group_forum = getGroupForum($group_id);
+  
+  deleteForum($group_forum->content_id);
+  $querystring = "DELETE FROM user_group_mapping
+		    WHERE group_id='$group_id'";
+  query_perform($querystring);
+  $querystring = "DELETE FROM user_groups
+  		    WHERE group_id='$group_id'";
+  query_perform($querystring);
+}
+
+// Pre: $group_id is a valid group
+// $user_id is a valid user
+// Post: Adds that user to the group, as one who can join pending owner approval. 
+function groups_addPendingMember($group_id, $user_id) {
+  $querystring = "INSERT INTO user_group_mapping (user_id, group_id, mapping_permission) 
+		    VALUES ('$user_id', '$group_id', 'pending')";
+  query_perform($querystring);
+}
+
+// Pre: $group_id is a valid group
+// $user_id is a valid user
+// Post: Removes a user from that group
+function groups_removeMember($group_id, $user_id) {
+  $querystring = "DELETE FROM user_group_mapping
+		    WHERE group_id='$group_id' AND
+			  user_id='$user_id'";
+  query_perform($querystring);
+}
+
+// Pre: $group_id is a valid group
+// $user_id is a valid user in that group
+// $status is 'user', 'owner', or 'pending'
+function groups_setUsersGroupStatus($group_id, $user_id, $status) {
+  $querystring = "UPDATE user_group_mapping
+		    SET mapping_permission='$status'
+                  WHERE group_id='$group_id' AND
+			user_id='$user_id'";
+  query_perform($querystring);
+}
+
+// Pre: Takes a $group_id
+// Post: Returns true if that group exists.
+function groups_isGroup($group_id) {
+  $querystring = "SELECT group_id
+		    FROM user_groups
+		    WHERE group_id='$group_id'";
+  return query_one_row($querystring);
+}
+
+// Pre: Takes a $group_id
+// Post: Returns information about the group.
+function groups_getGroup($group_id) {
+  $querystring = "SELECT *
+		    FROM user_groups
+		    WHERE group_id='$group_id'";
+  $groupinfo = query_one_row($querystring);
+  $template_variables = array("group_name" => unstripTags($groupinfo->group_name), 
+				"group_description" => unstripTags($groupinfo->group_description));
+  return evalTemplate("mod-users/groups-group-info.template", $template_variables);
+}
+
+// Pre: Takes a $group_id and $user_id
+// Post: Returns true if that user is a member of that group.
+function groups_isMember($group_id, $user_id) {
+  $querystring = "SELECT *
+		   FROM user_group_mapping
+                   WHERE group_id='$group_id' AND
+			 user_id='$user_id' AND
+			 mapping_permission != 'pending'";
+  return query_one_row($querystring);
+}
+
+// Pre: Takes a $group_id and $user_id
+// Post: Returns true if that user is pending membership of that group.
+function groups_isPendingMember($group_id, $user_id) {
+  $querystring = "SELECT *
+		   FROM user_group_mapping
+                   WHERE group_id='$group_id' AND
+			 user_id='$user_id' AND
+			 mapping_permission = 'pending'";
+  return query_one_row($querystring);
+}
+
+// Pre: Takes a $group_id and $user_id
+// Post: Returns true if that user is an owner of that group.
+function groups_isOwner($group_id, $user_id) {
+  $querystring = "SELECT *
+		    FROM user_group_mapping
+                    WHERE group_id='$group_id' AND
+		 	  user_id='$user_id' AND
+			  mapping_permission='owner'";
+  return query_one_row($querystring);
+}
+
+// Pre: Takes a $group_id, and $isAdmin whether the user is an administrator.
+// Post: Returns a form showing the status of all group members in the group.
+function groups_showUserStatus($group_id, $isAdmin) {
+  $querystring = "SELECT * 
+		    FROM user_group_mapping, users
+ 		    WHERE group_id='$group_id' AND
+			  mapping_permission != 'pending' AND
+			  users.user_id=user_group_mapping.user_id
+		    ORDER BY user_group_mapping.mapping_permission";
+  $queryresult = query_multi_row($querystring);
+  $userlist_string = '';
+  while ($user = get_row_from_multi_row($queryresult)) {
+    if ($user->mapping_permission == "owner") {
+      if ($isAdmin && $user->user_id == getUserID(currentUser())) {
+ 	$status = "owner (" . createLink("group-status-submit?group_id=$group_id&user_id=" . $user->user_id .
+				         "&status=become_member",
+					 "Release Ownership") . ")";
+      } else {
+        $status = "owner";
+      }
+    } else {
+      if ($isAdmin) {
+        $status = "member (" . createLink("group-status-submit?group_id=$group_id&user_id=" . $user->user_id . 
+			                  "&status=become_owner",
+			                  "Promote to Owner") .
+	          " or " . createLink("group-status-submit?group_id=$group_id&user_id=" . $user->user_id . 
+			              "&status=leave",
+ 				      "Remove from Group") .
+		  ")";
+      } else {
+  	$status = "member";
+      }
+    }
+    $username = createLink("user-profile?user_id=" . $user->user_id, $user->user_name);
+    $template_variables = array("username" => $username, "status" => $status);
+    $userlist_string .= evalTemplate("mod-users/groups-userlist-user.template", $template_variables);
+  }
+  if ($userlist_string == '')
+    $userlist_string = "<TR BGCOLOR=DDDDDD>\n <TD COLSPAN=2>None!</TD>\n</TR>";
+  $template_variables = compact("userlist_string");
+  return evalTemplate("mod-users/groups-userlist.template", $template_variables);
+}
+
+// Pre: Takes a $group_id
+// Post: Returns a form showing all users pending admission/rejection from a group.
+// This form should only be visible to administrators.
+function groups_showPendingUsers($group_id) {
+  $querystring = "SELECT *
+ 		    FROM user_group_mapping, users
+		    WHERE group_id='$group_id' AND
+		          mapping_permission = 'pending' AND
+ 			  users.user_id=user_group_mapping.user_id";
+  $queryresult = query_multi_row($querystring);
+  $userlist_string = '';
+  while ($user = get_row_from_multi_row($queryresult)) {
+    $username = createLink("user-profile?user_id=" . $user->user_id, $user->user_name);
+    $owner_link = 
+	createLink("group-status-submit?group_id=$group_id&user_id=" . $user->user_id . "&status=become_member", "Approve") .
+        " or " . 
+        createLink("group-status-submit?group_id=$group_id&user_id=" . $user->user_id . "&status=leave", "Reject");
+    $template_variables = compact("username", "owner_link");
+    $userlist_string .= evalTemplate("mod-users/groups-pendinglist-user.template", $template_variables);
+  }
+  if ($userlist_string == '')
+    $userlist_string = "<TR BGCOLOR=DDDDDD>\n <TD COLSPAN=2>None!</TD>\n</TR>";
+  $template_variables = compact("userlist_string");
+  return evalTemplate("mod-users/groups-pendinglist.template", $template_variables);
+}
+
+// Pre: Takes a $user_id for a valid user
+// Post: Returns a display of the groups that user is a member of.
+function groups_groupListForMember($user_id, $leftbar) {
+  // Returns a list of the groups a user is a member of. 
+  $querystring = "SELECT * FROM user_groups, user_group_mapping
+		    WHERE user_group_mapping.user_id='$user_id' AND
+			  user_groups.group_id=user_group_mapping.group_id";
+  $queryresult = query_multi_row($querystring);
+  $grouplist_string = '';
+  while ($group = get_row_from_multi_row($queryresult)) {
+    $group_id = $group->group_id;
+    $group_name = unstripTags($group->group_name);
+    $group_description = unstripTags($group->group_description);
+    switch ($group->mapping_permission) {
+        case 'user': 
+          $status = 'Member';
+          if (isLoggedIn()  && getUserID(currentUser()) == $user_id) {
+            $user_options = createLink("group-status-submit?group_id=$group_id&user_id=$user_id&status=leave", "Leave Group");
+          }
+          break;
+        case 'owner':
+          $status = 'Owner';
+ 	  if (isLoggedIn()  && getUserID(currentUser()) == $user_id) {
+            $user_options = createLink("group-status-submit?group_id=$group_id&user_id=$user_id&status=leave", "Leave Group");
+          }
+          break;
+        case 'pending':
+          $status = 'Membership Request Pending';
+          if (isLoggedIn()  && getUserID(currentUser()) == $user_id) {
+            $user_options = createLink("group-status-submit?group_id=$group_id&user_id=$user_id&status=leave", 
+	       				 "Cancel Membership Request");
+          }
+	  break;
+    }
+    $template_variables = compact("group_id", "group_name", "group_description", "status", "user_options");
+    if (!$leftbar) {
+      $grouplist_string .= evalTemplate("mod-users/groups-grouplist-group.template", $template_variables);
+    } else {
+      $grouplist_string .= evalTemplate("mod-users/groups-grouplist-group-pretty.template", $template_variables);
+    }
+  }
+  if ($grouplist_string == '')
+    $grouplist_string = "<TR BGCOLOR=DDDDDD>\n <TD>None!</TD>\n</TR>";
+  $template_variables = compact("grouplist_string");
+  if (!$leftbar) {
+    return evalTemplate("mod-users/groups-grouplist.template", $template_variables);
+  } else {
+    return evalTemplate("mod-users/groups-grouplist-pretty.template", $template_variables);
+  }
+}
+
+// Pre: Takes a $group_name which is a group name
+// Post: Returns whether a group with that name exists.
+function groups_groupExistsWithName($group_name) {
+  $querystring = "SELECT * 
+                    FROM user_groups
+		    WHERE group_name='$group_name'";
+  return query_one_row($querystring);
+}

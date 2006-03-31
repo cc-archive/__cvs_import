@@ -1,0 +1,8 @@
+Someone sniffing packets can learn our user's password.  We plan on stopping
+that by implementing SSL for password transactions.
+
+Someone sniffing packets could possibly gain access to the site under false
+credentials if they spoof PHP session cookies, which is something I'm going to
+try and do this weekend.
+
+A user who forgets his password can get an e-mail reminder.

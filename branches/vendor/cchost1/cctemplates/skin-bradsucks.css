@@ -1,0 +1,476 @@
+body
+{
+    margin: 0px;
+	color: rgb(0,0,0);
+	background: rgb(255,255,255);
+}
+
+body, input, td, select
+{
+/*	font-family: Lucida Grande, helvetica, arial, sans serif;
+	font-size: 11px; */
+			font-family: Verdana, Tahoma, Helvetica, Geneva, arial, sans-serif;
+			font-size: 12px;
+}
+
+img, table
+{
+	border-width: 0px;
+}
+
+input[type=text], textarea
+{
+	width: 280px;
+}
+
+input[type=submit]
+{
+	margin-left: 35%
+}
+
+textarea
+{
+	height: 100px;
+}
+
+.cc_all_content {
+	width: 760px;
+	\width: 780px;
+	w\idth: 760px;
+	border: 0px solid gray;
+	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+}
+
+
+.cc_banner {
+	padding: 12;
+	background-color: rgb(237, 28, 36);
+	background-image: url('bradsucks.gif');
+	background-repeat: no-repeat;
+	border: 1px solid black;
+}
+
+.cc_site_title {
+	text-align: right;
+	display: block;
+	height: 72px;
+	color: rgb(237, 28, 36);
+}
+
+.cc_site_description {
+	margin-left: 30px;
+	width:       230px;
+	color:       white;
+	margin-top:  -16px;
+	margin-left: 33px;
+	font-size:      8px;
+	letter-spacing: 0.27em;
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+
+.cc_banner_link {
+}
+
+.cc_body_text {
+
+}
+
+.cc_command {
+	display: block;
+	margin-bottom: 4px;
+}
+
+.cc_commands {
+	float: right;
+	padding-left: 10px;
+	margin-right: -150px;
+	font-size: 10px;
+}
+
+.cc_content {
+	margin-left: 180px;
+}
+
+.cc_content_clear {
+
+}
+
+.cc_contest_bitmap {
+
+}
+
+.cc_contest_closed {
+	font-weight: bold;
+	color: red;
+}
+
+.cc_contest_content {
+
+}
+
+.cc_contest_description {
+   margin: 10px;
+}
+
+.cc_contest_link {
+
+}
+
+.cc_contest_listing {
+	margin-bottom: 30px;
+}
+
+.cc_contest_name {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.cc_contest_open {
+	font-weight: bold;
+	color: green;
+}
+
+.cc_contest_rules {
+
+}
+
+.cc_contest_user {
+
+}
+
+.cc_contest_voting_status {
+
+}
+
+.cc_custom_macros
+{
+   float: right;
+   width: 180px;
+   height: 400px;
+   border-left: 1px solid #ccc;
+   border-right: 1px solid #ccc;
+   margin-top: 7px;
+   background: #eee;
+}
+
+.cc_custom_macros td
+{
+	padding-top: 10px;
+	vertical-align: top;
+	height: 10px;
+}
+
+.cc_gutter {
+}
+
+.cc_date_field {
+
+}
+
+.cc_email_contact {
+
+}
+
+.cc_email_link {
+
+}
+
+.cc_external_link {
+
+}
+
+.cc_file_date {
+
+}
+
+.cc_file_description, .cc_contest_description  {
+	margin-top: 12px;
+}
+
+.cc_file_license {
+
+}
+
+.cc_file_link {
+
+}
+
+.cc_file_list_content {
+
+}
+
+.cc_file_listing {
+
+}
+
+.cc_file_listing_clear {
+
+}
+
+.cc_file_name {
+
+}
+
+.cc_footer {
+
+}
+
+.cc_form {
+
+}
+
+.cc_form_about {
+	padding: 14px;
+}
+
+.cc_form_element {
+	vertical-align: top;
+}
+
+.cc_form_error {
+	font-weight: bold;
+	color: red;
+}
+
+.cc_form_error_row {
+
+}
+
+.cc_form_input_short {
+
+}
+
+.cc_form_label {
+	vertical-align: top;
+	text-align: right;
+	font-size: 14px;
+	padding-bottom: 8px;
+
+}
+
+.cc_form_row {
+
+}
+
+.cc_form_submit {
+
+}
+
+.cc_form_table {
+
+}
+
+.cc_form_tip {
+	font-size: 10px;
+	padding-bottom: 8px;
+}
+
+.cc_grid_form_header {
+
+}
+
+.cc_grid_form_header_row {
+
+}
+
+.cc_grid_form_table {
+
+}
+
+.cc_license_image {
+
+}
+
+.cc_link_menu_info {
+
+}
+
+.cc_link_menu_link {
+
+}
+
+.cc_link_menu_table {
+
+}
+
+.cc_listing {
+
+}
+
+.cc_logged_in_as {
+	float: right;
+	margin-right: 25px;
+	margin-top: 31px;
+	color: white;
+	text-transform: lowercase;
+	font-family: verdana, arial, helvetica, geneva, sans-serif;
+	font-size: 10px;
+	
+}
+
+.cc_logged_in_name {
+	display: inline;
+}
+
+.cc_menu {
+   float: left;
+}
+
+.cc_menu_group {
+	margin-top: 15px;
+	border: 1px solid #ccc;
+	text-align: center;
+	font-size: 10px;
+	line-height: 14px;
+	padding: 0px;
+	padding-bottom: 4px;
+	font-family: Verdana, Tahoma, Helvetica, Geneva, arial, sans-serif;
+	width: 150px;
+
+}
+
+.cc_menu_group_name {
+	font-weight: bold;
+	list-style-type: none;
+	line-height: 20px;
+	font-size: 11px;
+	background: #eee;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	font-family: Verdana, Tahoma, Helvetica, Geneva, arial, sans-serif;
+	color: #aa0000;
+}
+
+.cc_menu_item a, .cc_menu_item a:visited{
+			text-decoration: none;
+			color: black;
+}
+
+.cc_menu_item a:hover {
+	text-decoration: underline;
+}
+
+.cc_menu_link {
+
+}
+
+.cc_page_title {
+	margin-top: 10px;
+	margin-left: 180px;
+	margin-bottom: 16px;
+	font-family: georgia, times new roman,serif;
+	font-size: 20px;
+	font-weight: bold;
+	padding-top: 25px;
+
+}
+
+.cc_php_error_message {
+
+}
+
+.cc_poll_entry {
+
+}
+
+.cc_polling_bar {
+	background: black;
+	color: black;
+}
+
+.cc_polling_data {
+
+}
+
+.cc_remix_check {
+
+}
+
+.cc_remix_license_notice {
+
+}
+
+.cc_remix_search_box {
+
+}
+
+.cc_remix_search_result {
+
+}
+
+.cc_remix_source_choice {
+
+}
+
+
+.cc_remix_targets, .cc_remix_sources {
+	margin: 7px;
+}
+
+
+.cc_site_license {
+
+}
+
+
+.cc_system_error_message {
+
+}
+
+.cc_system_prompt {
+
+}
+
+.cc_tag_link, .cc_file_date, .cc_file_license, .cc_user_name,
+  .cc_user_regdate {
+	font-size: 10px;
+	font-family: Verdana, Tahoma, Helvetica, Geneva, arial, sans-serif;
+	color: #666;
+}
+
+.cc_user_help {
+
+}
+
+.cc_user_label {
+	text-align: right;
+	background: #eee;
+	font-family: Verdana, Tahoma, Helvetica, Geneva, arial, sans-serif;
+	color: #aa0000;
+	font-size: 10px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+	font-weight: bold;
+}
+
+.cc_user_avatar {
+  width: 92px;
+}
+
+.cc_user_link {
+
+}
+
+.cc_user_listing_table {
+	margin-bottom: 13px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cc_user_avatar {
+
+}
+
+.cc_user_real_name {
+
+}
+
+
+.cc_user_value {
+
+}
+

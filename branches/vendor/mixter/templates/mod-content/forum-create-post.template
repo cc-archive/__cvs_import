@@ -1,0 +1,29 @@
+<TABLE CLASS="basic">
+<TR>
+ <TD>$replymessage</TD>
+</TR>
+<TR><TD>
+<TABLE BGCOLOR="#8ea48e">
+<FORM METHOD="POST" ACTION="forum-post-submit">  
+<INPUT TYPE="hidden" NAME="refers_to" VALUE="$refers_to">
+<INPUT TYPE="hidden" NAME="confirmed" VALUE="$confirmed">
+<TR>
+ <TD>Subject:</TD>
+</TR>
+<TR>
+ <TD><INPUT TYPE="text" NAME="subject" VALUE="$subjectline" SIZE="60"></TD>
+</TR>
+<TR>
+ <TD>Body:</TD>
+</TR>
+<TR>
+ <TD><TEXTAREA NAME="body" ROWS="10" COLS="80">$body</TEXTAREA></TD>
+</TR>
+<TR>
+ <TD><INPUT TYPE="submit" VALUE="Post Message"></TD>
+</TR>
+</FORM>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>

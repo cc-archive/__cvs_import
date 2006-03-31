@@ -1,0 +1,9 @@
+<H1>Search Administration</H1>
+
+<DIV CLASS="licensebox">
+$corpus_statistics
+</DIV>
+<H1>Top 100 Search Terms</H1>
+<DIV CLASS="licensebox">
+$search_statistics
+</DIV>

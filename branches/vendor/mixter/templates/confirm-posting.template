@@ -1,0 +1,28 @@
+<H1>Confirm Question Posting</H1>
+
+<P ALIGN="LEFT">
+This is what your question will look like:
+</P>
+
+$sample_posting
+
+$edit_posting
+
+<P ALIGN="LEFT">
+<FONT SIZE="3">Browse possible answers to your questions from <A HREF="#MIXTER">Mixter</A> and <A HREF="#GOOGLE">Google</A> links.</FONT><BR>(Note! All search links will pop up in seperate windows so that you do not lose your question.)
+</P>
+
+<A NAME="MIXTER">
+<P ALIGN="LEFT">
+<FONT SIZE=3>Mixter Search Results:</FONT>
+</P>
+
+$local_searches
+
+<A NAME="GOOGLE">
+<P ALIGN="LEFT">
+<FONT SIZE=3>Google Search Results:</FONT>
+</P>
+
+$google_searches
+

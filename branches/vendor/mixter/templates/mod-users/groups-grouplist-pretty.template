@@ -1,0 +1,12 @@
+<TABLE CLASS="leftbar">
+<TR>
+ <TD><B>Group Memberships</B></TD>
+</TR>
+$grouplist_string
+<TR>
+ <TD><B><A HREF="create-group">Create A New Group</A></B></TD>
+</TR>
+</TABLE>
+
+<P>
+</P>

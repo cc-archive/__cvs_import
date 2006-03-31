@@ -1,0 +1,48 @@
+<P ALIGN="LEFT">
+<FONT SIZE="4"><A HREF="forums">Forums</A> - Administrate Postings</FONT>
+</P>
+
+<FORM METHOD="GET" ACTION="forum-view-postings">
+<TABLE>
+<TR>
+ <TD>Select Postings By:</TD>
+</TR>
+<TR>
+ <TD><INPUT TYPE="RADIO" NAME="select_postings" VALUE="username" $r_username>Username:</TD>
+ <TD><INPUT TYPE="TEXT" NAME="username" SIZE=30 VALUE="$username"></TD>
+</TR>
+<TR>
+ <TD><INPUT TYPE="RADIO" NAME="select_postings" VALUE="new_users" $r_new_users>New Users:</TD>
+ <TD>Users registered in the last <INPUT TYPE="TEXT" NAME="new_users" SIZE=4 VALUE="$new_users"> days. (Limited to 100 entries)</TD>
+</TR>
+<TR>
+ <TD><INPUT TYPE="RADIO" NAME="select_postings" VALUE="by_forum" $r_by_forum>Forum</TD>
+ <TD><SELECT NAME="forums">$forumlist</SELECT>
+</TR>
+<TR>
+ <TD><INPUT TYPE="RADIO" NAME="select_postings" VALUE="all" $r_all>All:</TD>
+ <TD>Useful for viewing, say, unapproved content. (Limited to 100 entries.)</TD>
+</TR>
+<TR>
+ <TD COLSPAN=2>Show postings with the following editorial status:</TD>
+</TR>
+<TR>
+ <TD COLSPAN=2><INPUT TYPE="CHECKBOX" NAME="submitted" $submitcheck>Submitted&nbsp;
+     <INPUT TYPE="CHECKBOX" NAME="approved" $approvecheck>Approved&nbsp;
+     <INPUT TYPE="CHECKBOX" NAME="rejected" $rejectcheck>Rejected&nbsp;
+     <INPUT TYPE="CHECKBOX" NAME="expired" $expirecheck>Expired&nbsp;
+ </TD>
+</TR>
+
+</TR>
+<TR>
+ <TD><INPUT TYPE="SUBMIT" VALUE="Get Postings"></TD>
+</TR>
+</TABLE>
+</FORM>
+
+<P ALIGN="LEFT">
+Color Codes for Postings: <FONT COLOR="#ff0000">submitted</FONT> (needing moderation), 
+<FONT COLOR="#0000ff">approved</FONT>, <FONT COLOR="#222222">expired or rejected</FONT>
+</P>
+$view_postings

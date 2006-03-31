@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="SimpleBlog">
+
+  <metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+    <metal:css fill-slot="css_slot">
+        <link rel="stylesheet" type="text/css" media="screen" href="" tal:attributes="href string:$portal_url/SimpleBlogCSS.css" />
+    </metal:css>
+
+<div metal:fill-slot="main"
+     tal:define="results python:here.simpleblog_tool.searchForEntries(here, maxResults=0);
+                      standardButtons python:here.simpleblog_tool.getShowStandardButtons();
+                      b_size python:10;
+                      b_start python:0;
+                      b_start request/b_start | b_start;
+                      Batch python:modules['Products.CMFPlone'].Batch;">
+
+    <h1>Search results</h1>
+
+    <div tal:condition="results" tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+         <tal:results tal:repeat="result batch">
+             <tal:list tal:define="obj result/getObject;headerSize python:3">
+                 <div metal:use-macro="here/SimpleBlog_macros/macros/descriptionOnly"/>
+             </tal:list>
+         </tal:results>
+         <div metal:use-macro="here/batch_macros/macros/navigation" />
+    </div>
+    <p tal:condition="not: results">
+        No Entries are found.
+    </p>
+
+  </div>
+
+
+</html>

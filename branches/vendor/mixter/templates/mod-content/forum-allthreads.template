@@ -1,0 +1,16 @@
+<TABLE CLASS="basic">
+<TR>
+ <TD WIDTH=250><B><FONT SIZE=2>Questions</FONT></TD>
+ <TD WIDTH=70><B><FONT SIZE=2>Replies</FONT></TD>
+ <TD WIDTH=70><B><FONT SIZE=2>Originator</FONT></TD>
+ <TD WIDTH=120><B><FONT SIZE=2>On</FONT></TD>
+ <TD WIDTH=120><B><FONT SIZE=2>Last Post</FONT></TD>
+</TR>
+$listofthreads
+</TABLE>
+
+<P>
+</P>
+<A NAME="newpost">
+$newpost
+

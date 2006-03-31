@@ -1,0 +1,23 @@
+<TABLE CLASS="leftbar" >
+  <FORM METHOD="POST" ACTION="login-submit"> 
+  <TR>
+    <TD COLSPAN=2><FONT COLOR=000000 SIZE=2>You are not logged in.</FONT></TD>
+  </TR>
+  <TR>
+    <TD>Username:</TD>
+    <TD><INPUT TYPE="text" NAME="username" VALUE="$username" SIZE="12"></TD>
+  </TR>
+  <TR>
+    <TD>Password:</TD>
+    <TD><INPUT TYPE="password" NAME="password" SIZE="12"></TD>
+  </TR>
+  <TR>
+    <TD ALIGN="LEFT" COLSPAN="2"><INPUT TYPE="SUBMIT" VALUE="Login"></TD>
+  </TR>
+  <TR>
+    <TD ALIGN="LEFT" COLSPAN="2">Forget your <A HREF="./forgot-password">password</A> or 
+				     <A HREF="./username-lookup">username</A>?<BR>
+				     <A HREF="./create-account">Create a new account now!</A></TD>
+  </TR>
+  </FORM>
+</TABLE>
