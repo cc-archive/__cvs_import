@@ -1,4 +1,0 @@
-doc - Documentation
-modules - Modules that the web scripts use, but shouldn't themselves be web accessible
-templates - templates for the scripts in the web folder, so the templates themselves aren't web accessible. Templates doesn't have a seperate subdirectory "modules," it just has all the modules subdirectories in it.
-www - all the web scripts

@@ -1,0 +1,17 @@
+<TABLE CLASS="leftbar">
+ <TR>
+  <TD><B>Administrator Links</B></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="generate-log">View General Site Log</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="error-log">View Error Log</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="search-administer">Site Content Statistics</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="admin-view-music">View Music Pending Approval</A></TD>
+ </TR>
+</TABLE>

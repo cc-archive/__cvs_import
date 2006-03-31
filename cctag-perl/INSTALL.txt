@@ -1,0 +1,105 @@
+[excerpted from
+<http://lists.ibiblio.org/pipermail/cc-metadata/2003-July/000152.html>]
+
+> As we were discussing last week, I'm now trying to use the perl scripts
+> cclookup and cctag.
+> 
+> I'm a perl novice, so what do I need to do to use these on linux.
+
+First, save cctag.pl and cclookup.pl from <http://cctools.sf.net>. 
+Right click on the links and choose "Save Link Target As..."
+
+Open a shell and cd to the directory where you saved the files.  Make 
+them executable.
+
+     chmod +x cctag.pl cclookup.pl
+
+At this point you can try to run one of them
+
+     ./cctag.pl
+
+It will probably fail due to all of the perl modules it requires not 
+being installed.
+
+Required perl modules are documented in README-cctag.txt, available via 
+the aforementioned URL, with relevant portion copied below.  (I haven't 
+packaged these yet, that's why each file needs to be downloaded 
+individually.  People comfortable with CVS can use that.)  cctag 
+requires a superset of the modules required by cclookup, so you don't 
+need to look the latter's README.
+
+Before installing the Perl modules you'll have to install one C library 
+used by one of the perl modules.  Probably the easiest way to install 
+the library is by downloading 
+<ftp://rpmfind.net/linux/sourceforge/rpmsforsuse/id3lib-3.8.3-1.i386.rpm> 
+and using rpm to install, e.g.,
+
+     rpm -Uvh id3lib-3.8.3-1.i386.rpm
+
+Or download and build from source via <http://id3lib.sf.net>.
+
+The easiest way to install Perl modules is by running
+
+     perl -MCPAN -e shell
+
+In the CPAN shell, type
+
+     install <module name>
+
+for each required module, i.e.,
+
+     install Convert::Base32
+     install MP3::Tag
+     install MP3::ID3Lib
+
+These commands will download and install the modules and any modules 
+they depend upon.  After running exiting the CPAN shell, try running 
+cctag.pl as above.  If it still complains you might try installing the 
+modules listed below following "These are probably already installed."
+
+Assuming you get this far (argh, painful, I know, sorry!) the 
+READMEs/help printed out when you run the scripts with no arguments 
+should be relatively crystal clear.
+
+Please bug me if anything doesn't work for you!
+
+Mike
+
+
+PREREQUISITES
+     You will probably have to install these:
+
+     Convert::Base32
+             http://search.cpan.org/author/MIYAGAWA/Convert-Base32/
+
+     MP3::Tag
+             http://search.cpan.org/author/THOGEE/tagged/
+
+             Tagged requires
+             http://search.cpan.org/author/PMQS/Compress-Zlib/ which you
+             may need to install.
+
+     MP3::ID3Lib
+             http://search.cpan.org/author/LBROCARD/MP3-ID3Lib-0.12/
+
+             MP3::ID3Lib requires the C library
+             http://id3lib.sourceforge.net.
+
+             Note that in order to compile id3lib on OS X you will need
+             to pass a flag to configure:
+
+             ./configure CXX=g++2
+
+     These are probably already installed:
+
+     Digest::SHA1
+             http://search.cpan.org/author/GAAS/Digest-SHA1/
+
+     Getopt::Long
+             http://search.cpan.org/author/JV/Getopt-Long/
+
+     LWP::UserAgent
+             http://search.cpan.org/author/GAAS/libwww-perl/
+
+     Pod::Usage
+             http://search.cpan.org/author/MAREKR/PodParser/

@@ -1,6 +1,0 @@
-
-<FORM METHOD="GET" ACTION="search-view" style="margin: 0px;">
- <INPUT TYPE="text" NAME="query" SIZE="$size" VALUE="$searchvalue">
- <INPUT TYPE="submit" VALUE="Search!" 
-  style="margin-right:6px;font-size:11px;font-family:verdana;" />
-</FORM>

@@ -1,7 +1,0 @@
-<P ALIGN="CENTER">
-<FONT SIZE="4">Search Complete!</FONT><BR>
-<BR>
-We found the following username: $username
-</P>
-
-$login_table

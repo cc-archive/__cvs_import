@@ -1,0 +1,64 @@
+<p>
+<A href="../">main</a> &gt; <a href="./high-level-design.html">high-level</a> &gt;
+</p>
+
+<h3>Tool</h3>
+
+<p>
+We will use <a
+href="http://www.sai.msu.su/~megera/postgres/gist/tsearch/V2/">tsearch2</a>
+for full-text indexing within PostgreSQL.
+</p>
+
+<p>
+We need a comprehensive system for full-text indexing of documents,
+efficiently updating the indexes, and relatively efficient
+searching. Our goal is not to scale this system significantly at this
+time. Thus, we choose an architecture that, while most likely
+scalable, is focused mostly on simple, flexible full-text indexing.
+</p>
+
+<p>
+<b>tsearch2</b> is a very good candidate because it:
+<ul>
+<li> performs full-text indexing within the database, greatly
+simplifying maintenance
+<li> is being adopted as a contrib package in PostgreSQL v7.4, thus
+showing significant promise of adoption
+<li> is extensible via standard ispell packages for stemming
+<li> is flexible in how it indexes various sections of text with
+appropriate weights
+</ul>
+</p>
+
+<h3>Specifics</h3>
+
+<p>
+<b>tsearch2</b> is installed as an add-on module for PostgreSQL 7.3 or
+7.4. Thus, even if we choose to stick with PostgreSQL 7.3, we can use
+it safely.
+</p>
+
+<p>
+We note one complication because of tsearch2 usage: <b><u>backups</u></b>. We
+will need to develop and test backup scripts. Since the search data
+can (and should) be regenerated every week or two, backups are not a
+primary problem. However, once this system goes into production, we
+won't want 1-2 weeks of downtime. Thus, we need to develop a plan for
+tsearch2 backups, even if this plan is not top priority.
+</p>
+
+<p>
+We want to set up the tsearch2 indexes in such a way that we can easily
+tweak the weights of various components to yield more relevant search
+results. This will be especially useful during development. Thus, we
+will <b><u>keep the processed URLs around</u></b> for reindexing
+purposes.
+</p>
+
+<p>
+Since <tt>tsearch2</tt> uses database triggers to maintain full-text
+indexes, we can simply <b><u>use the normal Python-to-PG interface</u></b>
+(<tt>psycopg</tt>) to store the processed RDF and stripped HTML. The
+triggers will do the rest automatically.
+</p>

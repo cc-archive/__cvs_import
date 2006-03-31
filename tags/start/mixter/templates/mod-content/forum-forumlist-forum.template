@@ -1,6 +1,0 @@
-<TR>
- <TD><FONT SIZE=4><A HREF="$forum_link">$forum_name</A></FONT><BR>
-     <FONT SIZE=3>$forum_description</FONT>
- </TD>
- $admin_options
-</TR>

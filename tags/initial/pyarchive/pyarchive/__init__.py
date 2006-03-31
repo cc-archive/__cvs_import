@@ -1,2 +1,0 @@
-# pyArchive package.
-# $Id$

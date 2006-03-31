@@ -1,6 +1,0 @@
-<TABLE CLASS="basic" WIDTH=400>
-<TR>
- <TD><B>Group Memberships</B></TD>
-</TR>
-$grouplist_string
-</TABLE>

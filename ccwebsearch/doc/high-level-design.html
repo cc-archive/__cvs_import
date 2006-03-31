@@ -1,0 +1,233 @@
+<p>
+<A href="../">main</a> &gt;
+</p>
+
+<h3>Big Picture</h3>
+<p>
+The amount of Creative Commons content on the web is growing at a
+noticeable rate, but there is no easy way for people to <b>find this
+content</b>. Using the RDF tagging that Creative Commons has specified
+and the power of existing search engines like Google and AllTheWeb, we
+will build an <b>RDF Search Engine</b>. Using this engine, users can
+specify particular licensing criteria in addition to their usual search
+terms in order to find content they can specifically use.
+</p>
+
+<h3>Design Principles</h3>
+<p>
+The source for searching may be Google today, AllTheWeb tomorrow, and
+some currently-unknown search engine the day after. Some content may
+be manually submitted. Licenses may change and grow. We're not trying
+to build the uber search engine, but the design should be <b>modular</b>
+enough to support these types of changes without duplicating common
+functionality.
+</p>
+
+<p>
+Initial use of this system will be low load, so immediate scalability
+is not a concern. However, a <b>path to scalability</b> should be outlined.
+</p>
+
+<p>
+As much as is possible and reasonable, RDF Search will build upon
+<b>existing technology</b> at Creative Commons. More on this in <a
+href="technology.html">the technology section</a>.
+</p>
+
+<h3>Design</h3>
+
+<p>
+The RDF Search system modules include:
+<ul>
+<li> <b><a href="#url_gathering">URL gathering</a></b>: the process of collecting URLs that contain
+Creative Commons content. There may be any number of URL gathering
+methods, specifically using Google, AllTheWeb, etc...
+<li> <b><a href="#url_data_model">URL data model</a></b>: the data model in which gathered URLs are
+stored.
+<li> <b><a href="#document_fetching">Document fetching</a></b>: the process of requesting the content of the
+URLs that have been gathered.
+<li> <b><a href="#document_parsing">Document parsing</a></b>: the process of parsing the document data
+into proper fields, specifically parsing out the RDF fields.
+<li> <b><a href="#document_data_model">Document data model</a></b>: the data model for storing the parsed
+document data.
+<li> <b><a href="#indexing_mechanism">Indexing mechanism</a></b>: the process of indexing the stored
+document data and making it ready for search.
+<li> <b><a href="#search_interface">Search interface</a></b>: the actual searching of the indexed,
+structured data.
+</ul>
+</p>
+
+<h3>Design Details</h3>
+
+<a name="url_gathering"></a>
+<h4>URL Gathering</h4>
+
+<p>
+The gathering of URLs will usually be done by using a search engine
+like Google or AllTheWeb. There are three important issues involved in
+this process:
+<ul>
+<li> Defining the search query required to find all Creative Commons
+content. There could be more than one query, for example one query per
+license. This means that the URL gathering module may potentially need
+a list of license URLs to do its job correctly. This will most likely
+be implemented by a <b>callback</b> from the URL gathering module to
+the core RDF search system, since we don't know exactly what data the
+URL gathering module will need.
+<li> Parsing out specific links from each search engine
+<li> Automatically paging through the results of the search engine
+</ul>
+</p>
+
+<p>
+We note that while this work does require significant network access,
+it's not easily parallelizable across multiple machines, since most
+accesses will be to the same search engine. (Mike correctly notes that
+this can be parallelized, but this would require coordinating the
+paging, something which is far from simple. We may parallelize here
+based on threading, but not between different machines).
+</p>
+
+<p>
+We specifically investigate methods for URL gathering with:
+<ul>
+<li> <a href="url-gathering/alltheweb.html">AllTheWeb</a> (work in progress)
+<li> Google (work in progress)
+</ul>
+</p>
+
+<a name="url_data_model"></a>
+<h4>URL Data Model</h4>
+
+<p>
+Here we worry about storing the gathering methods, the URLs for each
+gathering method, and information about each URL, including:
+<ul>
+<li> when the URL was last fetched
+<li> whether the URL is still alive
+<li> if the URL is being processed by a fetching thread
+</ul>
+</p>
+
+<p>
+see the <a href="url-data-model.sql">URL data model file</a>.
+</p>
+
+
+<a name="document_fetching"></a>
+<h4>Document Fetching</h4>
+
+<p>
+Fetching document content is an activity that may require significant
+network activity as the number of documents grows. We should aim to
+make this activity parallelizable as much as possible. We augment the
+<a href="#url_data_model">URL data model</a> to include this ability.
+</p>
+
+<p>
+Based on this, a document fetching process will:
+<ul>
+
+<li> select a batch of documents to process, marking them with a
+correct <tt>current_download_begin</tt> and
+<tt>current_download_pid</tt> to let other processes know that these
+URLs are being processed.
+
+<li> fetch each document's content.
+
+<li> parse the document (see <A href="#document_parsing">document
+parsing</a>)
+
+<li> store the document data (see <a
+href="#document_data_model">document data model</a>)
+
+<li> update the row in the <tt>rdfs_urls</tt> table to show that it
+has been downloaded and is no longer being processed.
+
+</ul>
+</p>
+
+
+<a name="document_parsing"></a>
+<h4>Document Parsing</h4>
+
+<p>
+Once the raw document has been downloaded, it needs to be parsed to specifically:
+<ul>
+<li> extract well-formed RDF
+<li> parse the well-formed RDF into specific fields
+<li> produce a stripped-down version of the HTML content
+</ul>
+</p>
+
+<p>
+We probably don't want to implement our own RDF parser for this. We
+will reuse what we can from other CC tools as much as possible.
+</p>
+
+<p>
+We explore this issue of document parsing in <a href="document-parsing.html">more depth</a>.
+</p>
+
+<a name="document_data_model"></a>
+<h4>Document Data Model</h4>
+
+<p>
+Specific complications and considerations include:
+<ul>
+<li> representing RDF document fields (these are not so likely to
+change over time),
+<li> representing RDF license fields (these may change or at least be
+augmented over time),
+<li> storing non-RDF stuff.
+</ul>
+</p>
+
+<p>
+We will work on collecting fields outside the RDF for better
+searching. Specifically, we will take the full text and strip out all
+HTML markup. The result will be stored as an "extended description."
+</p>
+
+<p>
+see the <a href="document-data-model.sql">document data model file</a>.
+</p>
+
+<a name="indexing_mechanism"></a>
+<h4>Indexing Mechanism</h4>
+
+<p>
+We need to have full-text search available over a number of weighted
+text fields. To start, we will begin experimenting with
+<b>tsearch2</b>, which should provide very respectable performance for
+the goals of this project stage. We suspect it will likely be a good
+candidate for the scalable search solution, too, though further
+testing is required to confirm this intuition.
+</p>
+
+<p>
+Specifically, searching will be done by:
+<ul>
+<li> license characteristics
+<li> full-text on:
+<ul>
+<li> title
+<li> author
+<li> description
+<li> stripped HTML (extended description)
+</ul>
+</ul>
+</p>
+
+<a name="search_interface"></a>
+<h4>Search Interface</h4>
+
+<p>
+The initial search interface will be "GooglePlus," meaning that we
+present a single text entry box with checkboxes that indicate certain
+license characteristics. We will not try to implement "advanced
+search" at this stage (and in fact it's questionable that we want to
+do this until there are a <b>lot</b> more documents under CC licenses,
+say tens of millions).
+</p>
+

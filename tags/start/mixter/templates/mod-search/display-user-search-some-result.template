@@ -1,5 +1,0 @@
-<TR>
- <TD><A HREF="$link">$name</A><BR>
-     $description
- </TD>
-</TR>

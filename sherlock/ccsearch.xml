@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Creative Commons Sherlock Search		-->
+<!-- (c) 2004, Creative Commons, Nathan Yergler -->
+<!--           <nathan@creativecommons.org>     -->
+
+<!-- licensed under the GNU GPL 2		-->
+
+<channel_info 
+	identifier="org.CreativeCommons.Search" 
+	icon_url="cc.icns" 
+	channel_url="Channel/Channel.xml" 
+	localized_base_url="Channel/"
+	nib_url="Channel.nib/objects.nib"
+	help_file="help.html" 
+/>

@@ -1,0 +1,13 @@
+
+<h1>$title</h1>
+<p class="by">by <a href="$author_url">$author</a><br />
+<span class="timestamp">Music $date</span></p>
+  
+<p>$description</p>
+  
+<p><a href="magnet:?xt=urn:sha1:$sha1_32&#38;xs=$download_url&#38;dn=$filename" title="Local File Options"><img src="http://magnet-uri.sourceforge.net/magnet-icon-9w-10h.gif" border="0" /></a> <a href="$download_url">Download Now!</a></p>
+
+<p>Source URL: $source_url</p>
+  
+<p class="timestamp" style="margin-top:10px;width:300px;"><a href="$license_url"><img src="http://creativecommons.org/images/public/somerights.gif" border="0" /></a><br />
+This song is licensed under a Creative Commons <a href="$license_url">$license_name</a> license.</p>

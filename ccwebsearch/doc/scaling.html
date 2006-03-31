@@ -1,0 +1,70 @@
+<p>
+<A href="../">main</a> &gt; <a href="./high-level-design.html">high-level</a> &gt;
+</p>
+
+<h3>Goals</h3>
+<p>
+We want to be able to:
+<ul>
+<li> index <b><u>5 million Creative Commons documents</u></b>
+<li> renew the indexes fully <b><u>every week</u></b>
+<li> process up to <u><b>10 searches per second</b></u>
+</ul>
+</p>
+
+<h3>Network Fetching</h3>
+<p>
+We need to first fetch documents from the search engine. Assuming
+<b>100 results per hit</b>, we need to query a search engine <b>50,000
+times</b>. Each such hit will result in a download of a search engine
+result page on the order of 125K (though we will investigate gzipped
+delivery).
+</p>
+
+<p>
+Thus, we can expect weekly traffic of <b><u>6.25 Gigabytes</u></b> to
+the search engines, spread out at the rate of about 1 hit every 10
+seconds.
+</p>
+
+<p>
+Each record out of 5 million needs to be queried once a week, which
+means about 10 requests per second. Each will be about 20K in size,
+which means a need for about 100 gigabytes of bandwidth per week,
+which is a sustained 165KB/sec, which is 1.25Mb/sec.
+</p>
+
+<p>
+Thus, we need about 1.5Mb/sec of sustained bandwidth use.
+</p>
+
+<h3>Storage</h3>
+<p>
+All documents will be stored in stripped-down format, so we can expect
+to keep only 5KB of text per document.The overhead for each document
+will be another 1KB of metadata, and probably 2KB of text index, which
+means total storage of 40GB.
+</p>
+
+<p>
+5 million rows and 40 gigabytes are very much workable in PostgreSQL
+on an average system.
+</p>
+
+<h3>Querying Power</h3>
+<p>
+We will need to do some benchmarking on querying of 5 million rows
+with full-text indexing.
+</p>
+
+<h3>Current Needs</h3>
+<p>
+We note that all previous figures are linear in the number of Creative
+Commons documents. Thus, since we currently have less than 1 Million
+documents, we need the following to start:
+<ul>
+<li> 1 hit per minute to the search engine
+<li> 300Kb/sec in sustained bandwidth usage (without compression)
+<li> 1M rows and 8GB of storage
+</ul>
+</p>

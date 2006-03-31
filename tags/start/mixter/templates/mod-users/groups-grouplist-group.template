@@ -1,5 +1,0 @@
-<TR CLASS="greyrow">
- <TD><A HREF="view-group?group_id=$group_id">$group_name</A> ($status)<BR>
-     <FONT SIZE=2>$group_description</FONT> $user_options
- </TD>
-</TR>

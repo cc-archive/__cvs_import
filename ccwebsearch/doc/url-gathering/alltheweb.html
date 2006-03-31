@@ -1,0 +1,61 @@
+<p>
+<A href="../../">main</a> &gt; <a href="../high-level-design.html">High-Level Design</a> &gt;
+</p>
+
+<h3>General Strategy</h3>
+<p>
+AllTheWeb doesn't offer SOAP APIs at this point. Thus, we need to
+actually request HTML pages and parse them. I have put a request in
+with AllTheWeb to see when they may launch SOAP APIs, as this would be
+a far better way of going about the process of URL gathering.
+</p>
+
+<h3>Request Format</h3>
+<p>
+Using AllTheWeb's web search form, we can find all the CreativeCommons
+URLs with a single search query of the form:
+</p>
+
+<blockquote>
+<tt>link:http://creativecommons.org/licenses/</tt>
+</blockquote>
+
+
+<p>
+There is no need to query license by license, which keeps the
+interface to the URL gathering module quite simple. The URL at
+AllTheWeb for executing this query is:
+</p>
+
+<blockquote>
+<tt>http://alltheweb.com/search?q=[search_query]</tt>
+</blockquote>
+
+<p>
+where <tt>[search_query]</tt> is the search query mentioned above,
+URL-encoded if need be.
+</p>
+
+<p>
+We note that to get results in larger sets, we need to have a cookie
+set for 100 results at a time. Since there are also other cookie
+parameters, we will need to check if this can be automated. In the
+worst case, we can simply automate the getting and setting of a cookie
+before a search begins.
+</p>
+
+<h3>Results Format</h3>
+<p>
+AllTheWeb results are fairly intricate chunks of HTML, but all of the
+URLs are found in:
+</p>
+
+<blockquote>
+<tt>&lt;span class="resURL"&gt;http://foo.com&lt;/span&gt;</tt>
+</blockquote>
+
+<p>
+This also includes sponsored links, which at some point we may have to
+parse out, but at this point doesn't seem like an issue for backlink
+searches (I doubt sponsored links can be added for backlink searches).
+</p>

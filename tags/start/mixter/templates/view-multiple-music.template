@@ -1,9 +1,0 @@
-<H1>Recent Music</H1>
-
-<FORM METHOD=get ACTION="view-recent-music">
-<P ALIGN=left>View&nbsp;
-<INPUT SIZE=4 VALUE="$num" NAME="num">
-most recently posted pieces of music that have been approved.
-<INPUT TYPE=SUBMIT VALUE="Go">
-</P>
-$music_list

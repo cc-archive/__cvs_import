@@ -1,0 +1,54 @@
+<html><head>
+<title>Creative Commons Tools @ SourceForge.net</title>
+</head><body>
+<h1><a href="http://sourceforge.net/projects/cctools/">Creative Commons Tools</a></h1>
+
+<p>The <a href="http://sourceforge.net/projects/cctools/">cctools sourceforge project</a> is a collection of tools for using <a href="http://creativecommons.org/metadata/">license metadata</a> from <a href="http://creativecommons.org/">Creative Commons</a>.</p>
+
+<p>Questions, comments, and criticism (all most welcome) should be directed to the <a href="http://creativecommons.org/discuss#metadata">cc-metadata mailing list</a>.</p>
+
+<h2>Tools</h2>
+
+<h3>ccTag tools</h3>
+
+<p>A set of tools for tagging and validating CC licenses in audio files. 
+Currently only supports MP3, with OGG support coming soon.</p>
+
+<p>Most dependencies are maintained in vendor branches in 
+<a href="http://cvs.sourceforge.net/viewcvs.py/cctools/cctag-gui">CVS</a>.
+
+<ul>
+ <li><a href="http://cvs.sourceforge.net/viewcvs.py/cctools/cctag-gui/cctag.py?rev=HEAD">ccTag</a>: a cross-platform, graphical interface for embedding licenses.  Requires <a href="http://wxpython.org">wxPython</a>.</li>
+ <li><a href="http://cvs.sourceforge.net/viewcvs.py/cctools/cctag-gui/cct.py?rev=HEAD">cct.py</a>: a command-line interface for embedding licenses.</li>
+ <li><a href="http://cvs.sourceforge.net/viewcvs.py/cctools/cctag-gui/ccl.py?rev=HEAD">ccl.py</a>: a command-line interface for looking up and verifying embedded licenses.</li>
+</ul>
+
+<h3>ccwebsearch</h3>
+
+<p>A prototype web search engine for Creative Commons licensed works.</p>
+<ul>
+<li><a href="http://search.creativecommons.org/">Live installation</li>
+<li><a href="http://sourceforge.net/cvs/?group_id=80503">CVS</a> (ccwebsearch module)</li>
+</ul>
+
+<h2>Related Projects</h2>
+
+<p><strong><a href="http://aetherial.net/Verify/">Verify</a></strong> is an OS X app that verifies embedded license information in MP3 files per the guidelines mentioned above.</p>
+
+<p><strong><a href="http://cclicense.sourceforge.net/">CCLicense</a></strong> is a simple library written in pure PHP that helps developers utilize and integrate the Creative Commons  licenses in their own programs.</p>
+
+<p><strong><a href="http://workspaces.gotdotnet.com/cclib">CCLicenseLib</a></strong> is a library for C#.</p>
+
+<p><strong><a href="http://yergler.net/projects/ccrdf">ccRdf</a></strong> is a library for Python.</p>
+
+<p><strong><a href="http://www.yergler.net/projects/ccvalidator/">ccvalidator</a></strong> is a Python toolkit and application to read and validate CC license data.</p>
+
+<p><strong><a href="http://www.yergler.net/projects/mozcc/">mozCC</a></strong> is an extension for Mozilla Firebird to highlight license information embedded in web pages.</p>
+
+<address>
+Mike Linksvayer, Aaron Swartz, Nathan R. Yergler<br />
+send comments to <a href="http://creativecommons.org/discuss#metadata">cc-metadata</a></address>
+
+<p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=80503&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a></p>
+</body>
+</html>

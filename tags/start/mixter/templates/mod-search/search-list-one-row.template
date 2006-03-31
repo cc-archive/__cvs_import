@@ -1,5 +1,0 @@
-<TR BGCOLOR=EEEEEE>
- <TD><A HREF="search-view?query=$query_string">$query_string</A></TD>
- <TD>$num_searches</TD>
- <TD>$last_search_date</TD>
-</TR>

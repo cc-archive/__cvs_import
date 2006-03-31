@@ -1,5 +1,0 @@
-
-
-class MissingParameterException(LookupError):
-    pass
-

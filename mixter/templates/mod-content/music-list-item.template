@@ -1,0 +1,7 @@
+<a name="$anchor_name"></a>
+
+<B><FONT SIZE="3"><A HREF="$view_url">$title</A></FONT></B> by <A HREF="$author_link">$author</A>
+ 
+<p class="timestamp">Music $date</p>
+
+ <p>$description</p>

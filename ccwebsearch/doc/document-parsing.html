@@ -1,0 +1,69 @@
+<p>
+<A href="../">main</a> &gt; <a href="./high-level-design.html">high-level</a> &gt;
+</p>
+
+<p>
+Parsing a document obtained from the web will involve three steps (as explained in the <a href="high-level-design.html#document_parsing">high-level documentation</a>):
+<ul>
+<li> extract well-formed RDF
+<li> parse the well-formed RDF into specific fields
+<li> produce a stripped-down version of the HTML content
+</ul>
+</p>
+
+<h3>Extracting Well-Formed RDF</h3>
+
+<p>
+Work already done by Nathan Yergler on <a
+href="http://www.yergler.net/averages/archives/ccvalidator">ccValidator</a>
+will be helpful here to extract RDF from web documents. In fact,
+Nathan's "support" code will be refactored into a set of generic
+Python procedures to fetch a URL and extract any contained RDF in a
+thread-safe manner.
+</p>
+
+<p>
+It will be important to make this <tt>fetch-url-and-extract-rdf</tt>
+procedure as generic as possible, so that we may later extend it to
+use new W3C-recommended methods of finding associated RDF.
+</p>
+
+<h3>Parse the RDF</h3>
+
+<p>
+Once again, the work done by Nathan Yergler on <a
+href="http://www.yergler.net/averages/archives/ccvalidator">ccValidator</a>
+will be helpful in processing the RDF. Specifically, the
+<tt>ccLicense</tt> Python class will be used to model the licensed
+work from its RDF representation. If improvements are needed, they
+will be made in cooperation with Nathan. Some additions are likely to
+be necessary in order to model the <tt>rdf:work</tt> section of the RDF.
+</p>
+
+<p>
+<tt>ccValidator</tt> requires the use of <a href="http://rdflib.net">rdflib</a> and <a href="">Aaron
+Shwartz's RDF TRAMP</a>, both of which are simple to install and use
+on a Python platform.
+</p>
+
+<h3>Produce Stripped-Down HTML</h3>
+
+<p>
+In addition to parsing the RDF, we want to extract the raw text from
+the HTML page in order to have more searchable content per indexed
+item. This will mostly involve stripping out all HTML tags and
+comments, leaving only the text that is visible to the user.
+</p>
+
+<p>
+We will begin by using the standard Python SGML parser, which allows
+us to quickly discard all HTML tags and keep just the content. The
+advantage of using this generic SGML parser is that we can eventually
+choose to process certain tags more importantly than others
+(<tt>H2</tt> is likely more important than non-headlined text),
+without too much additional effort.
+</p>
+
+<p>
+Thus, we will use <tt>sgmllib.SGMLParser</tt>.
+</p>

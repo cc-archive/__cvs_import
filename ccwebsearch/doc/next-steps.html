@@ -1,0 +1,76 @@
+<p>
+<A href="./">main</a> &gt;
+</p>
+
+<p>
+We have a prototype search engine that:
+<ul>
+<li> gathers URLs from AllTheWeb
+<li> provides an easy-to-extend URL gathering API
+<li> uses gathered URLs to download documents, check RDF, and index the content
+<li> searches by license property and full text
+</ul>
+</p>
+
+<p>
+We can now pursue development of this search engine with a few
+efforts, most of which can be done in parallel.
+</p>
+
+<h3>More URL Gathering</h3>
+<p>
+Searching through more URLs is better. We can increase the number of URLs we gather by:
+<ul>
+<li> playing tricks on AllTheWeb and Google
+<li> writing our own crawler or using an existing one
+</ul>
+</p>
+
+<h3>Automation and Production Deployment</h3>
+<p>
+The current system can be automated by using simple cron scripts, but
+this automation must be thoroughly tested. One goal would be to make
+this system totally automated and fully-tested, with error-reporting
+via email when something goes wrong.
+</p>
+
+<h3>Tuning the Search Application</h3>
+<p>
+As we gather more pages to index, we may want to tune how we index
+various pieces of the page to provide better searching capabilities,
+advanced searching capabilities (by author), etc..
+</p>
+
+<h3>Load-Testing the Search</h3>
+<p>
+This is crucial before we deploy at any level. It's also the most
+complicated aspect of the whole thing. The search is
+different from the rest of the CC site in that:
+<ul>
+<li> it provides an active, dynamic service
+<li> it will get significant usage, increasing with time
+<li> it will require significant hardware resources, much more so than
+anything else the CC site currently does.
+</ul>
+</p>
+
+<pre>
+Things to do (migrated from todo.txt)
+============
+
+- Be able to check how many URLs are returned by a particular search engine
+(specifically by signalling done in a particular category when past the end)
+
+- check if long URLs are truncated by alltheweb
+
+- Return a 1 or 0 from insert_url plpgsql proc depending on whether insert happened or not
+
+- Find a way to make sure that multiple gatherers with same goals aren't created
+
+- add time awareness
+
+- Fixing other things:
+  - max length on title (250)
+
+- maybe add the new subject to the list of URLs to check?
+</pre>

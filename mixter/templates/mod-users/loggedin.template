@@ -1,0 +1,15 @@
+<TABLE CLASS="leftbar">
+  <TR>
+    <TD><FONT COLOR=000000 SIZE=2>You are logged in as<BR></FONT><FONT SIZE=3>$username</FONT></TD>
+  </TR>
+  <TR>
+    <TD><A HREF="logout-submit">Logout</A></TD>
+  </TR>
+  <TR>
+    <TD>$profile_link</TD>
+  </TR>
+  <TR>
+   <TD><A HREF="music-upload">Contribute Some Music</A></TD>
+  </TR>
+  </TR>
+</TABLE>

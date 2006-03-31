@@ -1,0 +1,141 @@
+<?
+// ----------------------------
+// Matthew Drake and Ian Spivey
+// Mixter Website
+// 6.171
+// madrake@mit.edu, ispivey@mit.edu
+// ----------------------------
+// Page: page-layout.lib
+// Purpose: A library file with functions that create the primary parts of actual viewed pages
+// ----------------------------
+
+require_once("../modules/mod-utilities/globals.lib");
+require_once("../modules/mod-utilities/template.lib");
+require_once("../modules/mod-users/users-interface.php");
+require_once("../modules/mod-utilities/error.lib");
+require_once("../modules/mod-utilities/assorted.lib");
+
+// Pre: $URL is a valid internal URL to be linked to. $URL is relative to the server_root
+// $description is the description that will be displayed for the URL
+// Post: Returns an HTML string which is the anchor link to that page.
+function createLink($URL, $description) {
+  return "<a href=\"" . $GLOBALS['server_root'] . $URL . "\">$description</a>"; 
+}
+
+// Pre: $URL is a valid external URL to be linked to.
+// $description is the description that will be displayed for the URL
+// Post: Returns an HTML string which is the anchor link to that page.
+function createExternalLink($URL, $description) {
+  return "<a href=\"" . $URL . "\">$description</a>"; 
+}
+
+// Pre: $pageURL is the actual URL of the page being generated. This URL should not include any GET extensions
+// Post: Returns a string that represents the footer of the page in HTML
+function createFooter($pageURL) {
+  require_once("../modules/mod-search/search-interface.php");
+  $admin_email = $GLOBALS['page_admin_email'];
+  $viewsource_link = $GLOBALS['server_root'] . "viewsource?viewsource=" . $pageURL;
+  $viewdocs_link = $GLOBALS['server_root'] . "doc/";
+  if (isLoggedIn())
+    $login_line = createLink("logout-submit", "logout");
+  $home_line = createLink(redirectHomeString(), "home");
+  $quick_search_box = quickSearchBox();
+  $template_variables = compact("admin_email", "viewsource_link", "viewdocs_link", "login_line", "home_line", "quick_search_box");
+  return evalTemplate("mod-utilities/footer.template", $template_variables);
+}
+
+// Pre: Nothing
+// Post: Returns the string "home" or "welcome" depending upon whether the user is logged in or out.
+function redirectHomeString() {
+  if (isLoggedIn())
+    return "home";
+  else
+    return "welcome";
+}
+
+// Pre: $pageTitle is a string representing the title of the page that is going to be displayed
+// Post: returns a string representing the top of a page
+function createTopper($pageTitle) {
+  require_once("../modules/mod-search/search-interface.php");
+  $admin_email = $GLOBALS['page_admin_email'];
+  $viewdocs_link = $GLOBALS['server_root'] . "doc/";
+  $home_line = createLink(redirectHomeString(), "home");
+  $quick_search_box = quickSearchBox();
+  $template_variables = array("title" => $pageTitle, "home_line" => $home_line, "quick_search_box" => $quick_search_box, "admin_email" => $admin_email, "viewdocs_link" => $viewdocs_link);
+  return evalTemplate("mod-utilities/topper.template", $template_variables);
+}
+
+// Pre: Assumes that no headers or page content have been sent
+// Post: Sends the headers
+function sendHeader() {
+  header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+  header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMIT");
+  header("Cache-Control: no store, no-cache, must-revalidate");
+  header("Pragma: no-cache");
+}
+
+// Pre: Assumes that no headers or page content have been sent.
+// $newURL is the new URL the user should be redirected to. $newURL is relative to the server root.
+// Post: Sends the headers that redirect the user to the new URL.
+function redirectHeader($newURL) {
+  Header("Location: " . $_GLOBALS['server_root'] . $newURL);
+}
+
+// Pre: $redirect should be a variable, probably passed in as GET or POST, which is the
+// desired redirect location, relative to the server root, of a succesful action.
+// Post: Sends the appropriate header if $redirect is set. If not, returns false.
+function usePageRedirect($redirect) {
+  $arguments = strstr($redirect, '?');
+  $one_question_mark_args = '?' . str_replace('?', '', $arguments);
+  $redirect = str_replace($arguments, $one_question_mark_args, $redirect); 
+  if (isset($redirect) && $redirect != '') {
+    Header("location: " . $_GLOBALS['server_root'] . $redirect);
+    return true;
+  } else return false;
+}
+
+// Pre: $pageURL is the URL for the page to be generated. It should be relative to the server_root
+// $pageTitle is the title of the page being generated
+// $pageData contains the actual data specific to that page.
+// Post: Generates a page. This is, in a sense, the sites master template
+function generatePage($pageURL, $pageTitle, $pageData, $pageLeft = '') {
+  sendHeader();
+  echo createTopper("Mixter: " . $pageTitle);
+  echo createLeft($pageLeft);
+  echo createErrorMessage();
+  echo createMessage();
+  echo createCenter($pageData);
+  echo createFooter($pageURL);
+}
+
+// Pre: Takes $pageData which is the main page data for the center pane of the window.
+// Post: Returns the string representing the center window pane.
+function createCenter($pageData) {
+  $template_variables = compact("pageData");
+  return evalTemplate("mod-utilities/center-pane.template", $template_variables);
+}
+
+// Pre: Takes $pageLeft, which is page specific information for the left pane of a window.
+// Post: Returns the string representing the left window pane.
+function createLeft($pageLeft) {
+  if (isLoggedIn()) {
+    $user_form = createLoggedinForm() . "<P></P>";
+    if (isAdmin()) {
+      $user_form .= evalTemplate('home-admin-leftbar.template', compact());
+    }
+  } else {
+    $user_form = createLoginForm('');
+  }
+  $template_variables = compact("pageLeft", "user_form");
+  return evalTemplate("mod-utilities/left-pane.template", $template_variables);
+}
+
+// Pre: Assumes no headers or content have been sent. $login_status
+// must be one of "in", "out", or "either". (see checkLoginStatus documentation)
+// Post: Sets up a lot of the basic stuff that all scripts which actually correspond to URLs will want.
+function initializeScript($login_status) {
+  session_start();
+  require_once("../modules/mod-utilities/redirect.lib");
+  checkLoginStatus($login_status);
+  require_once("../modules/mod-utilities/template.lib");
+}

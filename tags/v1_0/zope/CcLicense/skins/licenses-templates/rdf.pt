@@ -1,2 +1,0 @@
-<html tal:define="contenttype python: request.RESPONSE.setHeader('content-type', 'rdf/xml')" tal:omit-tag=""><body 
-  tal:omit-tag="" tal:replace="structure python: context.license.engine.licenseRdf(context.license.engine.issue()['licenserdf'])" /></html>

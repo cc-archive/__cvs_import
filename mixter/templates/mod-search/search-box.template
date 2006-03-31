@@ -1,0 +1,1 @@
+<form method="get" action="search-view">search: <input type="text" name="query" size="$size" value="$searchvalue" class="search" /></form>

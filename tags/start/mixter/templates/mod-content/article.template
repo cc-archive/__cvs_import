@@ -1,9 +1,0 @@
-<H1>$title</H1>
-<FONT SIZE="1">by <A HREF="$authorlink">$author</A> on $date</FONT>
-
-<P>
-</P>
-
-<FONT SIZE="3">
-$body
-</FONT>

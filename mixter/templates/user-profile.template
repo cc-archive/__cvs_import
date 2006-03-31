@@ -1,0 +1,12 @@
+<h2>User Profile for $username</h2>
+<a name="member_info"></a>
+<h3>Member Information</h3>
+<table>
+$user_info_fields
+$adminterface
+</table>
+
+<a name="member_music"></a>
+<h3>Member Music</h3>
+
+$users_music

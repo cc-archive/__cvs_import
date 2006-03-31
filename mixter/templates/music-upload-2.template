@@ -1,0 +1,28 @@
+<H1>Upload Music</H1>
+<em>
+<p>Maximum file size: 8 megabytes.</p>
+<p>Depending upon file size and connection speed your upload could take several minutes.  Please wait for the next page to load after clicking "Upload Music".</p>
+<p>New uploads will not appear until they have been approved by moderators.</p>
+<TABLE>
+  <FORM METHOD="POST" ACTION="music-upload-2-submit" ENCTYPE="multipart/form-data">
+  <INPUT TYPE=HIDDEN NAME=one_line_summary VALUE="$one_line_summary">
+  <INPUT TYPE=HIDDEN NAME=description VALUE="$description">
+  <INPUT TYPE=HIDDEN NAME=copyright_holder VALUE="$copyright_holder">
+  <INPUT TYPE=HIDDEN NAME=copyright_year VALUE="$copyright_year">
+  <INPUT TYPE=HIDDEN NAME=source_url VALUE="$source_url">
+  <TR>
+   <TD>Finally, choose the file to be uploaded.<BR>
+    <INPUT TYPE=file NAME="userfile">
+   </TD>
+  </TR>
+  <TR>
+   <TD>
+    <INPUT TYPE=checkbox NAME=remix> Check if you remixed any music from this site.
+   </TD>
+  </TR>
+  <TR>
+   <TD>
+    <INPUT TYPE=submit VALUE="Upload Music"></TD>
+  </TR>
+  </FORM>
+</TABLE>

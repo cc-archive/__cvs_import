@@ -1,0 +1,11 @@
+<h2>Recent Music</h2>
+
+<form method="get" action="view-recent-music">
+
+<p>View&nbsp;
+<input SIZE=4 VALUE="$num" NAME="num">
+most recently posted pieces of music that have been approved.		
+<input TYPE=SUBMIT VALUE="Go">
+</p>
+
+$music_list

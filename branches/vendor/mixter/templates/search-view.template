@@ -1,9 +1,0 @@
-<H1>Search Results</H1>
-
-<P ALIGN="LEFT">
-$search_box
-</P>
-$search_results
-<P ALIGN="LEFT">
-$search_box
-</P>

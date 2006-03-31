@@ -1,0 +1,8 @@
+<a name="remixthis"></a>
+<p><strong>Songs That Remix This Song</strong></p>
+$remix_string_up
+
+<a name="thisremixes"></a>
+<p><strong>Songs That This Song Remixes</strong></p>
+
+$remix_string_down

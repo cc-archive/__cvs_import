@@ -1,0 +1,53 @@
+<p>
+<A href="../../">main</a> &gt; <a href="../high-level-design.html">High-Level Design</a> &gt;
+</p>
+
+<p>
+We need to gather URLs in as many useful ways as possible. We note
+that our initial attempts with AllTheWeb and Google showed significant
+limitations: we can't reach more than 1,000 results. Thus, we need
+better ways of gathering URLs
+</p>
+
+<h3>Gathering URLs: Different methods</h3>
+<p>
+Here are some methods for gathering more URLs:
+<ul>
+<li> checking for each license individually rather than all licenses
+at once
+<li> adding specific exclusions to the query: e.g. "NOT blog"
+<li> using other search engines (feedster, altavista)
+</ul>
+</p>
+
+<h3>Modifying the URL Gathering Strategy and Code</h3>
+
+<p>
+We now have a very different problem for URL gathering:
+<ul>
+<li> Keeping track of how many URLs have been gathered and with which
+method is much more complicated.
+<li> A given search engine will probably be hit far fewer times than
+anticipated, which is a good thing for now.
+<li> We'll need a number of additional URL gatherers.
+</ul>
+</p>
+
+<p>
+However, we want to keep things as simple as possible. In order to
+allow for more flexible URL gatherers, we will use the database as
+support for progress reporting. Specifically, we add a piece to the
+data model for <a href="../url-gathering-data-model.sql">URL Gathering</a>
+</p>
+
+<p>
+In addition, we'll need to change the approach of the URL gathering to
+not only log progress, but to resume progress with a behavior that is
+time-based. For example, a request to gather URLs will include a
+duration which indicates when to consider past gatherings
+useless. Specifically, the system will ask the AllTheWeb gatherer to
+gather 1000 URLs, with a staleness duration of 2 days, which means
+that any gathering logs taken in the past 2 days will be considered
+recent and unnecessary to re-perform.
+</p>
+

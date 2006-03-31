@@ -1,7 +1,0 @@
-The administrator can ban users who are being disruptive.  He doesn't have to
-pre-approve every user, though.
-
-The administrator has no e-mail notification options -- a web interface scales
-much better for that sort of thing, since an e-mail notification of every new
-signup could mail-bomb one's inbox overnight if you happen to get an article
-in the New York Times.

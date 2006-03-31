@@ -1,0 +1,11 @@
+0.1.1
+
+Replaced mod_ptyhon/spyce/cheetah frontend with PHP.  Introduced
+lineurlgatherer.py.  Documentation not completely updated (in particular
+less emphasis should be placed on gathering URLs through search engine
+queries).  Ugly code by Mike Linksvayer.  Graceful CSS frontend design
+by Matt Haughey.
+
+0.1
+
+Delivered by Ben Adida.

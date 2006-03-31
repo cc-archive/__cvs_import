@@ -1,5 +1,0 @@
-Answers to Exercise 1:
-
-- Passwords Are Encrypted in the Database using PHPs sha1() one way encryption function.
-- Advantages: Secure from someone who gets access to database. Disadvantage: Harder to code and get unencrypted forms.
-- To handle the query "Find me users who live within 50 kilometers of User #37" we will use the address codes, user_name, and user_id.

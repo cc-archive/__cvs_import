@@ -1,0 +1,60 @@
+RDF Search v0.1.1
+===============
+
+Copyright Creative Commons 2003-2004
+Licensed under GNU GPL 2.0
+
+Original Author: Ben Adida (ben@mit.edu)
+
+
+WHAT YOU NEED
+=============
+
+- Python 2.3
+- PostgreSQL 7.4
+- PHP 4.x with PosgreSQL support
+
+ARCHITECTURE DETAILS
+====================
+
+There are two main components to the RDF Search system:
+      A) the asynchronous Spider
+      B) the web interface
+
+Component A requires Python, PostgreSQL, and the rdf-search code.
+
+Component B requires PHP, but could well be implemented using
+AOLserver/Tcl, JSP, etc... within a few days.
+
+The only link between components A and B is the PostgreSQL database.
+
+
+INSTALLATION INSTRUCTIONS
+=========================
+
+COMPONENT A: The Spider
+-----------------------
+
+1) Install Python 2.3, Psycopg, and PostgreSQL 7.4 (including tsearch2)
+
+2) Create a database in PG called "cc"
+
+3) Run the AllTheWeb URL Gatherer in crawler/alltheweb.py
+
+4) Run the Document Gatherer in crawler/documentgatherer.py
+with command line argument the # of running threads. Multi-threading
+is not working as well as I'd like, so use a low number like 1, 2, or
+3.  Alternatively create a file with one URL per line and run
+crawler/lineurlgatherer.py with the file as the sole argument.
+
+
+(Repeat 3 and 4 using cron jobs every week or so)
+
+
+COMPONENT B: The Search Interface
+---------------------------------
+
+1) Set up PHP with Postgresql support.
+
+2) Put the www/ directory of this installation tarball in your
+   webroot, or any subdirectory (all links are relative).

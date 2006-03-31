@@ -1,8 +1,0 @@
-<TABLE CLASS="basic">
-<TR>
- <TD><B>Membership Requests</B></TD>
- <TD><B>Actions</B></TD>
-$userlist_string
-</TR>
-</TABLE>
-

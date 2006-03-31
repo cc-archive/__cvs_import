@@ -1,7 +1,0 @@
-Looking up a user by email address will be very efficient, since we create 
-an index on email address.  Our email address search is case-insensitive.
-
-To determine if a certain user is a member of a certain group, we need only
-examine either as many rows as users in the group or as many rows as the 
-user has groups, since we index on user and group in the user-group mapping
-table.

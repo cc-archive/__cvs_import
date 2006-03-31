@@ -1,0 +1,26 @@
+<H1>Upload Music</H1>
+<p><em>Source URL is optional.  Use it to provide a link to source tracks, lossless encodings, and other resources useful to remixers.</em></p>
+<TABLE>
+  <FORM METHOD="GET" ACTION="music-upload-2">
+  <INPUT TYPE="HIDDEN" NAME="refers_to" VALUE="$refers_to">
+  <TR>
+   <TD>Song Name: <INPUT TYPE="TEXT" SIZE="30" NAME=songname></TD>
+  </TR>
+  <TR>
+   <TD>Copyright Holder: <INPUT TYPE="TEXT" SIZE="30" NAME=copyright_holder></TD>
+  </TR>
+  <TR>
+   <TD>Copyright Year: <INPUT TYPE="TEXT" SIZE="4" maxlength="4" NAME=copyright_year></TD>
+  </TR>
+  <TR>
+   <TD>Song Description:<BR><TEXTAREA NAME="description" ROWS="3" COLS="45"></TEXTAREA></TD>
+  </TR>
+  <TR>
+   <TD>Source URL: <INPUT TYPE="TEXT" SIZE="50" NAME=source_url></TD>
+  </TR>
+  <TR>
+   <TD><input type="checkbox" name="agree"/> All music on this site is licensed to the public under the Creative Commons <a href="http://creativecommons.org/licenses/by-sa/1.0/">Attribution-ShareAlike</a> license.  I agree to license the music described above under these terms and that I have the right to do so.</TD>
+  </TR>
+  <tr><td><input type="submit" value="Continue" /"></td></tr>
+  </FORM>
+</TABLE>

@@ -1,4 +1,0 @@
-<TR>
- <TD><A HREF="view-group?group_id=$group_id">$group_name</A> ($status)
- </TD>
-</TR>

@@ -1,0 +1,24 @@
+<?
+// ----------------------------
+// Matthew Drake and Ian Spivey
+// Mixter Website
+// 6.171
+// madrake@mit.edu, ispivey@mit.edu
+// ----------------------------
+// Page: globals.php
+// Purpose: To store global values that lots of scripts will use.
+// ----------------------------
+
+// Note - Eventually we'd just like to make these permanently loaded server variables in Apache.
+
+$GLOBALS['page_admin_email'] = "webmaster@creativecommons.org";
+$GLOBALS['document_root'] = "/web/mixter/www/";
+$GLOBALS['template_root'] = "/web/mixter/templates/";
+$GLOBALS['server_root'] = "http://mixter.creativecommons.org/";
+$GLOBALS['server'] = "http://mixter.creativecommons.org";
+$GLOBALS['content_root'] = "/web/mixter/www/files/";
+$GLOBALS['database_name'] = "mixter";
+$GLOBALS['database_user'] = "ml";
+$GLOBALS['current_date'] = $current_date = date("Y-m-d H:i:s");
+$GLOBALS['current_time'] = $current_time = date("G:i");
+?>

@@ -1,0 +1,8 @@
+<a name="$anchor_name"></a>
+
+<a href="$article_link"><h2>$title</h2></a>
+
+<p>Author: $author</p>
+<p>Created on: $date</p>
+ 
+<p>$description</p>

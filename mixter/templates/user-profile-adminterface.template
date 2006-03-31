@@ -1,0 +1,4 @@
+<P ALIGN="LEFT">
+ User Status: <B>$user_status</B><BR>
+ Set User Status: $status_action<BR>
+</P>

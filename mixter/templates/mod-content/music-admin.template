@@ -1,0 +1,41 @@
+<TABLE CLASS="invisible">
+ <TR>
+  <TD VALIGN="TOP" WIDTH=500><B><FONT SIZE="5">$title</FONT></B> by <FONT SIZE="3"><A HREF="$author_url">$author</A></FONT></TD>
+  <TD VALIGN="TOP" ALIGN="RIGHT"><A HREF="$license_url"><IMG SRC="http://creativecommons.org/images/public/somerights.gif"></A></TD>
+ </TR>
+ <TR>
+  <TD COLSPAN="2"><FONT SIZE="1" COLOR="#cc4422">Music</FONT>
+      <FONT SIZE="1" COLOR="#111111">$date</FONT>  
+  </TD>
+ </TR>
+ <TR>
+  <TD COLSPAN="2"><FONT SIZE="3">$description</FONT></TD>
+ </TR>
+ <TR>
+  <TD COLSPAN="2"><FONT SIZE="3"><a href="magnet:?xt=urn:sha1:$sha1_32&#38;xs=$download_url&#38;dn=$filename" title="Local File Options"><img src="http://magnet-uri.sourceforge.net/magnet-icon-9w-10h.gif"/></a> <A HREF="$download_url">Download Now!</A></FONT></TD>
+ </TR>
+ <TR>
+  <TD COLSPAN="2"><FONT SIZE="3">Source URL: $source_url</FONT></TD>
+ </TR>
+ <TR>
+  <TD TALIGN=TOP COLSPAN=2>This content is licensed under a <A HREF="http://www.creativecommons.org">Creative Commons</A> <A HREF="$license_url">$license_name</A> license.</TD>
+ </TR>
+</TABLE>
+
+<P>
+</P>
+
+<TABLE CLASS="basic">
+ <TR>
+  <TD><B>Admin Options</B></TD>
+ </TR>
+ <TR>
+  <TD COLSPAN=3 HALIGN="center">
+    [ <A HREF="$approve_link">Approve</A> -
+      <A HREF="$reject_link">Reject</A> ]
+  </TD>
+ </TR>
+</TABLE>
+
+<P>
+</P>
