@@ -1,0 +1,16 @@
+<html>
+<head>
+<style>
+        body {
+            font-size: 11px;
+            font-family: Verdana, sans-serif;
+    }
+</style>
+</head>
+<body>
+    <h3>Fatal Error</h3>
+    <p>Unfortunately an error is preventing the site to function properly.<p>
+    <p>The error has been logged so the site administrator can fix it.</p>
+    <p>We are sorry for any inconvinience this may have caused.</p>
+</body>
+</head>

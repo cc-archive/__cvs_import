@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>CC Host API Documenation for: CCUploads</title>
+    <link rel="stylesheet" type="text/css" href="apidoc.css"/>
+</head>
+<body>
+<div class="cc_all_content">
+
+    <div class="cc_banner">
+       <a class="cc_banner_link" href="http://cchost.org" title="CC Host">
+         <span class="cc_site_title">CC Host</span>
+       </a>
+    </div>
+
+    <div class="cc_site_description">Download, Sample, Cut-up, Share.</div>
+
+    <div id="" class="cc_content">
+
+    
+      
+    
+    <div class="method_stubs">
+    <div class="meth_head">Methods</div>
+    
+      <a href="#CCUploads">CCUploads</a><br/>
+    
+      <a href="#GetExtraField">GetExtraField</a><br/>
+    
+      <a href="#GetFormatInfo">GetFormatInfo</a><br/>
+    
+      <a href="#GetRecordFromID">GetRecordFromID</a><br/>
+    
+      <a href="#GetRecordFromRow">GetRecordFromRow</a><br/>
+    
+      <a href="#GetRecords">GetRecords</a><br/>
+    
+      <a href="#GetRecordsFromIDs">GetRecordsFromIDs</a><br/>
+    
+      <a href="#GetTable">GetTable</a><br/>
+    
+      <a href="#InTags">InTags</a><br/>
+    
+      <a href="#IsMediaType">IsMediaType</a><br/>
+    
+      <a href="#SetExtraField">SetExtraField</a><br/>
+    
+      <a href="#SetTagFilter">SetTagFilter</a><br/>
+    
+      <a href="#SplitTags">SplitTags</a><br/>
+    
+      <a href="#_format_file_size">_format_file_size</a><br/>
+    
+      <a href="#_get_extra_helper">_get_extra_helper</a><br/>
+    
+      <a href="#_get_select">_get_select</a><br/>
+    
+    </div>
+
+  <div class="class_listing">
+    <table>
+    <tr><td colspan="2">
+       <span class="arg_type">class</span> <span class="class_name">CCUploads</span>
+        <span class="arg_type">extends</span> <a href="CCTable.html">CCTable</a>
+       </td></tr>
+       <tr><td class="head"><span class="arg_type">include </span></td>
+           <td class="head_value">cc-upload.php</td></tr>
+       
+      <tr><td class="head">Short Desc.:</td>
+          <td class="head_value"><span class="class_desc">Upload table wrapper</span></td></tr>
+      <tr><td class="head">Description:</td>
+          <td class="head_value"><span class="class_desc">Rules for when an upload is visible:
+<br /><br />
+ These apply to uploads not part of a contest:
+ ---------------------------------------------
+       If the admin said auto-publish:
+           SHOW if : the user said ok to publish
+       If the admin wants to vet uploads:
+           SHOW if : the admin checked the publish bit
+<br /><br />
+ These apply to a contest entry:
+ --------------------------------------------
+       If the admin said auto-publish:
+           SHOW
+       If the admin withholds entries until deadline:
+           SHOW if : after contest deadline
+
+ These two override all above states:
+ ----------------------------------
+ SHOW if : an admin is logged in
+ SHOW if : the registered user is the same as uploader
+
+     If we get into an override state:
+     ---------------------------------
+      Display a notice to user that file is 'unpublished'
+
+         If the current user is Admin:
+         -----------------------------
+           Display a command link to publish the work</span></td></tr>
+      
+    </table>
+    <div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="CCUploads"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">CCUploads</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">This is what we're aiming for:</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">SELECT *, DATE_FORMAT(upload_date, '$CC_SQL_DATE') as upload_date_format,
+            DATE_FORMAT(user_registered, '$CC_SQL_DATE') as user_date_format  
+      FROM cc_tbl_uploads
+      LEFT OUTER JOIN cc_tbl_contests e ON upload_contest  = e.contest_id
+      LEFT OUTER JOIN cc_tbl_user     u ON upload_user        = u.user_id
+     &       LEFT OUTER JOIN cc_tbl_license  c ON upload_license     = c.license_id</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetExtraField"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetExtraField</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$id_or_row </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$fieldname </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetFormatInfo"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetFormatInfo</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$row </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$field </td>
+        <td class="arg_default">= '' </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetRecordFromID"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetRecordFromID</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$fileid </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetRecordFromRow"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetRecordFromRow</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$row </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCTable.html#GetRecordFromRow">CCTable</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetRecords"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetRecords</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$where </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetRecordsFromIDs"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetRecordsFromIDs</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$fileids </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GetTable"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GetTable</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCTable.html#GetTable">CCTable</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Returns static singleton of configs table wrapper.</td></tr>
+        <tr>
+          <td class="head">Description:</td>
+          <td class="head_value">Use this method instead of the constructor to get
+an instance of this class.</td></tr>
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="InTags"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">InTags</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$tags </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$record </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="IsMediaType"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">IsMediaType</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$row </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$looking_for_media </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$looking_for_ext </td>
+        <td class="arg_default">= '' </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="SetExtraField"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">SetExtraField</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$id_or_row </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$fieldname </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$value </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="SetTagFilter"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">SetTagFilter</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$tags </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="SplitTags"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">SplitTags</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$record </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_format_file_size"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_format_file_size</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$row </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_get_extra_helper"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_get_extra_helper</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$id_or_row </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$extra </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$id </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="_get_select"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">_get_select</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$where </td>
+        <td class="arg_default">,  </td>
+        <td class="arg_desc"> </td></tr>
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$columns </td>
+        <td class="arg_default">= '*' </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCTable.html#_get_select">CCTable</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">(undocumented method)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div>
+ </div>
+
+    
+
+    </div> 
+
+    <div class="cc_content_clear"></div>
+
+    <div class="cc_footer"><br clear="both"><br /><br /><br />
+This site is a product of <a href="http://sourceforge.net/projects/cctools/">CC Tools</a> project.<br />
+
+This site uses <a href="http://getid3.sourceforge.net/">GetID3</a> and <a href="http://phptal.sourceforge.net/">PHPTal</a>.
+<br /><br /></div>
+    <div class="cc_site_license"><!-- Creative Commons License -->
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">Creative Commons License</a></div>
+
+</div> 
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

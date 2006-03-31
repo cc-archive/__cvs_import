@@ -1,0 +1,29 @@
+<H1>Add Remix Information</H1>
+<H2>$title</H2>
+<FONT SIZE="3">Note: When you are done adding remixing information, click <A HREF="view-music?music_id=$music_id">here</A>.</FONT><BR>
+
+<TABLE CLASS="basic">
+ <TR>
+  <TD><FONT SIZE="3">Search For Songs</FONT></TD>
+ </TR>
+ <TR>
+  <TD><FONT SIZE="1">Use this search box to search for a song you downloaded from the site and remixed. Then select the song, and add it to your remix information.</FONT></TD>
+ </TR>
+<FORM ACTION="music-upload-remix">
+ <TR>
+  <TD><INPUT NAME="query" SIZE="30"><INPUT TYPE="SUBMIT" VALUE="Search For Music"></TD>
+ </TR>
+</FORM>
+<FORM METHOD="POST" ACTION="music-upload-remix-submit">
+ <TR>
+  <TD><FONT SIZE="3">Search Results</FONT></TD>
+ </TR>
+ <TR CLASS="greyrow"> 
+  <TD>$search_results</TD>
+ </TR>
+ <TR>
+  <TD><INPUT TYPE="SUBMIT" VALUE="Add To Remix Information"></TD>
+ </TR>
+</FORM>
+</TABLE>
+

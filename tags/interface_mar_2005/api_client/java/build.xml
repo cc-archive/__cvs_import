@@ -1,0 +1,23 @@
+<project default="compile">
+  <target name="compile">
+    <javac srcdir="."  destdir="build"/>
+  </target>
+
+  <target name="jar" depends="compile">
+    <jar destfile="restdemo.jar"
+         basedir="build"
+         includes="**/*.class"
+         >
+    	<manifest>
+    	      <attribute name="Main-Class" value="org.creativecommons.api.demo.RestDemo"/>
+        </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="jar">
+    <java classname="RestDemo"
+          classpath="restdemo.jar"
+          fork="true"
+          />
+  </target>
+</project>

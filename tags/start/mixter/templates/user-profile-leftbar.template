@@ -1,0 +1,14 @@
+<TABLE CLASS="leftbar">
+ <TR>
+  <TD><A HREF="#member_info">Member Information</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="#member_groups">Member Groups</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="#member_music">Member Music</A></TD>
+ </TR>
+ <TR>
+  <TD><A HREF="#member_postings">Member Postings</A></TD>
+ </TR>
+</TABLE>

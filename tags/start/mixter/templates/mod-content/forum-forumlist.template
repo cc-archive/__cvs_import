@@ -1,0 +1,7 @@
+<TABLE CLASS="basic">
+<TR>
+ <TD><B><FONT SIZE="3">Forum Categories</FONT></B></TD>
+ $admin_options
+</TR>
+$list_of_forums
+</TABLE>

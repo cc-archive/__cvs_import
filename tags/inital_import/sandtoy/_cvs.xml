@@ -1,0 +1,97 @@
+<project name="cvs_operations" >
+
+  <target name="_cvs">
+    <!-- set the path properties -->
+    <propertycopy name="out_dir" from="${mod}.path" />
+
+    <!-- check for operation -->
+    <if>
+      <or>
+	<equals arg1="${op}" arg2="update" />
+        <equals arg1="${op}" arg2="commit" />
+      </or>
+      <then>
+	<propertycopy name="cvs_dir" from="${mod}.path"  />
+      </then>
+      <else>
+	<propertycopy name="cvs_dir" from="${mod}.cvs"  />
+      </else>
+    </if>
+
+    <!-- check out the specified package -->
+    <cvs cvsRoot="${cvsroot}"
+	 command="${op}"
+	 package="${cvs_dir}" 
+	 dest="${tdir}"
+	 />
+
+    <!-- move if doing a checkout -->
+    <if>
+      <or>
+	<equals arg1="${op}" arg2="checkout" />
+	<equals arg1="${op}" arg2="co" />
+      </or>
+      <then>
+	<move todir="${parent_dir}/${out_dir}">
+	  <fileset dir="${tdir}/${cvs_dir}/" defaultexcludes="no" />
+	</move>
+      </then>
+    </if>
+
+  </target>
+
+  <target name="_deps" >
+
+    <propertycopy name="mod_dir" from="${mod}.path" />
+
+    <!-- check if the module has a dependency file -->
+    <if>
+      <available file="${parent_dir}/${mod_dir}/_sandtoy.conf" />
+      <then>
+	<!-- dependency file available; process it -->
+	<property file="${parent_dir}/${mod_dir}/_sandtoy.conf"  />
+
+	<echo 
+        message="Processings dependencies for ${mod}:${line.separator}${deps}" 
+	level="info"
+	      />
+
+	<!-- determine the temporary directory -->
+        <if>
+	  <or>
+            <equals arg1="${op}" arg2="update" />
+            <equals arg1="${op}" arg2="commit" />
+	  </or>
+	  <then>
+	    <property name="dep_tmp_dir" value="${parent_dir}/${mod_dir}"  />
+          </then>
+          <else>
+	    <property name="dep_tmp_dir" value="${tdir}"  />
+          </else>
+        </if>
+
+	<antcall target="cvsop">
+	  <param name="op"      value="${op}" />
+	  <param name="modules" value="${deps}" />
+	  <param name="tdir"    value="${dep_tmp_dir}" /> 
+	  <param name="parent_dir" value="${parent_dir}/${mod_dir}" />
+	</antcall>
+      </then>
+      <else>
+	<echo message="No dependencies defined for ${mod}${line.separator}" 
+	      level="info"
+	      />
+      </else>
+    </if>
+
+  </target>
+
+  <target name="cvsop" >
+
+    <foreach list="${modules}" delimiter="," param="mod"
+	     inheritall="true" target="_cvs" />
+    <foreach list="${modules}" delimiter="," param="mod"
+	     inheritall="true" target="_deps" />
+  </target>
+
+</project>

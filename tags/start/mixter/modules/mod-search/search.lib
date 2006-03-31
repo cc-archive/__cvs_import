@@ -1,0 +1,140 @@
+<?
+// ----------------------------
+// Matthew Drake and Ian Spivey
+// Mixter Website
+// 6.171
+// madrake@mit.edu, ispivey@mit.edu
+// ----------------------------
+// Page: search.lib
+// Purpose: The actual functionality of the search module
+// ----------------------------
+
+require_once("../modules/mod-utilities/database.lib");
+require_once("../modules/mod-utilities/globals.lib");
+require_once("../modules/mod-utilities/template.lib");
+
+$GLOBALS['no_match_string'] = "No matches found!";
+
+// Pre: $query is a string representing a query, which has been stripped of malicious tags
+// Post: Updates the list of user submitted queries with the new query.
+function internal_updateQueryList($query) {
+  $date = $GLOBALS['current_date'];
+    $querystring = "INSERT INTO search_queries (search_date, query_string) VALUES ('$date', '$query')";
+  if ($query != '')
+    query_perform($querystring);
+}
+
+
+// Pre: $query is a string representing a query, which has been stripped of malicious tags
+// Post: Returns the string representing the search results.
+function search_searchFor($query) {
+  $query = trim($query);
+  internal_updateQueryList($query);
+  $user_results = searchUsers($query);
+  $song_results = searchContentSongs($query); 
+  $information_results = searchContentInfo($query);
+  $show_user_results = internal_formatUserResults($user_results);
+  $show_song_results = internal_formatSongResults($song_results); 
+  $show_information_results = internal_formatInformationResults($information_results);
+  $template_variables = array("usersearch" => $show_user_results, "songsearch" => $show_song_results, 
+			      "infosearch" => $show_information_results);  
+  return evalTemplate("mod-search/display-search-results.template", $template_variables);
+}
+
+// Pre: Takes $results, which is a valid set of results from a user search
+// Post: Returns a string representing the result information.
+function internal_formatUserResults($results) {
+  $results_string = '';
+  if ($results) foreach ($results as $result) {
+    extract($result);
+    $template_variables = compact("name", "description", "link");
+    $results_string .= evalTemplate("mod-search/display-user-search-some-result.template", $template_variables);
+  }
+  else
+    return evalTemplate("mod-search/display-user-search-no-results.template", array());
+  $template_variables = compact("results_string");
+  return evalTemplate("mod-search/display-user-search-results.template", $template_variables);
+}
+
+// Pre: Takes $results, which is a valid set of results from a song search
+// Post: Returns a string representing the result information.
+function internal_formatSongResults($results) {
+  $results_string = '';
+  if ($results) foreach ($results as $result) {
+    extract($result);
+    $template_variables = compact("name", "description", "link", "artist");
+    $results_string .= evalTemplate("mod-search/display-song-search-some-result.template", $template_variables);
+  }
+  else
+    return evalTemplate("mod-search/display-song-search-no-results.template", array());
+  $template_variables = compact("results_string");
+  return evalTemplate("mod-search/display-song-search-results.template", $template_variables);
+}
+
+// Pre: Takes $results, which is a valid set of results from an information search
+// Post: Returns a string representing the result information.
+function internal_formatInformationResults($results) {
+  $results_string = '';
+  if ($results) foreach ($results as $result) {
+    extract($result);
+    if ($creator !== "none") 
+      $creator = createLink("user-profile?user_id=" . $creator, getUsername($creator));
+    $template_variables = compact("name", "link", "description", "creator", "type");
+    $results_string .= evalTemplate("mod-search/display-info-search-some-result.template", $template_variables);
+  }
+  else
+     return evalTemplate("mod-search/display-info-search-no-results.template", array());
+  $template_variables = compact("results_string");
+  return evalTemplate("mod-search/display-info-search-results.template", $template_variables);
+}
+
+// Pre: Nothing
+// Post: Returns information about the corpus of documents incorporated in the search.
+function search_displayCorpusInfo() {
+  $querystring = "SELECT count(user_id) FROM users";
+  $num_users = query_one_val($querystring);
+  $querystring = "SELECT count(group_id) FROM user_groups";
+  $num_groups = query_one_val($querystring);
+  $querystring = "SELECT count(content_id)
+		  FROM content_raw
+		  WHERE (content_type='music')";
+  $num_songs = query_one_val($querystring);
+  $querystring = "SELECT count(version_id)
+		  FROM content_versions";
+  $num_all_content = query_one_val($querystring);
+  $querystring = "SELECT count(version_id) FROM live_versions WHERE (editorial_status='submitted' OR editorial_status='approved')";
+  $num_live_content = query_one_val($querystring);
+  $template_variables = compact("num_users", "num_groups", "num_songs", "num_live_content", "num_all_content");
+  return evalTemplate("mod-search/corpus-info.template", $template_variables);
+}
+
+// Pre: $order_by is 'phrase', 'number', or 'date'
+// Post: Returns search statistics regarding the full text indexes. The search is ordered by the appropriate phrase.
+function search_displaySearchStatistics($order_by) {
+  if ($order_by == "phrase")
+    $order_by = "lower(query_string)";
+  else if ($order_by == "number")
+    $order_by = "num_searches DESC";
+  else 
+    $order_by = "last_search_date DESC";
+  $querystring = "SELECT * FROM (
+		  SELECT count(query_id) AS num_searches, 
+			 max(query_string) AS query_string, 
+			 max(search_date) AS last_search_date 
+		  FROM search_queries 
+		  GROUP BY query_string LIMIT 100)
+		  AS top_100
+		  ORDER BY $order_by
+";
+  $results = query_multi_row($querystring);
+  while ($result = get_row_from_multi_row($results)) {
+    $query_string = $result->query_string;
+    $num_searches = $result->num_searches;
+    $last_search_date = formatDate($result->last_search_date);
+    $template_variables = compact("query_string", "num_searches", "last_search_date");
+    $list_of_searches .= evalTemplate("mod-search/search-list-one-row.template", $template_variables);
+  }
+  $template_variables = compact("list_of_searches");
+  return evalTemplate("mod-search/search-list.template", $template_variables);
+}
+

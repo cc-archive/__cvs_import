@@ -1,0 +1,5 @@
+#! /bin/bash
+
+today='date +"%m-%d-$y"'
+mkdir -p ~/mixter-backup/$today
+pg_dump -U mixter mixter > ~/mixter-backup/$today/backup.sql

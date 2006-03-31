@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="faq">
+ 
+<body>
+    <div metal:fill-slot="main">
+        <h1 tal:content="here/title">Mappens titel</h1>
+        <p tal:content="here/description">Beskrivning av mappens innehall</p>
+ 
+        <ul>
+            <li tal:repeat="entry python: here.contentValues('FaqEntry')">
+    	          <a href="" tal:content="entry/question"
+    	             tal:attributes="href string:${entry/absolute_url}">FAQ Question</a>
+    	      </li>
+    	  </ul>
+
+        <div tal:repeat="folder python: here.contentValues('FaqFolder')">
+                <br />
+                <a href="" tal:content="folder/title"
+    	             tal:attributes="href string:${folder/absolute_url}">Folder title</a>
+ 
+                <div tal:define="subentries python: folder.contentValues('FaqEntry')">
+                    <ul style="margin-top:0" tal:condition="subentries">
+                        <li tal:repeat="subentry subentries">
+        	                   <a href="" tal:content="subentry/title"
+        	                              tal:attributes="href string:${subentry/absolute_url}">
+        	                      FAQ Question
+        	                  </a>
+        	               </li>
+        	           </ul>
+                </div>
+        </div>
+
+    </div>
+</body>
+</html>

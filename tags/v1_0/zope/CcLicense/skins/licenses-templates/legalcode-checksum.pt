@@ -1,0 +1,4 @@
+<html tal:omit-tag=""
+      tal:define="legalcode python: getattr(here.legalcode, request['legalcode'])"><body 
+  tal:omit-tag="" 
+  tal:replace="structure python: context.licensesSupport.sha_digest(legalcode.document_src(REQUEST=request))" /></html>

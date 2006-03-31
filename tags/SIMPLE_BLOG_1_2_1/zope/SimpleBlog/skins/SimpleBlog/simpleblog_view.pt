@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="SimpleBlog">
+
+             
+    <metal:css fill-slot="css_slot">
+        <link rel="stylesheet" type="text/css" media="screen" href="" tal:attributes="href string:$portal_url/SimpleBlogCSS.css" />
+    </metal:css>
+
+<body>
+<div metal:fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+      tal:define="displayItems python:here.getDisplayItems();
+                        standardButtons python:here.simpleblog_tool.getShowStandardButtons();
+                        results python:here.simpleblog_tool.searchForEntries(here, maxResults=0);
+                        displayMode python:here.getDisplayMode();
+                        b_size python:displayItems;
+                        b_start python:0;
+                        b_start request/b_start | b_start;
+                        Batch python:modules['Products.CMFPlone'].Batch;">
+
+        <h1  class="documentFirstHeading">
+            <img src="#" tal:attributes="src string:${here/portal_url}/${here/getIcon};alt here/title" />
+            <span tal:replace="here/title_or_id"/>
+        </h1>
+    
+        <tal:icons tal:condition="here/document_actions/macros/document_actions">
+            <div metal:use-macro="here/document_actions/macros/document_actions">
+                Document actions (print, sendto etc)
+            </div>
+        </tal:icons>
+        
+        <div class="documentDescription"
+             tal:content="structure here/Description">
+            description
+        </div>
+        <div tal:condition="results" tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+            <tal:block tal:repeat="entry batch">
+                <tal:list tal:define="obj entry/getObject;headerSize python:3">
+                    <div metal:use-macro="here/SimpleBlog_macros/macros/?displayMode"/>
+                </tal:list>
+            </tal:block>
+            <div metal:use-macro="here/batch_macros/macros/navigation" />
+        </div>
+        
+        <tal:info tal:condition="not: results">
+            <tal:block tal:define="hasEntries python:here.simpleblog_tool.blogHasEntries(here);
+                                             editPermission python:mtool.checkPermission('Modify portal content', here) ">
+                <p tal:condition="hasEntries">
+                    There are currently no published blog entries.
+                </p>
+                <p tal:condition="python: editPermission and hasEntries">
+                    To get a list of the already present (unpublished) entries, click on the contents
+                    tab or click <a href="folder_contents">here</a>.
+                </p>
+                <p tal:condition="not: hasEntries">
+                    There are currently no blog entries.
+                </p>
+            </tal:block>
+         </tal:info>
+    </tal:main-macro>
+</div>
+
+</body>
+
+</html>

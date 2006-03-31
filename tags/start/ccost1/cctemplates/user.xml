@@ -1,0 +1,45 @@
+<tal:block>
+
+<metal:block define-macro="user_listing">
+    <div class="cc_listing">
+      <div tal:repeat="record user_record">
+        <table cellspacing="0" cellpadding="4" class="cc_user_listing_table">
+        <tr>
+            <td class="cc_user_avatar" >
+               <a tal:condition="record/user_avatar_url" href="${record/artist_page_url}"><img src="${record/user_avatar_url}" /></a>
+            </td>
+            <td class="cc_user_value">
+                <div class="cc_user_real_name">${record/user_real_name}</div>
+                <div class="cc_user_name"><a href="${record/artist_page_url}">${record/user_name}</a>
+                      <a class="cc_email_link" href="${record/user_emailurl}" 
+                         title="click to send email to this user"><span class="cc_email_contact">contact</span></a>
+                </div>
+                <div class="cc_user_regdate">member since: ${record/user_date_format}</div>
+            </td>
+        </tr>
+
+        <tal:block repeat="user_field record/user_fields">
+           <tal:block condition="user_field/value" >
+              <tr>
+                <td class="cc_user_label">${user_field/label}</td>
+                <td class="cc_user_value">${user_field/value}</td>
+              </tr>
+          </tal:block>
+        </tal:block>
+
+        <tal:block repeat="user_tag_link record/user_tag_links">
+          <tr>
+            <td class="cc_user_label">${user_tag_link/label}</td>
+            <td class="cc_user_value">
+              <tal:block define="tag_array user_tag_link/value" />
+              <metal:block use-macro="taglinks" />
+            </td>
+          </tr>
+        </tal:block>
+
+        </table>
+      </div>
+    </div>
+</metal:block>
+
+</tal:block>

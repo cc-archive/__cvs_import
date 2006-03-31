@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>CC Host API Documenation for: CCEditConfigForm</title>
+    <link rel="stylesheet" type="text/css" href="apidoc.css"/>
+</head>
+<body>
+<div class="cc_all_content">
+
+    <div class="cc_banner">
+       <a class="cc_banner_link" href="http://cchost.org" title="CC Host">
+         <span class="cc_site_title">CC Host</span>
+       </a>
+    </div>
+
+    <div class="cc_site_description">Download, Sample, Cut-up, Share.</div>
+
+    <div id="" class="cc_content">
+
+    
+      
+    
+    <div class="method_stubs">
+    <div class="meth_head">Methods</div>
+    
+      <a href="#CCEditConfigForm">CCEditConfigForm</a><br/>
+    
+      <a href="#GenerateForm">GenerateForm</a><br/>
+    
+      <a href="#SaveToConfig">SaveToConfig</a><br/>
+    
+      <a href="#SetConfigType">SetConfigType</a><br/>
+    
+    </div>
+
+  <div class="class_listing">
+    <table>
+    <tr><td colspan="2">
+       <span class="arg_type">class</span> <span class="class_name">CCEditConfigForm</span>
+        <span class="arg_type">extends</span> <a href="CCForm.html">CCForm</a>
+       </td></tr>
+       <tr><td class="head"><span class="arg_type">include </span></td>
+           <td class="head_value">cc-admin.php</td></tr>
+       <tr>
+            <td class="head">Derived classes:</td>
+            <td class="head_value"><a href="CCAdminConfigForm.html">CCAdminConfigForm</a>, <a href="CCAdminFileVerifyForm.html">CCAdminFileVerifyForm</a>, <a href="CCAdminRename.html">CCAdminRename</a>, <a href="CCAdminSettingsForm.html">CCAdminSettingsForm</a>, <a href="CCAdminTaggerForm.html">CCAdminTaggerForm</a>, <a href="CCAdminTemplateMacrosForm.html">CCAdminTemplateMacrosForm</a>, <a href="CCAdminTemplateTagsForm.html">CCAdminTemplateTagsForm</a></td></tr>
+      <tr><td class="head">Short Desc.:</td>
+          <td class="head_value"><span class="class_desc">Derive from this class to let the user modify the app's config</span></td></tr>
+      <tr><td class="head">Description:</td>
+          <td class="head_value"><span class="class_desc">There are many derivations of this, one for each group of config variables.
+When you derive from this form, it will save the values here into the config
+table for use in all subsequent sessions. The derivations
+do not have to perform any action on user submit. The global config affects
+all users so typically only administrators will see derivations of this form.
+<br /><br />
+ For example:
+
+<code><font color="#000000">
+<font color="#0000BB">&lt;? 
+<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">// Derive from the base 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">class </font><font color="#0000BB">CCMyAdminForm </font><font color="#007700">extends </font><font color="#0000BB">CCEditConfigForm
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function </font><font color="#0000BB">CCMyAdminForm</font><font color="#007700">()
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$this</font><font color="#007700">-&gt;</font><font color="#0000BB">CCEditConfigForm</font><font color="#007700">(</font><font color="#DD0000">'my-settings-type'</font><font color="#007700">); </font><font color="#FF8000">// name of the type
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$fields </font><font color="#007700">= array( 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'mySettting' </font><font color="#007700">=&gt;&nbsp;&nbsp;</font><font color="#FF8000">// name of the setting
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">array(&nbsp;&nbsp;</font><font color="#DD0000">'label'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">=&gt; </font><font color="#DD0000">'Set this setting'</font><font color="#007700">,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'form_tip'&nbsp;&nbsp;&nbsp;</font><font color="#007700">=&gt; </font><font color="#DD0000">'make it good'</font><font color="#007700">,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'value'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">=&gt; </font><font color="#DD0000">'Admin'</font><font color="#007700">,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'formatter'&nbsp;&nbsp;</font><font color="#007700">=&gt; </font><font color="#DD0000">'textedit'</font><font color="#007700">,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#DD0000">'flags'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">=&gt; </font><font color="#0000BB">CCFF_POPULATE </font><font color="#007700">| </font><font color="#0000BB">CCFF_REQUIRED </font><font color="#007700">),
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$this</font><font color="#007700">-&gt;</font><font color="#0000BB">AddFormFields</font><font color="#007700">(</font><font color="#0000BB">$fields</font><font color="#007700">);
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">// Then later in the code when it's time to call it up, simply do:
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">function </font><font color="#0000BB">ShowMyAdminForm</font><font color="#007700">()
+<br />&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">CCPage</font><font color="#007700">::</font><font color="#0000BB">SetTitle</font><font color="#007700">(</font><font color="#DD0000">'My Admin Form'</font><font color="#007700">);
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$form </font><font color="#007700">= new </font><font color="#0000BB">CCMyAdminForm</font><font color="#007700">();
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">CCPage</font><font color="#007700">::</font><font color="#0000BB">AddForm</font><font color="#007700">( </font><font color="#0000BB">$form</font><font color="#007700">-&gt;</font><font color="#0000BB">GenerateForm</font><font color="#007700">() );
+<br />&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">// Still later you can retreive the user's setting:
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">function </font><font color="#0000BB">DoMyStuff</font><font color="#007700">()
+<br />&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$configs </font><font color="#007700">=&amp; </font><font color="#0000BB">CCConfigs</font><font color="#007700">::</font><font color="#0000BB">GetTable</font><font color="#007700">();
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$settings </font><font color="#007700">= </font><font color="#0000BB">$configs</font><font color="#007700">-&gt;</font><font color="#0000BB">GetConfig</font><font color="#007700">(</font><font color="#DD0000">'my-settings-type'</font><font color="#007700">);
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$value </font><font color="#007700">= </font><font color="#0000BB">$settings</font><font color="#007700">[</font><font color="#DD0000">'mySetting'</font><font color="#007700">];
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">///...
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">}
+<br />
+<br />&nbsp;&nbsp;</font><font color="#0000BB">?&gt;</font>
+</font>
+</code></span></td></tr>
+      
+    </table>
+    <div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="CCEditConfigForm"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">CCEditConfigForm</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$config_type </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Constructor</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="GenerateForm"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">GenerateForm</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       <tr>
+          <td class="head">Overrides:</td>
+          <td class="head_value"><a href="CCForm.html#GenerateForm">CCForm</a></td></tr>
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Overrides base class in order to populate fields with current contents of environment's config.</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="SaveToConfig"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">SaveToConfig</td>
+          <td>
+   ()
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Saves this forms data to the proper type of the current scope</td></tr>
+        
+        <tr>
+          <td class="head">See also: </td>
+          <td class="head_value"><a href="CCConfigs.html#SaveConfig">CCConfigs::SaveConfig
+</a></td></tr>
+        </table>
+    </div>
+
+    </div><div class="class_methods">
+        
+  <hr class="method_border"/>
+   <div class="methods_table">
+       <a name="SetConfigType"></a>
+       <div class="method_sig_div">
+       <table class="method_sig"><tr>
+          <td class="method_name">SetConfigType</td>
+          <td>
+   
+   (<table class="args_table">
+     <tr>
+        <td class="arg_type"> </td>
+        <td class="arg_name">$typename </td>
+        <td class="arg_default"> </td>
+        <td class="arg_desc"> </td></tr>
+     <tr><td colspan="4">)</td></tr></table>
+   
+</td></tr></table></div>
+
+       <table>
+       
+       
+       
+        <tr>
+          <td class="head">Short Desc.:</td>
+           <td class="head_value">Sets the config tye for the data (also done from ctor)</td></tr>
+        
+        
+        </table>
+    </div>
+
+    </div>
+ </div>
+
+    
+
+    </div> 
+
+    <div class="cc_content_clear"></div>
+
+    <div class="cc_footer"><br clear="both"><br /><br /><br />
+This site is a product of <a href="http://sourceforge.net/projects/cctools/">CC Tools</a> project.<br />
+
+This site uses <a href="http://getid3.sourceforge.net/">GetID3</a> and <a href="http://phptal.sourceforge.net/">PHPTal</a>.
+<br /><br /></div>
+    <div class="cc_site_license"><!-- Creative Commons License -->
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">Creative Commons License</a></div>
+
+</div> 
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

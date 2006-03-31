@@ -1,0 +1,7 @@
+<TABLE ALIGN="CENTER" BGCOLOR="CCCCFF" BORDER="0" CELLSPACING="2" CELLPADDING="2" WIDTH="100%">
+<TR>
+ <TD>Forum: $forumlink</TD>
+ <TD>View: $threadlink $datelink $submittedlink</TD>
+ <TD>Sort: $newestlink $oldestlink</TD>
+</TR>
+</TABLE> 

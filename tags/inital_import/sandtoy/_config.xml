@@ -1,0 +1,27 @@
+<project name="config_operations">
+
+  <target name="config">
+    <input message="CVS username: " addproperty="cvs.username" />
+    <input message="CVS password: " addproperty="cvs.password" />
+    <input message="Sandbox dir: "  addproperty="working_dir" 
+	   defaultvalue="./sandbox" />
+    <input message="Temporary dir: " addproperty="tmp_dir" 
+	   defaultvalue="./tmp" />
+    <input message="Anonymous FTP login: " addproperty="ftp.anon.login" />
+    <input message="iBiblio login: " addproperty="ftp.ibiblio.login"    />
+    <input message="iBiblio password: " addproperty="ftp.ibiblio.passwd" />
+
+    <propertyfile file="${conf_file}"
+		  comment="${ant.project.name} sandtoy settings" >
+      <entry key="cvs.username" value="${cvs.username}" />
+      <entry key="cvs.password" value="${cvs.password}" />
+      <entry key="working_dir"  value="${working_dir}"  />
+      <entry key="tmp_dir"      value="${tmp_dir}"      />
+      <entry key="ftp.anon.login" value="${ftp.anon.login}" />
+      <entry key="ftp.ibiblio.login" value="${ftp.ibiblio.login}" />
+      <entry key="ftp.ibiblio.passwd" value="${ftp.ibiblio.passwd}" />
+    </propertyfile>
+  </target>
+
+
+</project>

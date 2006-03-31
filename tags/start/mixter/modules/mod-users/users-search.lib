@@ -1,0 +1,68 @@
+<?
+// ----------------------------
+// Matthew Drake and Ian Spivey
+// Mixter Website
+// 6.171
+// madrake@mit.edu, ispivey@mit.edu
+// ----------------------------
+// Page: users-search.php
+// Purpose: Performs searches on the user module.
+// ----------------------------
+
+require_once("../modules/mod-utilities/database.lib");
+
+// Pre: $query is a valid querystring
+// Post: Searches for possible matches to the querystring and returns a set of search results. Search is for users
+// and groups related to query.
+function user_searchUsers($query) {
+  $pattern = "/\s+/i";
+  $replacement = "|";
+  $querynew = preg_replace($pattern, $replacement, $query);
+  if(substr($querynew, -1) == '|')
+    $querynew = substr($querynew, 0, -1);
+  if(substr($query, 0, 1) == '|')
+    $querynew = substr($querynew, 1);
+  $querystring = "SELECT user_id, user_name, given_name, family_name FROM users
+			 WHERE ((user_name ~* '.*$query.*' OR
+        			given_name ~* '.*$query.*' OR
+         			family_name ~* '.*$query.*') OR
+				idxFTI @@ to_tsquery('default', '$querynew')) AND
+			 NOT BANNED 
+ 			 ORDER BY char_length(replace(user_name, '$query', ''))
+			 LIMIT 50";
+
+  if ($query != '') {
+    $results = query_multi_row($querystring);
+    while ($result = get_row_from_multi_row($results)) {
+      $name = $result->user_name;
+      $description = $result->given_name . " " . $result->family_name;
+      $link = "user-profile?user_id=" . $result->user_id;
+      $return_results[] = compact("name", "description", "link");
+    }
+  }
+
+  $pattern = "/\s+/i";
+  $replacement = "|";
+  $query = preg_replace($pattern, $replacement, $query);
+  if (substr($query, -1) == '|')
+    $query = substr($query, 0, -1);
+  if (substr($query, 0, 1) == '|')
+    $query = substr($query, 1);
+  $querystring = "SELECT group_id, group_name, group_description, rank(idxFTI, to_tsquery('default', '$query')) AS therank
+		    FROM user_groups
+                    WHERE idxFTI @@ to_tsquery('default', '$query')
+		    ORDER BY therank DESC
+                    LIMIT 100";       
+  if ($query != '') {
+    $results = query_multi_row($querystring);
+    while ($result = get_row_from_multi_row($results)) {
+      $name = unstripTags($result->group_name);
+      $description = unstripTags($result->group_description);
+      $link = "view-group?group_id=" . $result->group_id;
+      $return_results[] = compact("name", "description", "link");
+    }
+  }
+ 
+  
+  return $return_results;
+}

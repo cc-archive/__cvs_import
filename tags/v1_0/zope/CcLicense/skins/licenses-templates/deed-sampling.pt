@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      i18n:domain="icommons">
+<head>
+<title>Creative Commons Deed</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/rdf+xml" href="rdf" />
+<link rel="stylesheet" type="text/css" href="http://creativecommons.org/includes/deeds.css" />
+</head>
+
+<body tal:define="lang here/license/getLanguage;" >
+
+<div tal:replace="structure python: '<!--\n\n' + context.license.engine.licenseRdf(context.license.engine.issue()['licenserdf']) + '\n\n-->'">
+@license_rdf;noquote@
+</div>
+
+<p align="center"><a href="/" i18n:translate="util.Creative_Commons"> </a></p>
+
+
+
+<div id="deed">
+	<div align="center">
+	<img src="http://creativecommons.org/images/deed/logo_deed.gif" alt="Creative Commons Deed" width="280" height="79" vspace="14" border="0" />
+
+	<div class="text">
+        
+<div align="center">
+<div class="tiny">
+<img tal:condition="python: request['license_code'] == 'nc-sampling+'"
+     border="0" src="http://creativecommons.org/icon/nc/deed.gif" alt="nc" align="middle" hspace="4" />
+		<img border="0" 
+                     src="/icon/@code@/deed.gif" 
+                     alt="@license_pretty_name@" align="middle" hspace="4" 
+                     tal:attributes="src string: http://creativecommons.org/icon/${request/license_code}/deed.gif;
+                                     alt string: licenses.pretty_${request/license_code}"
+                     i18n:attributes="alt"/> 
+                <strong>
+                  <span tal:content="string: licenses.pretty_${request/license_code} "
+                        i18n:translate="" tal:omit-tag="" /> 1.0</strong>
+<img border="0" src="http://creativecommons.org/icon/by/deed.gif" alt="by" align="middle" hspace="4" />
+</div>
+		</div>
+		
+		
+		<p>
+		<strong i18n:translate="deed.You_are_free"> </strong>
+		</p>
+			
+			<ul>
+				<li tal:condition="python: request['license_code'] == 'nc-sampling+'"
+                                    i18n:translate="deed.free_sample_nc" />
+
+				<li tal:condition="python: request['license_code'] != 'nc-sampling+'"
+                                    i18n:translate="deed.free_sample" />
+
+				<li tal:condition="python: request['license_code'] in ('nc-sampling+', 'sampling+')"
+                                    i18n:translate="deed.free_copy_distribute_noncommercial" />
+
+			</ul>
+
+		<p>
+		<strong i18n:translate="deed.under_conditions"><%=[ccommons::istr $lang deed.under_conditions]%></strong>
+		</p>
+			
+			<ul>
+				<li i18n:translate="char.by_brief"><%=[ccommons::istr $lang char.by_brief]%></li>
+				<li i18n:translate="char.na_brief"><%=[ccommons::istr $lang char.na_brief]%></li>
+				<li tal:condition="python: request['license_code'] in ('nc-sampling+', 'sampling+')"
+                                    i18n:translate="deed.notice" />
+				<li tal:condition="python: request['license_code'] not in ('nc-sampling+', 'sampling+')"
+                                    i18n:translate="deed.notice_withoutdistribution" />
+				<li tal:condition="python: request['license_code'] not in ('nc-sampling+', 'sampling+')"
+                                    i18n:translate="char.no_brief" />
+			</ul>
+
+<p align="center" style="margin-top:40px">
+  <strong i18n:translate="deed.fair_use"> </strong></p>
+
+		
+		<p align="center" i18n:translate="deed.human_summary"> </p>
+		
+			<div align="center">
+               <a href="/licenses/disclaimer-popup?lang=@lang@" 
+                  onclick="window.open('/licenses/disclaimer-popup?lang=@lang@', 'characteristic_help', 'width=375,height=300,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=yes,menubar=no,status=yes');return false;"
+                  tal:attributes="href    string:/licenses/disclaimer-popup?lang=${lang};
+                                  onclick string:window.open('/licenses/disclaimer-popup?lang=${lang}', 'characteristic_help', 'width=375,height=300,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=yes,menubar=no,status=yes');;return false;; ;
+                                 "
+                 >Disclaimers</a> 
+               <a href="/licenses/disclaimer-popup" 
+                  onclick="window.open('/licenses/disclaimer-popup', 'characteristic_help', 'width=375,height=300,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=yes,menubar=no,status=yes');return false;"
+                  tal:attributes="href    string:/licenses/disclaimer-popup?lang=${lang};
+                                  onclick string:window.open('/licenses/disclaimer-popup?lang=${lang}', 'characteristic_help', 'width=375,height=300,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=yes,menubar=no,status=yes');;return false;; ;
+                                 "
+                 ><img src="/images/popup.gif" width="15" height="13" alt="disclaimer" border="0" /></a>
+                        </div>
+		
+			<p>&nbsp;</p>
+		</div>
+	</div>
+</div>
+
+<p>
+<a href="/learn/licenses" i18n:translate="deed.learn"><%=[ccommons::istr $lang deed.learn]%></a>
+</p>
+</body></html>

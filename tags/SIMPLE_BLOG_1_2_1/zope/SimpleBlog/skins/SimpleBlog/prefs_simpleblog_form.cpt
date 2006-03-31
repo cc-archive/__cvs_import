@@ -1,0 +1,141 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/prefs_main_template/macros/master"
+      i18n:domain="SimpleBlog">
+
+  <metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+<body>
+
+<div metal:fill-slot="prefs_configlet_main"
+     tal:define="errors python:request.get('errors', {})">
+    <h1>SimpleBlog Setup</h1>
+
+    <p>
+    Portal-wide settings.
+    </p>
+
+    <form name="simpleblogForm" method="post" 
+		name="pref_simpleblog_set" 
+		tal:define="errors options/state/getErrors;props python:here.portal_properties;"
+		tal:attributes="action template/id">
+        <fieldset>
+            <legend>SimpleBlog details</legend>
+            <div class="field"
+                 tal:define="error errors/publishedState | nothing;
+			                 pstate python:here.simpleblog_tool.getPublishedState();
+							 allStates python:here.simpleblog_tool.getEntryWorkflowStates(here);
+							 reqState request/publishedState|nothing;
+							 cursel python:test(reqState,reqState,pstate)"
+                 tal:attributes="class python:test(error, 'field error', 'field')">
+                 
+				<label>Workflow 'published' state name</label>
+                <div class="formHelp">
+    	            Workflow state that is used to filter Blog Entries on the Blog front page. Usually 'published'. <br/>
+					Check the workflow for the BlogEntry portal type.
+                </div>
+                <div tal:content="error">Validation error output</div>
+                <select name="publishedState" 
+                    size="1"
+                    tal:attributes="tabindex tabindex/next">
+					<tal:states tal:repeat="st allStates">
+						<option value="1" 
+							tal:attributes="selected python:test(st==cursel ,'select', None);
+								value st"
+							tal:content="st">
+							state
+						</option>
+					</tal:states>
+    		    </select>
+            </div>
+            <div class="field" 
+				tal:define="submitted request/sub|python:0;
+					checkit python:test(submitted,request.has_key('createPortletOnBlogCreation'),here.simpleblog_tool.getCreatePortletOnBlogCreation())">
+                <div class="formHelp">
+                	SimpleBlog can create a portlet in the Blog's folder that displays the top most recent entries
+					and a list of categories you can search for.
+                </div>
+				<input type="checkbox"
+                     class="noborder" 
+                     id="createPortletOnBlogCreation"
+                     name="createPortletOnBlogCreation"
+					 tal:attributes="checked python:test(checkit, 'checked', None)" />
+                <label for="createPortletOnBlogCreation">
+                Create a local portlet for newly created Blogs
+                </label>
+            </div>
+
+            <div class="field"
+                 tal:define="error errors/maxItemsInPortlet | nothing;
+			                 items request/maxItemsInPortlet| python:here.simpleblog_tool.getMaxItemsInPortlet()"
+                 tal:attributes="class python:test(error, 'field error', 'field')">
+				<label>Maximum number of most recent Entries shown in the portlet</label>
+                <div tal:content="error">Validation error output</div>
+                <input name="maxItemsInPortlet" size="2" value="" tabindex=""
+                       tal:attributes="value items;tabindex tabindex/next;" />
+            </div>
+
+            <div class="field" tal:define="cats python:here.simpleblog_tool.getGlobalCategories();
+										   reqCats request/globalCategories | nothing;
+                             error errors/globalCategories | nothing">
+                <label>Global categories</label>
+                <div class="formHelp">
+					Global categories are available to all Blog Entries in the site. One category per line.
+                </div>
+                <textarea cols="30" rows="6" name="globalCategories" tabindex="" tal:attributes="tabindex tabindex/next"><span tal:condition="not: reqCats" tal:replace="python:'\n'.join(cats)"/><span tal:condition="reqCats" tal:replace="reqCats"/></textarea>
+            </div>
+            <div class="field" tal:define="format request/showStandardButtons | python:here.simpleblog_tool.getShowStandardButtons()">
+                <label>Actions format</label>
+                <div class="formHelp">
+                Choose how the actions below each Entry are rendered. 
+                </div>
+				<input tal:attributes="checked python:test(int(format)==1 ,'checked', None)" type="radio" id="ssb1" name="showStandardButtons" value="1">
+				<label for="ssb1">Show default buttons for 'Add Comment' and 'Edit'</label><br/>
+
+				<input tal:attributes="checked python:test(int(format)==0 ,'checked', None)" type="radio" id="ssb2" name="showStandardButtons" value="0">
+				<label for="ssb2">Show links for 'Add Comment' and 'Edit'</label>
+            </div>
+
+            <div class="field" 
+				tal:define="submitted request/sub|python:0;
+					checkit python:test(submitted,request.has_key('showIcons'),here.simpleblog_tool.getShowIcons())">
+                <div class="formHelp">
+                	Check this if you want to have entry icons displayed in the various entry overviews, just before the title of each entry.
+                </div>
+				<input type="checkbox"
+                     class="noborder" 
+                     id="showIcons"
+                     name="showIcons"
+					 tal:attributes="checked python:test(checkit, 'checked', None)" />
+                <label for="showIcons">
+                Show an entry icon before each blog entry's title
+                </label>
+            </div>
+			
+			<br/>
+			<div class="formControls">
+	        	<input class="context"
+	                       tabindex=""
+	                       type="submit"
+	                       name="form.button.Save"
+	                       value="Save"
+	                       i18n:attributes="value"
+	                       tal:attributes="tabindex tabindex/next;"
+	                       />
+				<input class="standalone"
+	                       tabindex=""
+	                       type="submit"
+	                       name="form.button.Cancel"
+	                       value="Cancel"
+	                       i18n:attributes="value"
+	                       tal:attributes="tabindex tabindex/next;"
+	                       />
+			</div>
+	        <input type="hidden" name="sub" value="1" />
+	        <input type="hidden" name="form.submitted" value="1" />
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

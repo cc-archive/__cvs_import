@@ -1,0 +1,9 @@
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></P>
+
+<DIV id="navigation">
+  <h4>Navigation</h4>
+    $home_line | <A HREF="view-recent-music">music</A> | <A HREF="forums">forums</A> | <A HREF="view-multiple-articles">articles</A> | <A HREF="mailto:$admin_email">contact us</A> | <A HREF="$viewsource_link">view source</A> | <A HREF="$viewdocs_link">documentation</A> | $login_line
+</DIV>
+
+</BODY>
+</HTML>

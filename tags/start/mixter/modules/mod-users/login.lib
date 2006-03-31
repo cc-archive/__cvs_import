@@ -1,0 +1,28 @@
+<?
+// ----------------------------
+// Matthew Drake and Ian Spivey
+// Mixter Website
+// 6.171
+// madrake@mit.edu, ispivey@mit.edu
+// ----------------------------
+// Page: login.lib
+// Purpose: Functions related to logging in.
+// ----------------------------
+
+require_once("../modules/mod-utilities/template.lib");
+
+// Pre: $username is a variable representing a username on the system. $username does not have to valid, or set
+// Post: Return a string which is a login form. 
+function user_LoginForm($username) {
+  $variable_mapping = array("username" => $username);
+  return evalTemplate("mod-users/login.template", $variable_mapping);
+}
+
+// Pre: User is logged in.
+// Post: Returns a string which displays who the user is logged in as and what their logout options are.
+function user_LoggedinForm() {
+  require_once("../modules/mod-users/users-interface.php");
+  $profile_link = createLink("user-profile?user_id=" . getUserID(currentUser()), "View Profile");
+  $variable_mapping = array("username" => currentUser(), "profile_link" => $profile_link);
+  return evalTemplate("mod-users/loggedin.template", $variable_mapping);
+}

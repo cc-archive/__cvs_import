@@ -1,0 +1,27 @@
+<H1>Listen To Music</H1>
+
+$music
+
+<TABLE CLASS="invisible">
+<TR>
+ <TD VALIGN="TOP">
+  <TABLE CLASS="dotted">
+    <TR>
+     <TD><FONT SIZE="3"><B>Music By This Artist</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD>$users_music</TD>
+    </TR>
+  </TABLE>
+ </TD>
+ <TD VALIGN="TOP">
+  <TABLE CLASS="dotted">
+   <TR>
+    <TD><FONT SIZE="3"><B>Remix History</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD>$remix_tree</TD>
+   </TR>
+  </TABLE>
+</TR>
+</TABLE>

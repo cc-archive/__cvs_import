@@ -1,0 +1,408 @@
+<licenses>
+ <licenseclass id="standard">
+    <license id="by-nc">
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nc/1.0/"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/">
+          </version>
+       </jurisdiction>
+       <jurisdiction id="be">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/be"></version>
+       </jurisdiction>
+       <jurisdiction id="fr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/fr"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nc/1.0/nl"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="hr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/hr"></version>
+       </jurisdiction>
+       <jurisdiction id="tw">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/tw"></version>
+       </jurisdiction>
+       <jurisdiction id="ca">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/ca"></version>
+       </jurisdiction>
+       <jurisdiction id="de">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/de"></version>
+       </jurisdiction>
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/jp"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-nc/2.1/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="it">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/it"></version>
+       </jurisdiction>
+       <jurisdiction id="kr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/kr"></version>
+       </jurisdiction>
+       <jurisdiction id="au">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/au"></version>
+       </jurisdiction>
+       <jurisdiction id="at">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/at"></version>
+       </jurisdiction>
+       <jurisdiction id="br">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/br"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nc/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="es">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc/2.0/es"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-nc/2.1/es"></version>
+       </jurisdiction>
+    </license>
+    <license id="by-nd-nc">
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd-nc/2.0/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nd-nc/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nd-nc/1.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nd-nc/1.0"></version>
+       </jurisdiction>
+    </license>
+    <license id="nc">
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/nc/2.0/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nc/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nc/1.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nc/1.0"></version>
+       </jurisdiction>
+    </license>
+    <license id="nd">
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/nd/2.0/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nd/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nd/1.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nd/1.0/"></version>
+       </jurisdiction>
+    </license>
+    <license id="by-sa">
+       <jurisdiction id="be">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/be"></version>
+       </jurisdiction>
+       <jurisdiction id="fr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/fr"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-sa/1.0/nl"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-sa/1.0/"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/"></version>
+       </jurisdiction>
+       <jurisdiction id="hr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/hr"></version>
+       </jurisdiction>
+       <jurisdiction id="tw">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/tw"></version>
+       </jurisdiction>
+       <jurisdiction id="ca">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/ca"></version>
+       </jurisdiction>
+       <jurisdiction id="de">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/de"></version>
+       </jurisdiction>
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/jp"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-sa/2.1/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="it">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/it"></version>
+       </jurisdiction>
+       <jurisdiction id="kr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/kr"></version>
+       </jurisdiction>
+       <jurisdiction id="au">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/au"></version>
+       </jurisdiction>
+       <jurisdiction id="at">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/at"></version>
+       </jurisdiction>
+       <jurisdiction id="br">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/br"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-sa/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="es">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-sa/2.0/es"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-sa/2.1/es"></version>
+       </jurisdiction>
+    </license>
+    <license id="by">
+       <jurisdiction id="be">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/be"></version>
+       </jurisdiction>
+       <jurisdiction id="fr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/fr"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by/1.0/nl"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by/1.0"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0"></version>
+       </jurisdiction>
+       <jurisdiction id="hr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/hr"></version>
+       </jurisdiction>
+       <jurisdiction id="tw">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/tw"></version>
+       </jurisdiction>
+       <jurisdiction id="ca">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/ca"></version>
+       </jurisdiction>
+       <jurisdiction id="de">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/de"></version>
+       </jurisdiction>
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/jp"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by/2.1/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="it">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/it"></version>
+       </jurisdiction>
+       <jurisdiction id="kr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/kr"></version>
+       </jurisdiction>
+       <jurisdiction id="au">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/ar"></version>
+       </jurisdiction>
+       <jurisdiction id="at">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/at"></version>
+       </jurisdiction>
+       <jurisdiction id="br">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/br"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="es">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by/2.0/es"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by/2.1/es"></version>
+       </jurisdiction>
+    </license>
+    <license id="nc-sa">
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/nc-sa/2.0/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nc-sa/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nc-sa/1.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nc-sa/1.0"></version>
+       </jurisdiction>
+    </license>
+    <license id="by-nc-nd">
+       <jurisdiction id="be">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/be"></version>
+       </jurisdiction>
+       <jurisdiction id="fr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/fr"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0"></version>
+       </jurisdiction>
+       <jurisdiction id="hr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/hr"></version>
+       </jurisdiction>
+       <jurisdiction id="tw">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/tw"></version>
+       </jurisdiction>
+       <jurisdiction id="ca">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/ca"></version>
+       </jurisdiction>
+       <jurisdiction id="de">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/de"></version>
+       </jurisdiction>
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/jp"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-nc-nd/2.1/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="it">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/it"></version>
+       </jurisdiction>
+       <jurisdiction id="kr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/kr"></version>
+       </jurisdiction>
+       <jurisdiction id="au">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/au"></version>
+       </jurisdiction>
+       <jurisdiction id="at">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/at"></version>
+       </jurisdiction>
+       <jurisdiction id="br">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/br"></version>
+       </jurisdiction>
+       <jurisdiction id="es">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-nd/2.0/es"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-nc-nd/2.1/es"></version>
+       </jurisdiction>
+    </license>
+    <license id="nd-nc">
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/nd-nc/2.0/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nd-nc/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nd-nc/1.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/nd-nc/1.0"></version>
+       </jurisdiction>
+    </license>
+    <license id="sa">
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/sa/2.0/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/sa/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/sa/1.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/sa/1.0"></version>
+       </jurisdiction>
+    </license>
+    <license id="by-nd">
+       <jurisdiction id="be">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/be"></version>
+       </jurisdiction>
+       <jurisdiction id="fr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/fr"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nd/1.0/nl"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nd/1.0"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0"></version>
+       </jurisdiction>
+       <jurisdiction id="hr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/hr"></version>
+       </jurisdiction>
+       <jurisdiction id="tw">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/tw"></version>
+       </jurisdiction>
+       <jurisdiction id="ca">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/ca"></version>
+       </jurisdiction>
+       <jurisdiction id="de">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/de"></version>
+       </jurisdiction>
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/jp"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-nd/2.1/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="it">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/it"></version>
+       </jurisdiction>
+       <jurisdiction id="kr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/kr"></version>
+       </jurisdiction>
+       <jurisdiction id="au">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/au"></version>
+       </jurisdiction>
+       <jurisdiction id="at">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/at"></version>
+       </jurisdiction>
+       <jurisdiction id="br">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/br"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nd/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="es">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nd/2.0/es"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-nd/2.1/es"></version>
+       </jurisdiction>
+    </license>
+    <license id="by-nc-sa">
+       <jurisdiction id="be">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/be"></version>
+       </jurisdiction>
+       <jurisdiction id="fr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/fr"></version>
+       </jurisdiction>
+       <jurisdiction id="nl">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nc-sa/1.0/nl"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/nl"></version>
+       </jurisdiction>
+       <jurisdiction id="-">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nc-sa/1.0"></version>
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0"></version>
+       </jurisdiction>
+       <jurisdiction id="hr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/hr"></version>
+       </jurisdiction>
+       <jurisdiction id="tw">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/tw"></version>
+       </jurisdiction>
+       <jurisdiction id="ca">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/ca"></version>
+       </jurisdiction>
+       <jurisdiction id="de">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/de"></version>
+       </jurisdiction>
+       <jurisdiction id="jp">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/jp"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-nc-sa/2.1/jp"></version>
+       </jurisdiction>
+       <jurisdiction id="it">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/it"></version>
+       </jurisdiction>
+       <jurisdiction id="kr">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/kr"></version>
+       </jurisdiction>
+       <jurisdiction id="au">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/au"></version>
+       </jurisdiction>
+       <jurisdiction id="at">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/at"></version>
+       </jurisdiction>
+       <jurisdiction id="br">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/br"></version>
+       </jurisdiction>
+       <jurisdiction id="fi">
+          <version id="1.0" uri="http://creativecommons.org/licenses/by-nc-sa/1.0/fi"></version>
+       </jurisdiction>
+       <jurisdiction id="es">
+          <version id="2.0" uri="http://creativecommons.org/licenses/by-nc-sa/2.0/es"></version>
+          <version id="2.1" uri="http://creativecommons.org/licenses/by-nc-sa/2.1/es"></version>
+       </jurisdiction>
+    </license>
+ </licenseclass>
+</licenses>

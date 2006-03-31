@@ -1,0 +1,18 @@
+<H1>Upload Music</H1>
+
+<TABLE>
+  <FORM METHOD="POST" ACTION="music-upload-2-submit" ENCTYPE="multipart/form-data">
+  <INPUT TYPE=HIDDEN NAME=one_line_summary VALUE="$one_line_summary">
+  <INPUT TYPE=HIDDEN NAME=description VALUE="$description">
+  <TR>
+   <TD>Finally, choose the file to be uploaded.<BR>
+    <INPUT TYPE=file NAME="userfile">
+   </TD>
+  </TR>
+  <TR>
+   <TD>
+    Did you remix any music from this site to make this piece?  Click here: <INPUT TYPE=submit NAME="remix" VALUE="Remix"><BR />
+    Otherwise go ahead and <INPUT TYPE=submit VALUE="Upload Music"></TD>
+  </TR>
+  </FORM>
+</TABLE>

@@ -1,0 +1,10 @@
+<H1>Error Log</H1>
+<H2>Viewing Records $record_start to $record_end</H2>
+
+<P>
+<FONT SIZE=3>Note: The first record is the most recent</FONT><BR>
+&lt;- $prev or $next -&gt;
+</P>
+<P>
+$page_data
+</P>

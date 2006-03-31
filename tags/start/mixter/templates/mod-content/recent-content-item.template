@@ -1,0 +1,11 @@
+<TR>
+ <TD><B><FONT SIZE="3">$title</FONT></B> by <A HREF="user-profile?user_id=$creator_id">$creator</A></TD>
+</TR>
+<TR>
+ <TD><FONT SIZE="1" COLOR="#cc4422">$content_type</FONT>
+     <FONT SIZE="1" COLOR="#111111">$creation_date</FONT>
+ </TD>
+</TR>
+<TR>
+ <TD><FONT SIZE="2">$summary</FONT></TD>
+</TR>

@@ -1,0 +1,16 @@
+<H1>Upload Music</H1>
+
+<TABLE>
+  <FORM METHOD="GET" ACTION="music-upload-cc-refer">
+  <INPUT TYPE="HIDDEN" NAME="refers_to" VALUE="$refers_to">
+  <TR>
+   <TD>Song Name: <INPUT TYPE="TEXT" SIZE="30" NAME=songname></TD>
+  </TR>
+  <TR>
+   <TD>Song Description:<BR><TEXTAREA NAME="description" ROWS="3" COLS="45"></TEXTAREA></TD>
+  </TR>
+  <TR>
+   <TD>The next step is choosing a license: <INPUT TYPE="SUBMIT" VALUE="Choose License"></TD>
+  </TR>
+  </FORM>
+</TABLE>

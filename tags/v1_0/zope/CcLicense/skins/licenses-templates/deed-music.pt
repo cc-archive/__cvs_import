@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Creative Commons Deed</title>
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<link rel="alternate" type="application/rdf+xml" href="rdf" />
+<style type="text/css">
+body {
+			background:white;
+			font-family: verdana,sans-serif; 
+			font-size: 11px;
+			color:#333;
+			text-align:center;
+		}
+	
+		#container {
+			width: 628px;
+			margin: 0px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0px;
+			text-align:left;
+		}
+
+		#banner {
+			padding: 0px;
+			margin-bottom: 0px;
+			background: url(/images/deed/deedback.gif) repeat-y 50% 0;	
+		}
+
+		#content {
+			padding: 0px 10px 20px 20px;
+			margin-top:0px;
+			background: url(/images/deed/deedback.gif) repeat-y 50% 0;
+			}
+
+		#footer {
+			clear: both;
+			padding:0px;
+			margin-top:0px;
+		}
+
+.deedback {
+background: url(/images/legalmusic_background.gif) no-repeat 100% 0%;
+}
+
+li {
+	margin-left:20px;
+}
+
+</style>
+</head>
+
+<body tal:define="lang here/license/getLanguage;" >
+
+	<p><a href="/">Creative Commons</a></p>	
+	<div id="container">
+	<div id="banner"><img src="/images/deed/topback.gif" width="628" alt="" /></div>
+
+<div id="content">
+<div class="deedback">
+	
+	<div align="center">
+	<img src="/images/music_deed.gif" alt="Creative Commons Deed" width="400" height="85" vspace="14" border="0" />
+
+	<p><strong>Music Sharing License</strong><br />
+	(Attribution-NonCommercial-NoDerivs 2.0)</p>
+	</div>
+        
+		<p><strong>The owner of this music retains his or her copyright but allows you to:</strong></p>
+			<ul>
+				<li>download, copy, file-share, trade, distribute, and publicly perform (e.g. webcast) it.</li>
+			</ul>
+
+		<p><strong>Under the following conditions:</strong></p>
+	        <div align="center"><table border="0" cellspacing="0" cellpadding="4" width="500" class="draft">
+		<tbody>
+		                <tr><td><img border="0" src="/icon/nc/deed.gif" alt="nc" align="left" hspace="4" /></td><td align="left"><strong>Noncommercial</strong>. You may not sell copies of this music or make any other commercial use of this music.</td></tr>
+
+                <tr><td><img border="0" src="/icon/nd/deed.gif" alt="nd" align="left" hspace="4" /></td><td align="left"><strong>No Derivative Works</strong>. You may not sample or remix this music. You may not alter, transform, or build upon this music (this includes synching the music to a moving image).</td></tr>
+
+                <tr><td><img border="0" src="/icon/by/deed.gif" alt="by" align="left" hspace="4" /></td><td align="left"><strong>Attribution</strong>. You must give the original author credit.</td></tr>
+                </tbody></table></div>
+		
+    <ul>
+    <li>For any reuse or distribution, you must make clear to others the license terms of this music.</li>
+    <li>Any of these conditions can be waived if you get permission from the author.</li>
+
+    </ul>
+
+<p align="center" style="margin-top:40px"><strong>Your fair use and other rights are in no way affected by the above.</strong></p>
+
+		
+		<p align="center">This is a human-readable summary of the <a href="legalcode" class="fulltext">Legal Code (the full license)</a>.</p>
+		
+			<div align="center">
+      <a href="/licenses/disclaimer-popup?lang=@lang@" 
+         onclick="window.open('/licenses/disclaimer-popup?lang=@lang@', 'characteristic_help', 'width=375,height=300,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=yes,menubar=no,status=yes');return false;"
+         tal:attributes="href    string: /licenses/disclaimer-popup?lang=${lang}; 
+                         onclick string: window.open('/licenses/disclaimer-popup?lang=${lang}', 'characteristic_help', 'width=375,height=300,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=yes,menubar=no,status=yes');;return false;
+                        "
+        >Disclaimer</a> 
+      <a href="/licenses/disclaimer-popup?lang=@lang@" 
+         onclick="window.open('/licenses/disclaimer-popup?lang=@lang@', 'characteristic_help', 'width=375,height=300,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=yes,menubar=no,status=yes');return false;"
+         tal:attributes="href    string: /licenses/disclaimer-popup?lang=${lang}; 
+                         onclick string: window.open('/licenses/disclaimer-popup?lang=${lang}', 'characteristic_help', 'width=375,height=300,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=yes,menubar=no,status=yes');;return false;
+                        "
+        ><img src="/images/popup.gif" width="15" height="13" alt="disclaimer" border="0" /></a><br />
+<br />
+</div>
+		
+		</div>
+
+	</div>
+
+</div>
+
+	<div id="footer"><img src="/images/deed/bottomback.gif" width="628" alt="" /></div>
+
+<p>
+<a href="/learn/licenses">Learn how to distribute your work using this license</a>
+</p>		
+
+</body>
+</html>
+

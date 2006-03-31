@@ -1,0 +1,3 @@
+#min	hr	mday	month	wday	user		command
+0	5	*	*	*	postgres	vacuum-analyze-db.job
+18	6	*	*	*	ispivey		db-backup.job

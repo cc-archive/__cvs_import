@@ -1,0 +1,17 @@
+$article
+<FORM METHOD=get ACTION="admin-view-article-submit">
+<INPUT TYPE=hidden NAME=article_id VALUE="$content_id">
+<CENTER>
+<TABLE CELLSPACING=0 CELLPADDING=3>
+<TR>
+  <TD ALIGN=center>Approve: <INPUT TYPE=radio NAME=edit VALUE="approved"></TD>
+  <TD></TD>     
+  <TD ALIGN=center>Reject: <INPUT TYPE=radio NAME=edit VALUE="rejected"</TD>
+</TR>
+<TR>
+  <TD ALIGN=center>Save and <INPUT TYPE=submit NAME=go VALUE="GO BACK"> to Home</TD>
+  <TD ALIGN=center><INPUT TYPE=reset VALUE="CLEAR"></TD>
+  <TD ALIGN=center>Save and <INPUT TYPE=submit NAME=go VALUE="GO TO NEXT"> Article</TD>
+</TR>
+</TABLE>
+</CENTER>

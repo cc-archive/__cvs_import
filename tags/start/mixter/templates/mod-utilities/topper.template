@@ -1,0 +1,82 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<HEAD>
+  <TITLE>$title</TITLE>
+  <style type="text/css">
+   @import url( http://papillion.mit.edu/style.css );
+
+#left {
+	border-right:1px dotted #ccc;
+	float:left;
+	position:relative;
+	margin-top:17px;
+	padding-right:10px;
+	width:180px;
+	\width: 190px; 
+	w\idth: 180px;
+	}
+
+#centercontent {
+	margin-left: 190px; 
+	margin-top:8px;
+	padding-left:10px;
+	}
+
+TABLE.leftbar {
+	background-color: #ffffff;
+	width: 180px;
+	border: 4px #5e715e solid;
+	}
+
+TABLE.basic {
+	background-color: #ffffff;
+	border: 4px #5e715e solid;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	padding: 0;
+}
+
+TABLE.invisible {
+	border: 0px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	padding: 0;
+}
+
+TABLE.dotted {
+	border-style: dashed;
+	border-color:grey;
+	border-width:1px;
+}
+
+TR.greyrow {
+	background-color: #eeeeee;
+}
+
+</style>
+
+<script type="text/javascript"><!--
+  if(window.attachEvent)
+    window.attachEvent("onload",restoreStyles);
+
+  function restoreStyles(){
+    inputList = document.getElementsByTagName("INPUT");
+    for(i=0;i<inputList.length;i++)
+      inputList[i].style.backgroundColor = "";
+  }//-->
+</script>
+</HEAD>
+<BODY>
+<div class="container">
+  <div class="header"><table cellspacing="0" cellpadding="0" style="width:100%; border:none;"><tr><td valign="bottom"><font size="5" color="#ffffff">mixter.com</font></div></td>
+
+  <td align="right" valign="bottom">$quick_search_box</td>
+
+</tr></table></div>
+
+<DIV id="navigation">
+  <h4>Navigation</h4>
+    <FONT SIZE="3">$home_line | <a href="view-recent-music">music</a> | <a href="forums">forums</a> | <a href="view-multiple-articles">articles</a> | <a href="mailto:$admin_email">contact us</a> | <a href="$viewdocs_link">documentation</a> | $login_line</FONT>
+<br clear="all" /><hr /> 
+</DIV>                          

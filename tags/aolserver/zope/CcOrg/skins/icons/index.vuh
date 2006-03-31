@@ -1,0 +1,33 @@
+ad_page_contract {
+    Grab the icon for a characteristic.
+
+    @author Eric Lorenzo (elorenzo@openforce.net)
+    @creation-date 2002-08-15
+    @cvs-id $Id$
+} {
+} 
+
+
+set path [ad_conn path_info]
+
+set ext_start [string first  {.} $path]
+
+
+if {$ext_start < 1} {
+    set ext_start end
+} else {
+    incr ext_start -1
+}
+
+util_unlist [split [string range $path 0 $ext_start] {/}] code icon_type
+
+ns_log notice "CODE: {$code}"
+
+ReturnHeaders image/gif
+
+db_write_blob get_icon {
+    select lob
+    from cc_license_char_icons
+    where char_id = cc_get_char_id(:code)
+      and icon_type = :icon_type
+}

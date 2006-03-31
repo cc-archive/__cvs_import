@@ -1,0 +1,96 @@
+==============================
+1.2.1
+==============================
+Made the BlogEntry folderish so you can store images etc inside it.
+Fixed installation problems that were introduced in 1.2
+
+==============================
+1.2
+==============================
+Added some methods to enable syndication.
+Added a workflow to BlogFolder
+
+==============================
+1.2beta1:
+==============================
+Important:
+In order to make this version work you need at least Plone 2.0.1. If you want to 
+make it work in Plone 2.0 you will have to get PloneBatch.py from version 2.0.1.
+You can get it from CVS or you can contact me (danny.bloemenaal@companion.nl).
+
+There are now two different permissions: one to add a blog and one to add a blog entry:
+SimpleBlog: Add Blogentry
+Simpleblog: Add Blog
+Don't forget to look at the permissions in your portal and your workflows!
+
+Renamed the id labels for the content types to Short name to make it more plone compliant.
+
+Default view for a Blog is now set to description only (was full).
+
+Added a feature that allows an entry to be listed 'always on top'. Handy for announcements  etc.
+
+Added start/end attributes to entries so that they can be displayed in the portal calendar portlet
+(see portal_calendar tool in zmi to add blog entries to the calendar). Note: you will have to reindex the
+catalog (see ZMI portal_catalog/advanced) or else your entries won't show up in the calendar.
+
+Fixed a bug in the installer.
+
+Added a calendar in the various portlets which is quite common for blogs. This calendar shows
+published entries in the context of the blog or, when the portlets are used outside blogs, in the context
+of the current folder and subfolders. Note: you will have to reindex the
+catalog (see ZMI portal_catalog/advanced) or else your entries won't show up in the calendar.
+
+Added an option in the SimpleBlog configlet (plone setup) to control if there are
+icons shown before the entry titles in the various entry overviews.
+
+Added a message in the blog view and blog folder view when there are entries but none of them
+has been published yet to tell the user (with edit permission) that he can find his entries in the 
+folder_contents view.
+
+Refixed the problem of 1.1a. Hopefully it works now.
+
+Added batch navigation to the various templates for when there are many entries. 
+Important: you need Plone 2.0.1 or higher for this to work. Check out PloneBatch.py from
+cvs or contact me (danny.bloemendaal@companion.nl) if you want to make it work with Plone 2.0.
+
+Added the document icons to the various views (print, send-to etc).
+
+Extended css usage so that SimpleBlog is now very flexible with respect to presentation modification. 
+See SimpleBlogCSS.css.dtml.
+
+Modified some of the templates to make it work in Plone 2.0 with respect to the borders (top_slot).
+
+You may have to do a schema update in the archetype_tool in ZMI. Select all the SimpleBlog
+content types and choose All objects and click on Update schema.
+
+==============================
+1.1a:
+==============================
+Fixed a problem where someone uses VHM to redirect to the plone site. SimpleBlog wouldn't show
+any BlogEntries at all in this case.
+
+==============================
+1.1:
+==============================
+Fixed some bugs with the configlet so it works better with 2.0
+Removed some uninstall code that apparently didn't work well. Feel free to do it better!
+Adjusted the views a little so they are more Plone 2.0 compliant.
+Allowed the description of the Blog to be structured.
+Fixed a problem with the content-type. Now the body of the Entry defaults to text/html
+For a Blog Entry, changed the VisualWidget for RichWidget to allow upload of content. (you
+might have to update the schema in the archetype_tool).
+
+==============================
+1.01:
+==============================
+Fixed a bug that didn't register the control panel in 2.0
+Fixed a bug causing Entries not to show up on the frontpage when your plone site is inside a folder
+Added a template that can be used as a stand-alone blog page that collects entries in subdirectories and can be used as your site's homepage.
+
+==============================
+1.0 Final:
+==============================
+Fixed some bugs and removed the Link field. 
+An additional link field is confusing and inline linking is much more flexible and powerful. Therefore it is removed.
+
+Don't forget to update the Schema in archetype_tool in ZMI if your are running earlier releases.

@@ -1,0 +1,6 @@
+<P ALIGN="LEFT">
+ User Status: <B>$user_status</B><BR>
+ Set User Status: $status_action<BR>
+ <A HREF="forum-view-postings?select_postings=username&username=$username">View all postings</A> by $username (includes&nbsp;rejected)<BR>
+ <A HREF="forum-delete-user?userid=$userid">Reject All Postings by $username</A>
+</P>

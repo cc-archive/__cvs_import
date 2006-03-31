@@ -1,0 +1,7 @@
+<html tal:omit-tag=""><body 
+  tal:omit-tag="" 
+  tal:replace="structure python: context.licensesSupport.sha_digest(
+                   context.license.engine.licenseRdf(
+                      context.license.engine.issue()['licenserdf']
+                   )
+               )" /></html>

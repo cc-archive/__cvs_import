@@ -1,0 +1,21 @@
+
+$Header$
+
+Installation of CC Host
+-------------------------
+
+If you have basic knowledge of using FTP you can use these steps to 
+quickly get started. 
+
+ 1. Decompress the CC Host library on your local system and
+    copy the files (retaining the directory sturcture)
+    to you web server.
+
+ 2. Using your web browser visit the location you placed CC Host with the 
+    addition of ccadmin, e.g. http://www.example.com/cchost/ccadmin, 
+    http://www.example.com/ccadmin etc.
+
+ 3. Follow the instructions from there on...
+
+
+

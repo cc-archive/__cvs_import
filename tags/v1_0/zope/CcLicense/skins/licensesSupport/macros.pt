@@ -1,0 +1,29 @@
+<html
+  i18n:domain="icommons">
+  <head>
+    <title tal:content="template/title">The title</title>
+  </head>
+  <body>
+    
+<div metal:define-macro="translations"
+     id="deed" style="text-align:center;">
+
+<span i18n:translate="deed.view_in" />
+
+<br/>
+<span tal:repeat="l python:here.licensesSupport.deed_translations()"
+      tal:omit-tag="">
+<a href="deed.@l.code@" title="@l.name@" hreflang="@l.code@" rel="alternate" lang="@l.code@"
+   tal:attributes="href string:deed.${l/code};
+                   title l/name;
+                   hreflang l/code;
+                   lang l/code;"
+   i18n:translate=""
+   i18n:attributes="title"
+   tal:content="l/name">@l.name@</a>
+</span>
+
+</div>
+
+  </body>
+</html>

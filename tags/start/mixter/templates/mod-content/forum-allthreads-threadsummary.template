@@ -1,0 +1,7 @@
+<TR BGCOLOR="#$color">
+ <TD><FONT SIZE=2><A HREF="$questionlink">$subject</A></FONT></TD>
+ <TD><FONT SIZE=2>$num_responses</FONT></TD>
+ <TD><FONT SIZE=2><A HREF="$authorlink">$author</A></FONT></TD>
+ <TD><FONT SIZE=2>$date</FONT></TD>
+ <TD><FONT SiZE=2>$time_ago ago</FONT></TD>
+</TR>

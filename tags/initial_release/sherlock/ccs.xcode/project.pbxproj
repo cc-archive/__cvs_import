@@ -1,0 +1,189 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 39;
+	objects = {
+		2407DB61030C58D703CA16AF = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = text.html.documentation;
+			name = "Read Me.html";
+			path = "Documentation/Read Me.html";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2407DB62030C590B03CA16AF = {
+			children = (
+				2407DB63030C590B03CA16AF,
+				2407DB64030C590B03CA16AF,
+				2407DB66030C590B03CA16AF,
+			);
+			isa = PBXGroup;
+			path = Channel;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2407DB63030C590B03CA16AF = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = text.xml;
+			path = Channel.xml;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2407DB64030C590B03CA16AF = {
+			children = (
+				2407DB65030C590B03CA16AF,
+			);
+			isa = PBXVariantGroup;
+			name = Channel.nib;
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2407DB65030C590B03CA16AF = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = en;
+			path = en.lproj/Channel.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2407DB66030C590B03CA16AF = {
+			children = (
+				2407DB67030C590B03CA16AF,
+			);
+			isa = PBXVariantGroup;
+			name = LocalizedResources.plist;
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2407DB67030C590B03CA16AF = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = text.xml;
+			name = en;
+			path = en.lproj/LocalizedResources.plist;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+//240
+//241
+//242
+//243
+//244
+//D80
+//D81
+//D82
+//D83
+//D84
+		D85AE45E071B7D290043E322 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.icns;
+			path = cc.icns;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+//D80
+//D81
+//D82
+//D83
+//D84
+//F50
+//F51
+//F52
+//F53
+//F54
+		F5231FF1030C0E1D01CA1440 = {
+			children = (
+				D85AE45E071B7D290043E322,
+				2407DB61030C58D703CA16AF,
+				F5E000E1030C2E9901CA1440,
+				F5231FFF030C0F5201CA1440,
+				2407DB62030C590B03CA16AF,
+			);
+			isa = PBXGroup;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		F5231FF3030C0E1D01CA1440 = {
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ZERO_LINK = YES;
+			};
+			isa = PBXBuildStyle;
+			name = Development;
+		};
+		F5231FF4030C0E1D01CA1440 = {
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ZERO_LINK = NO;
+			};
+			isa = PBXBuildStyle;
+			name = Deployment;
+		};
+		F5231FF5030C0E1D01CA1440 = {
+			buildSettings = {
+			};
+			buildStyles = (
+				F5231FF3030C0E1D01CA1440,
+				F5231FF4030C0E1D01CA1440,
+			);
+			hasScannedForEncodings = 1;
+			isa = PBXProject;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = F5231FF1030C0E1D01CA1440;
+			projectDirPath = "";
+			targets = (
+				F523204D030C18FC01CA1440,
+			);
+		};
+		F5231FFF030C0F5201CA1440 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.icns;
+			path = Channel.icns;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		F523204D030C18FC01CA1440 = {
+			buildPhases = (
+			);
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ccs;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXAggregateTarget;
+			name = ccs;
+			productName = MyChannel;
+		};
+		F5E000E1030C2E9901CA1440 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = text.xml;
+			path = ccsearch.xml;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+	};
+	rootObject = F5231FF5030C0E1D01CA1440;
+}
